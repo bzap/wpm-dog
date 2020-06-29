@@ -71,8 +71,8 @@ function makeSentence(){
     word_list.push(words[random_number]);
     i++;
   }
-
-  console.log(word_list);
+  return(word_list);
+  //console.log(word_list);
 
 }
 
@@ -80,22 +80,22 @@ function makeSentence(){
 makeSentence();
 
 
-/* async function renderNewQuote() {
-  const quote = await getRandomQuote()
+ async function renderNewQuote() {
+  const quote = makeSentence()
   //currentQuote = quote.split(' '); 
   //console.log(currentQuote)
-  quoteDisplayElement.innerHTML = ''
+  quoteDisplayElement.innerHTML = ' '
   
-  quote.split('').forEach(character => {
+  quote.forEach(character => {
     const characterSpan = document.createElement('span')
-    characterSpan.innerText = character
+    characterSpan.innerText = character + " "
     quoteDisplayElement.appendChild(characterSpan)
   })
   quoteInputElement.value = null;
 }
 
 
-renderNewQuote() */
+renderNewQuote() 
 
 
 quoteInputElement.addEventListener('keydown', e => {
