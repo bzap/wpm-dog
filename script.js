@@ -28,6 +28,7 @@ var words = ['a', 'abandon', 'ability', 'able', 'abortion', 'about', 'above', 'a
 var correct = 0;
 var incorrect = 0; 
 var currentQuote = '';
+var spaceCount = 0;
 
 
 console.log(words.length)
@@ -63,7 +64,7 @@ console.log(words.length)
 
 
 function makeSentence(){
-  var length = 20;
+  var length = 100;
   var word_list = []
   var i = 0
   while (i < length){
@@ -71,21 +72,28 @@ function makeSentence(){
     word_list.push(words[random_number]);
     i++;
   }
+  currentQuote = word_list;
   return(word_list);
   //console.log(word_list);
 
 }
 
 
+function setList(e) {
+  currentQuote = e;
+}
+
+// add random func that can capitalize random words in the phrasing 
+function capWords(e){ 
+  
+}
+
 makeSentence();
 
 
- async function renderNewQuote() {
+/* async function renderNewQuote() {
   const quote = makeSentence()
-  //currentQuote = quote.split(' '); 
-  //console.log(currentQuote)
   quoteDisplayElement.innerHTML = ' '
-  
   quote.forEach(character => {
     const characterSpan = document.createElement('span')
     characterSpan.innerText = character + " "
@@ -94,23 +102,51 @@ makeSentence();
   quoteInputElement.value = null;
 }
 
+renderNewQuote() */
 
-renderNewQuote() 
 
+//change this 
+function renderText() {
+  currentQuote.forEach(word => {
+    let span = document.createElement('span');
+    span.innerHTML = word + ' ';
+    quoteDisplayElement.appendChild(span);
+  });
+  quoteDisplayElement.firstChild.classList.add('highlight');
+}
+
+renderText();
+ 
+function setCount() {
+  spaceCount++;
+}
 
 quoteInputElement.addEventListener('keydown', e => {
   if (e.key == ' ') {
+    //console.log(currentQuote);
+    //console.log(spaceCount);
     if (quoteInputElement.value != null){
       console.log(quoteInputElement.value);
-      if (quoteInputElement.value == currentQuote[1]){
-        console.log("a start");
+      console.log(currentQuote[spaceCount]);
+      //console.log(currentQuote[0])
+      console.log(spaceCount);
+      if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
+        //console.log("a start");
+        quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
+      }
+
+      else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
+        //console.log("a start");
+        quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
       }
 
 
       quoteInputElement.value = null;
 
     }
+    setCount();
   }
+  
 
 })
 
