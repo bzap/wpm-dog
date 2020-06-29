@@ -123,9 +123,13 @@ function setCount() {
 
 quoteInputElement.addEventListener('keydown', e => {
   if (e.key == ' ') {
+    event.preventDefault();
+    if (quoteInputElement.value == '') {
+      quoteInputElement.value = '';
+    }
     //console.log(currentQuote);
     //console.log(spaceCount);
-    if (quoteInputElement.value != null){
+    else if (quoteInputElement.value != '') {
       console.log(quoteInputElement.value);
       console.log(currentQuote[spaceCount]);
       //console.log(currentQuote[0])
@@ -139,12 +143,10 @@ quoteInputElement.addEventListener('keydown', e => {
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
       }
-
-
-      quoteInputElement.value = null;
-
+      quoteInputElement.value = '';
+      setCount();
     }
-    setCount();
+    
   }
   
 
