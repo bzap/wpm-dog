@@ -7,6 +7,7 @@ const RANDOM_QUOTE_API_URL = 'http://api.quotable.io/random'
 const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
+const wpmElement = document.getElementById('wpm')
 
 //const words = require('data.json');
 //console.log(words[1]);
@@ -158,6 +159,7 @@ function analysis() {
   console.log(good);
   console.log(bad);
   console.log(elapsed);
+  wpmElement.value = good;
 }
 
 
@@ -172,6 +174,10 @@ function renderResults() {
 var totalChar = 0;
 var goodChar = 0;
 var firstLetter = currentQuote[0][0];
+
+
+
+
 
 
 quoteInputElement.addEventListener('keydown', e => {
