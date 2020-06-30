@@ -174,6 +174,17 @@ function scrollText() {
 
 }
 
+// NEED THIS FOR THE SCROLL ANIMATION 
+/*function checkIfInView(element){
+  var offset = quoteInputElement.offset.top - $(window).scrollTop;
+
+  if(offset > window.innerHeight){
+      // Not in view so scroll to it
+      $('html,body').animate({scrollTop: offset}, 1000);
+      return false;
+  }
+ return true;
+} */
 
 
 //need to count the total characters 
@@ -198,6 +209,13 @@ quoteInputElement.addEventListener('keydown', e => {
 
     event.preventDefault();
 
+    //checkIfInView();
+    if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
+      //quoteDisplayElement.childNodes[spaceCount].scrollIntoView();
+      var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
+      quoteDisplayElement.scrollBy(0, newOffset);
+    }
+
     if (quoteInputElement.value == '') {
       quoteInputElement.value = '';
     }
@@ -208,11 +226,12 @@ quoteInputElement.addEventListener('keydown', e => {
       console.log(currentQuote[spaceCount]);
       //console.log(currentQuote[0])
       console.log(spaceCount);
+      console.log(quoteDisplayElement.childNodes[spaceCount].offsetTop + "offeset");
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
         goodList.push(currentQuote[spaceCount]);
-        quoteDisplayElement.childNodes[spaceCount].scrollIntoView();
+        
         setCorrectWords();
 
       }
@@ -253,13 +272,15 @@ function reset(){
   spaceCount = 0;
   correctChar = 0;
   incorrectChar = 0;
-  correctWords = 0;
+  correctWords = 0; 
   incorrectWords = 0;
   totalChar = 0;
   goodChar = 0;
   quoteInputElement.disabled = false;
   quoteInputElement.focus();
+  quoteInputElement.value = '';
   quoteDisplayElement.innerHTML = '';
+  quoteDisplayElement.scrollTo(0,0);
   makeSentence();
   renderText();
 }
