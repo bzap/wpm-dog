@@ -33,6 +33,10 @@ var spaceCount = 0;
 
 var correctChar = 0;
 var incorrectChar = 0;
+
+
+var correctWords = 0;
+var incorrectWords = 0;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
@@ -115,12 +119,18 @@ function renderText() {
   quoteDisplayElement.firstChild.classList.add('highlight');
 }
 
+
+
  
 function setCount() {
   spaceCount++;
 }
 
 function setCorrect() {
+  correctWords++; 
+}
+
+function setCorrectWords() {
   correctChar++; 
 }
 
@@ -130,9 +140,23 @@ function setIncorrect() {
 
 let oldDate; 
 let newDate;
+var goodList = [];
+var badList = [];
 
 function analysis() { 
   var elapsed = (newDate - oldDate) / 1000;
+  var accuracy = correctWords / currentQuote.length;
+  var good = 0;
+  var bad = 0;
+  for (var i = 0; i < goodList.length; i++){
+    good += goodList[i].length;
+  }
+
+  for (var i = 0; i < badList.length; i++){
+    bad += badList[i].length;
+  }
+  console.log(good);
+  console.log(bad);
   console.log(elapsed);
 }
 
@@ -144,9 +168,11 @@ function renderResults() {
 }
 
 
-
-
+//need to count the total characters 
+var totalChar = 0;
+var goodChar = 0;
 var firstLetter = currentQuote[0][0];
+
 
 quoteInputElement.addEventListener('keydown', e => {
 
@@ -155,9 +181,6 @@ quoteInputElement.addEventListener('keydown', e => {
     console.log(oldDate);
     // subtract the date time and if it's 10 seconds then lol
   }
-
-
-
 
   if (e.key == ' ') {
     event.preventDefault();
@@ -175,11 +198,15 @@ quoteInputElement.addEventListener('keydown', e => {
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
+        goodList.push(currentQuote[spaceCount]);
+        setCorrectWords();
+
       }
 
       else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
+        badList.push(currentQuote[spaceCount]);
       }
       quoteInputElement.value = '';
       setCount();
@@ -203,31 +230,27 @@ quoteInputElement.addEventListener('keydown', e => {
 })
 
 
-/*( let startTime
-function startTimer() {
-  timerElement.innerText = 0
-  startTime = new Date()
-  setInterval(() => {
-    timer.innerText = getTimerTime()
-  }, 1000)
-} */
 
-
-
-
-/*
-let startTime
-function startTimer() {
-
-  timerElement.innerText = 60
-  startTime = new Date()
-  setInterval(() => {
-    timer.innerText = getTimerTime()
-  }, 1000)
+// variables need more cleanup
+function reset(){
+  correct = 0;
+  incorrect = 0; 
+  currentQuote = '';
+  spaceCount = 0;
+  correctChar = 0;
+  incorrectChar = 0;
+  correctWords = 0;
+  incorrectWords = 0;
+  totalChar = 0;
+  goodChar = 0;
+  quoteInputElement.disabled = false;
+  quoteInputElement.focus();
+  quoteDisplayElement.innerHTML = '';
+  makeSentence();
+  renderText();
 }
 
-function getTimerTime() {
-  return Math.floor((new Date() - startTime) / 1000)
-} */
 
 renderText();
+
+
