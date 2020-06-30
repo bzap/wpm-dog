@@ -1,6 +1,3 @@
-
-
-
 def make_array(): 
     out = []
     file_object  = open("words.txt", "r") 

@@ -31,14 +31,17 @@ var currentQuote = '';
 var spaceCount = 0;
 
 
+var correctChar = 0;
+var incorrectChar = 0;
+// maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
+
+
 console.log(words.length)
 
 //var fs = require('fs');
 //var obj = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 //var student = JSON.parse(rawdata);
 //console.log(student);
-
-
 /* function getText() { 
   fetch('data.json')
   .then(response => response.json())
@@ -49,8 +52,6 @@ console.log(words.length)
   
 
 } */
-
-
 //getText();
 
 /* function getRandomQuote() {
@@ -64,7 +65,7 @@ console.log(words.length)
 
 
 function makeSentence(){
-  var length = 100;
+  var length = 15;
   var word_list = []
   var i = 0
   while (i < length){
@@ -105,7 +106,6 @@ makeSentence();
 renderNewQuote() */
 
 
-//change this 
 function renderText() {
   currentQuote.forEach(word => {
     let span = document.createElement('span');
@@ -115,15 +115,53 @@ function renderText() {
   quoteDisplayElement.firstChild.classList.add('highlight');
 }
 
-renderText();
  
 function setCount() {
   spaceCount++;
 }
 
+function setCorrect() {
+  correctChar++; 
+}
+
+function setIncorrect() { 
+  incorrectChar++;
+}
+
+let oldDate; 
+let newDate;
+
+function analysis() { 
+  var elapsed = (newDate - oldDate) / 1000;
+  console.log(elapsed);
+}
+
+
+function renderResults() { 
+  //quoteInputElement.value = '';
+  analysis();
+  quoteInputElement.disabled = true;
+}
+
+
+
+
+var firstLetter = currentQuote[0][0];
+
 quoteInputElement.addEventListener('keydown', e => {
+
+  if ((spaceCount == 0) && (e.key == firstLetter)){
+    oldDate = Date.now();
+    console.log(oldDate);
+    // subtract the date time and if it's 10 seconds then lol
+  }
+
+
+
+
   if (e.key == ' ') {
     event.preventDefault();
+
     if (quoteInputElement.value == '') {
       quoteInputElement.value = '';
     }
@@ -145,8 +183,20 @@ quoteInputElement.addEventListener('keydown', e => {
       }
       quoteInputElement.value = '';
       setCount();
+
+      if (spaceCount == currentQuote.length) {
+        // need to fix to stop after last word 
+        newDate = Date.now();
+        renderResults();
+        
+        console.log(newDate);
+      }
     }
     
+
+
+    // iff last element 
+    // call function to display results 
   }
   
 
@@ -162,7 +212,22 @@ function startTimer() {
   }, 1000)
 } */
 
-function getTimerTime() {
-  return Math.floor((new Date() - startTime) / 1000)
+
+
+
+/*
+let startTime
+function startTimer() {
+
+  timerElement.innerText = 60
+  startTime = new Date()
+  setInterval(() => {
+    timer.innerText = getTimerTime()
+  }, 1000)
 }
 
+function getTimerTime() {
+  return Math.floor((new Date() - startTime) / 1000)
+} */
+
+renderText();
