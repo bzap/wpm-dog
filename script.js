@@ -198,6 +198,8 @@ var firstLetter = currentQuote[0][0];
 
 
 quoteInputElement.addEventListener('keydown', e => {
+  
+  quoteDisplayElement.firstChild.classList.add('highlight');
 
   if ((spaceCount == 0) && (e.key == firstLetter)){
     oldDate = Date.now();
@@ -206,15 +208,27 @@ quoteInputElement.addEventListener('keydown', e => {
   }
 
   if (e.key == ' ') {
-
     event.preventDefault();
+    
 
-    //checkIfInView();
-    if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
-      //quoteDisplayElement.childNodes[spaceCount].scrollIntoView();
-      var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
-      quoteDisplayElement.scrollBy(0, newOffset);
+
+    //  the timed version and the word limit version both need scroll like this 
+    try{
+      if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
+        //quoteDisplayElement.childNodes[spaceCount].scrollIntoView();
+        var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
+        quoteDisplayElement.scrollBy({
+          top: newOffset,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
     }
+    catch (TypeError){  
+    }
+    
+
+
 
     if (quoteInputElement.value == '') {
       quoteInputElement.value = '';
@@ -226,14 +240,12 @@ quoteInputElement.addEventListener('keydown', e => {
       console.log(currentQuote[spaceCount]);
       //console.log(currentQuote[0])
       console.log(spaceCount);
-      console.log(quoteDisplayElement.childNodes[spaceCount].offsetTop + "offeset");
+      console.log(quoteDisplayElement.childNodes[spaceCount].offsetTop + "offset");
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
         goodList.push(currentQuote[spaceCount]);
-        
         setCorrectWords();
-
       }
 
       else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
@@ -280,7 +292,14 @@ function reset(){
   quoteInputElement.focus();
   quoteInputElement.value = '';
   quoteDisplayElement.innerHTML = '';
-  quoteDisplayElement.scrollTo(0,0);
+  //quoteDisplayElement.scrollTo(0,0);
+ //add fade animation to replace text instead of this or figure out to make it scroll up 
+  quoteDisplayElement.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+  
   makeSentence();
   renderText();
 }
