@@ -54,8 +54,8 @@
     margin-right: calc(1rem + 2px);
     height: 3em;
     line-height: 1.4em;
-    overflow: hidden;
     font-weight: bold;
+    text-align: center;
   }
   
   .quote-input {
@@ -69,6 +69,7 @@
     padding: .5rem 1rem;
     font-size: 1rem;
     border-radius: .5rem;
+    text-align: center;
   }
 
 
