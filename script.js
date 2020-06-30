@@ -199,7 +199,7 @@ var firstLetter = currentQuote[0][0];
 
 quoteInputElement.addEventListener('keydown', e => {
   
-  quoteDisplayElement.firstChild.classList.add('highlight');
+  
 
   if ((spaceCount == 0) && (e.key == firstLetter)){
     oldDate = Date.now();
@@ -209,9 +209,12 @@ quoteInputElement.addEventListener('keydown', e => {
 
   if (e.key == ' ') {
     event.preventDefault();
+    try{
+      quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
+    }
+    catch (TypeError){
+    }
     
-
-
     //  the timed version and the word limit version both need scroll like this 
     try{
       if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
@@ -226,10 +229,7 @@ quoteInputElement.addEventListener('keydown', e => {
     }
     catch (TypeError){  
     }
-    
-
-
-
+  
     if (quoteInputElement.value == '') {
       quoteInputElement.value = '';
     }
@@ -243,6 +243,8 @@ quoteInputElement.addEventListener('keydown', e => {
       console.log(quoteDisplayElement.childNodes[spaceCount].offsetTop + "offset");
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
         //console.log("a start");
+        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
+        
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
         goodList.push(currentQuote[spaceCount]);
         setCorrectWords();
@@ -250,6 +252,7 @@ quoteInputElement.addEventListener('keydown', e => {
 
       else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
         //console.log("a start");
+        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
         quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
         badList.push(currentQuote[spaceCount]);
       }
