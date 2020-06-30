@@ -53,9 +53,10 @@
     margin-left: calc(1rem + 2px);
     margin-right: calc(1rem + 2px);
     height: 3em;
-    line-height: 1.4em;
+    line-height: 1.5em;
     font-weight: bold;
     text-align: center;
+    overflow: hidden;
   }
   
   .quote-input {
