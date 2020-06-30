@@ -70,7 +70,7 @@ console.log(words.length)
 
 
 function makeSentence(){
-  var length = 15;
+  var length = 40;
   var word_list = []
   var i = 0
   while (i < length){
@@ -170,6 +170,12 @@ function renderResults() {
 }
 
 
+function scrollText() {
+
+}
+
+
+
 //need to count the total characters 
 var totalChar = 0;
 var goodChar = 0;
@@ -189,6 +195,7 @@ quoteInputElement.addEventListener('keydown', e => {
   }
 
   if (e.key == ' ') {
+
     event.preventDefault();
 
     if (quoteInputElement.value == '') {
@@ -205,6 +212,7 @@ quoteInputElement.addEventListener('keydown', e => {
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
         goodList.push(currentQuote[spaceCount]);
+        quoteDisplayElement.childNodes[spaceCount].scrollIntoView();
         setCorrectWords();
 
       }
