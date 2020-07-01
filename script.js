@@ -120,7 +120,7 @@ function makeSentence(){
     i++;
   }
   currentQuote = word_list;
-  console.log(word_list);
+  //console.log(word_list);
   return(word_list);
   
 
@@ -148,7 +148,7 @@ function capWords(e){
       random_number2 = (Math.floor(Math.random() * (e[i].length)) + 1);
       //console.log(random_number2);
       random_number3 = (Math.floor(Math.random() * random_number2) + 1);
-      if (random_number == 2 || random_number == 3){
+      if (random_number == 2 || random_number == 3 || random_number == 4){
         cap = e[i].slice(0, random_number3) + e[i].slice(random_number3, random_number2).toUpperCase() + 
         e[i].slice(random_number2, e[i].length);
       }
@@ -453,10 +453,10 @@ function reset(){
   });
 
   if (caseElement.checked == true){
-    currentQuote = capWords(makeSentence()); 
+    capWords(makeSentence()); 
   } 
   else {
-    currentQuote = makeSentence();
+    makeSentence();
   }
   renderText();
 }
