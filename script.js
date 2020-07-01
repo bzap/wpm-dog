@@ -214,8 +214,6 @@ var firstLetter = currentQuote[0][0];
 
 quoteInputElement.addEventListener('keydown', e => {
   
-  
-
   if ((spaceCount == 0) && (e.key == firstLetter)){
     oldDate = Date.now();
     console.log(oldDate);
@@ -224,12 +222,7 @@ quoteInputElement.addEventListener('keydown', e => {
 
   if (e.key == ' ') {
     event.preventDefault();
-    try{
-      quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
-    }
-    catch (TypeError){
-    }
-    
+
     //  the timed version and the word limit version both need scroll like this 
     try{
       if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
@@ -251,6 +244,15 @@ quoteInputElement.addEventListener('keydown', e => {
     //console.log(currentQuote);
     //console.log(spaceCount);
     else if (quoteInputElement.value != '') {
+
+      try{
+        // this is where the bug is occurring - happens because nothing checks if the space is empty 
+        // should only be able to run this is the space isn't empty 
+        quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
+      }
+      catch (TypeError){
+      }
+
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
