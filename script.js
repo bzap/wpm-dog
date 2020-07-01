@@ -131,18 +131,29 @@ function capWords(e){
   
   console.log(e);
   for (var i = 0; i < e.length; i++){
+    var cap;
     random_number = (Math.floor(Math.random() * 5) + 1);
+    //console.log(random_number);
     //capList.push(e[i])
     //console.log(e)
-    tempWord = []
-    for (var y = 0; y < e[i].length; y++){
-      random_number2 = (Math.floor(Math.random() * 3) + 1);
-      tempWord.push(e[i].slice(0, random_number2).toUpperCase());
+    //for (var y = 0; y < e[i].length; y++){
+    try{
+      random_number2 = (Math.floor(Math.random() * (e[i].length)) + 1);
+      //console.log(random_number2);
+      random_number3 = (Math.floor(Math.random() * random_number2) + 1);
+      if (random_number == 2 || random_number == 3){
+        cap = e[i].slice(0, random_number3) + e[i].slice(random_number3, random_number2).toUpperCase() + 
+        e[i].slice(random_number2, e[i].length);
+      }
+      else{
+        cap = e[i];
+      }
     }
-    
-
-    capList.push(tempWord[0]);
+    catch (TypeError){
+    }
+    capList.push(cap);
   }
+
     //random_number = (Math.floor(Math.random() * 5) + 1);
     //random_number2 = (Math.floor(Math.random() * 3) + 1);
   //console.log(random_number);
