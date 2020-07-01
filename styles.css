@@ -134,3 +134,12 @@
     margin-right: 10px;
   }
 
+
+  .mode {
+    position: absolute;
+    top: 15rem;
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+  }
+

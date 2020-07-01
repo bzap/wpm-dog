@@ -14,12 +14,19 @@
   <div class="wpm" id="wpm"></div>
   <div class="timer" id="timer"></div>
   <div class="acc" id="timer"></div>
+  <div class="mode" id="mode"></div>
   <button class="btn success">case-sensitive</button>
   <div class="container">
     
     <div class="quote-display" id="quoteDisplay"></div>
     <textarea id="quoteInput" class="quote-input" autofocus></textarea>
     <button id="redo" onclick="reset()" tabindex="2">restart</button>
+    
+    <select id="modeSelection" onchange="modeChange()">
+      <option value="timed">timed</option>
+      <option value="burst">burst</option>
+      <option value="quote">quote</option>
+    </select>
     <select id="timeSelection" onchange="timeChange()">
       <option value="60">60 seconds</option>
       <option value="30">30 seconds</option>

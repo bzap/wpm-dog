@@ -9,6 +9,8 @@ const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const wpmElement = document.getElementById('wpm')
 const timeSelElement = document.getElementById('timeSelection')
+const modeElement = document.getElementById('mode')
+const modeSelElement = document.getElementById('modeSelection')
 //const accElement = document.getElementById('acc')
 
 
@@ -47,6 +49,7 @@ var incorrectWords = 0;
 
 
 var timeLimit = 60;
+
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
@@ -54,7 +57,7 @@ var timeLimit = 60;
 // init values of stats 
 timerElement.innerHTML = 'time: ' + 60;
 wpmElement.innerHTML = 'WPM: ' + '00';
-
+modeElement.innerHTML = 'mode: timed';
 
 
 
@@ -87,6 +90,10 @@ console.log(words.length);
 
 // move some of this to reset
 function timeChange(){
+  reset();
+}
+
+function modeChange(){
   reset();
 }
 
@@ -327,6 +334,9 @@ function reset(){
   stopClock();
   timerElement.innerHTML = 'time: ' + timeSelElement.value;
   timeLimit = parseInt(timeSelElement.value);
+
+  modeElement.innerHTML = 'mode: ' + modeSelElement.value;
+
   correct = 0;
   incorrect = 0; 
   currentQuote = '';
