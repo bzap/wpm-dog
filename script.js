@@ -332,11 +332,21 @@ quoteInputElement.addEventListener('keydown', e => {
 // variables need more cleanup
 function reset(){
   stopClock();
-  timerElement.innerHTML = 'time: ' + timeSelElement.value;
-  timeLimit = parseInt(timeSelElement.value);
+
 
   modeElement.innerHTML = 'mode: ' + modeSelElement.value;
 
+  if (modeSelElement.value == 'burst'){
+    timerElement.innerHTML = 'time: N/A';
+    timeSelElement.disabled = true;
+  }
+  else{
+    timerElement.innerHTML = 'time: ' + timeSelElement.value
+    timeLimit = parseInt(timeSelElement.value);
+    timeSelElement.disabled = false;
+  }
+  
+  
   correct = 0;
   incorrect = 0; 
   currentQuote = '';
