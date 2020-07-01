@@ -89,6 +89,7 @@ console.log(words.length);
 function timeChange(){
   var selection = timeSelElement.value;
   timerElement.innerHTML = 'time: ' + selection;
+  initTime = parseInt(selection);
 }
 
 
@@ -201,13 +202,13 @@ function scrollText() {
 
 
 function timer(){ 
-  var timeleft = 10;
+  var timeleft = initTime;
   var downloadTimer = setInterval(function(){
     if(timeleft <= 0){
       clearInterval(downloadTimer);
       timerElement.innerHTML = "finito";
     } else {
-      timerElement.innerHTML = timeleft + " seconds remaining";
+      timerElement.innerHTML = 'time: ' + timeleft;
     }
     timeleft -= 1;
   }, 1000);
