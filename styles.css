@@ -59,6 +59,8 @@
     overflow: hidden;
 
   }
+
+
   
   .quote-input {
     background-color: transparent;
@@ -91,6 +93,14 @@
     background-color: white;
   }
 
+  
   .highlight{
     background-color: lightgray;
   }
+
+  span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+

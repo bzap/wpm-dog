@@ -9,6 +9,7 @@ const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const wpmElement = document.getElementById('wpm')
 
+
 //const words = require('data.json');
 //console.log(words[1]);
 
@@ -41,6 +42,14 @@ var incorrectWords = 0;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
+//-------------------------------------
+// init values of stats 
+
+wpmElement.innerHTML = 'WPM: ' + '00';
+
+
+
+
 console.log(words.length)
 
 //var fs = require('fs');
@@ -70,7 +79,7 @@ console.log(words.length)
 
 
 function makeSentence(){
-  var length = 40;
+  var length = 30;
   var word_list = []
   var i = 0
   while (i < length){
@@ -110,14 +119,16 @@ makeSentence();
 
 renderNewQuote() */
 
-
 function renderText() {
   currentQuote.forEach(word => {
     let span = document.createElement('span');
-    span.innerHTML = word + ' ';
+    //console.log(span)
+    span.innerHTML = ' ' + word;
+    
     quoteDisplayElement.appendChild(span);
   });
   quoteDisplayElement.firstChild.classList.add('highlight');
+  quoteDisplayElement.firstChild.classList.add('highlight:first-letter')
 }
 
 
@@ -159,7 +170,7 @@ function analysis() {
   console.log(good);
   console.log(bad);
   console.log(elapsed);
-  wpmElement.value = good;
+  wpmElement.innerHTML = 'WPM: ' + good;
 }
 
 
@@ -171,6 +182,11 @@ function renderResults() {
 
 
 function scrollText() {
+
+}
+
+
+function countTime(){ 
 
 }
 
