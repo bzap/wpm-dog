@@ -8,6 +8,7 @@ const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const wpmElement = document.getElementById('wpm')
+const timeSelElement = document.getElementById('timeSelection')
 //const accElement = document.getElementById('acc')
 
 
@@ -29,8 +30,8 @@ var words = ['a', 'abandon', 'ability', 'able', 'abortion', 'about', 'above', 'a
 'wood', 'wooden', 'word', 'work', 'worker', 'working', 'works', 'workshop', 'world', 'worried', 'worry', 'worth', 'would', 'wound', 'wrap', 'write', 'writer', 'writing', 'wrong', 'yard', 'yeah', 'year', 'yell', 'yellow', 'yes', 'yesterday', 'yet', 'yield', 'you', 'young', 'your', 'yours', 'yourself', 'youth', 'zon'];
 
 
-timerElement.innerHTML = "time: " + "60";
 
+//maybe change these to let variables
 var correct = 0;
 var incorrect = 0; 
 var currentQuote = '';
@@ -43,18 +44,21 @@ var incorrectChar = 0;
 
 var correctWords = 0;
 var incorrectWords = 0;
+
+
+var initTime = 60;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
 //-------------------------------------
 // init values of stats 
-
+timerElement.innerHTML = 'time: ' + 60;
 wpmElement.innerHTML = 'WPM: ' + '00';
 
 
 
 
-console.log(words.length)
+console.log(words.length);
 
 //var fs = require('fs');
 //var obj = JSON.parse(fs.readFileSync('data.json', 'utf8'));
@@ -80,6 +84,12 @@ console.log(words.length)
   return data;
 
 } */
+
+
+function timeChange(){
+  var selection = timeSelElement.value;
+  timerElement.innerHTML = 'time: ' + selection;
+}
 
 
 function makeSentence(){
@@ -208,28 +218,10 @@ function timer(){
 
 }
 
-// NEED THIS FOR THE SCROLL ANIMATION 
-/*function checkIfInView(element){
-  var offset = quoteInputElement.offset.top - $(window).scrollTop;
-
-  if(offset > window.innerHeight){
-      // Not in view so scroll to it
-      $('html,body').animate({scrollTop: offset}, 1000);
-      return false;
-  }
- return true;
-} */
-
-
 //need to count the total characters 
 var totalChar = 0;
 var goodChar = 0;
 var firstLetter = currentQuote[0][0];
-
-
-
-
-
 
 quoteInputElement.addEventListener('keydown', e => {
   

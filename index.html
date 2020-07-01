@@ -18,6 +18,11 @@
     <div class="quote-display" id="quoteDisplay"></div>
     <textarea id="quoteInput" class="quote-input" autofocus></textarea>
     <button id="redo" onclick="reset()" tabindex="2">restart</button>
+    <select id="timeSelection" onchange="timeChange()">
+      <option value="60">60 seconds</option>
+      <option value="30">30 seconds</option>
+      <option value="10">10 seconds</option>
+    </select>
   </div>
 </body>
 </html>
