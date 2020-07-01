@@ -390,6 +390,7 @@ function reset(){
     timeLimit = parseInt(timeSelElement.value);
     timeSelElement.disabled = false;
     lengthSelElement.disabled = true;
+    lengthLimit = 350;
   }
   
   
