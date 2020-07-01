@@ -11,6 +11,7 @@ const wpmElement = document.getElementById('wpm')
 const timeSelElement = document.getElementById('timeSelection')
 const modeElement = document.getElementById('mode')
 const modeSelElement = document.getElementById('modeSelection')
+const lengthSelElement = document.getElementById('lengthSelection')
 //const accElement = document.getElementById('acc')
 
 
@@ -49,6 +50,7 @@ var incorrectWords = 0;
 
 
 var timeLimit = 60;
+var lengthLimit = 350;
 
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
@@ -58,6 +60,7 @@ var timeLimit = 60;
 timerElement.innerHTML = 'time: ' + 60;
 wpmElement.innerHTML = 'WPM: ' + '00';
 modeElement.innerHTML = 'mode: timed';
+lengthSelElement.disabled = true;
 
 
 
@@ -97,9 +100,12 @@ function modeChange(){
   reset();
 }
 
+function lengthChange(){
+  reset();
+}
 
 function makeSentence(){
-  var length = 30;
+  var length = lengthLimit;
   var word_list = []
   var i = 0
   while (i < length){
@@ -207,12 +213,18 @@ function scrollText() {
 
 
 //clean up the var names here
+// create a switch or if statement based on the mode 
+
+
+
+// to show live wpm add a line here as it updates 
 var myTimer;
    function clock() {
      myTimer = setInterval(myClock, 1000);
      var c = timeLimit;
      function myClock() {
        timerElement.innerHTML = 'time: ' + --c;
+       //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (c == 0) {
          clearInterval(myTimer);
          timerElement.innerHTML = 'finito';
@@ -224,6 +236,27 @@ var myTimer;
 function stopClock(){
   clearInterval(myTimer);
 }
+
+// need to make c the time when the words are done (potentially send true and false to it )
+// so once the words are through you call up the false 
+var myTimer2;
+var state = true;
+   function clockup() {
+     myTimer2 = setInterval(myClockup, 1000);
+     var c = 0;
+     function myClockup() {
+       timerElement.innerHTML = 'time: ' + ++c;
+       //wpmElement.innerHTML = 'WPM: ' + goodChar;
+       if (state == false) {
+         clearInterval(myTimer2);
+         timerElement.innerHTML = 'finito';
+         // might not need this line if the burst closes it 
+         //quoteInputElement.disabled = true;
+       }
+     }
+   }
+
+// add a variation of that clock 
 
 
 
@@ -239,7 +272,7 @@ quoteInputElement.addEventListener('keydown', e => {
   // need a better way of detecting first keypress 
 
 
-  if ((spaceCount == 0) && (totalChar == 1)) {
+  if ((spaceCount == 0) && (totalChar == 1) && (modeSelElement.value == 'timed')) {
   //if ((spaceCount == 0) && (e.key == firstLetter)) {
     oldDate = Date.now();
     console.log(oldDate);
@@ -339,11 +372,24 @@ function reset(){
   if (modeSelElement.value == 'burst'){
     timerElement.innerHTML = 'time: N/A';
     timeSelElement.disabled = true;
+    lengthSelElement.disabled = false;
+    if (lengthSelElement.value == '10'){
+      lengthLimit = 10;
+      console.log("what");
+    }
+    else if (lengthSelElement.value == '50'){
+      lengthLimit = 50;
+    }
+    else if (lengthSelElement.value == '200'){
+      lengthLimit = 200;
+    }
+    
   }
   else{
     timerElement.innerHTML = 'time: ' + timeSelElement.value
     timeLimit = parseInt(timeSelElement.value);
     timeSelElement.disabled = false;
+    lengthSelElement.disabled = true;
   }
   
   
