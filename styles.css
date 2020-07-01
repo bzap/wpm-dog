@@ -63,6 +63,7 @@
     height: 3em;
     line-height: 1.5em;
     font-weight: bold;
+    font-size: 20px;
     text-align: center;
     overflow: hidden;
   
@@ -115,16 +116,21 @@
     background-color: lightgray;
   }
 
-  .btn {
+ .switch {
     position: absolute;
-    top: 20rem;
-    border: none;
-    background-color: inherit;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  button:focus {outline:0;}
+    top: 21rem;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+  .switch:checked{
+    background-color:#404040;
+    color:blue;
+
+}
+
+
 
   .success {color: white;}
 

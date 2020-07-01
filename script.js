@@ -12,6 +12,7 @@ const timeSelElement = document.getElementById('timeSelection')
 const modeElement = document.getElementById('mode')
 const modeSelElement = document.getElementById('modeSelection')
 const lengthSelElement = document.getElementById('lengthSelection')
+const caseElement = document.getElementById('checkbox')
 //const accElement = document.getElementById('acc')
 
 
@@ -104,6 +105,11 @@ function lengthChange(){
   reset();
 }
 
+function checkBox(){
+  reset();
+}
+
+
 function makeSentence(){
   var length = lengthLimit;
   var word_list = [];
@@ -114,8 +120,9 @@ function makeSentence(){
     i++;
   }
   currentQuote = word_list;
+  console.log(word_list);
   return(word_list);
-  //console.log(word_list);
+  
 
 }
 
@@ -129,7 +136,7 @@ function capWords(e){
   capList = [];
   //andom_number = (Math.floor(Math.random() * 5) + 1);
   
-  console.log(e);
+  //console.log(e);
   for (var i = 0; i < e.length; i++){
     var cap;
     random_number = (Math.floor(Math.random() * 5) + 1);
@@ -160,10 +167,10 @@ function capWords(e){
   //console.log(random_number2); 
   //}
   console.log(capList);
-  return(capList);
+  currentQuote = capList;
 }
 
-var capList = capWords(makeSentence());
+//var capList = capWords(makeSentence());
 
 makeSentence();
 
@@ -444,8 +451,13 @@ function reset(){
     left: 0,
     behavior: 'smooth'
   });
-  
-  makeSentence();
+
+  if (caseElement.checked == true){
+    currentQuote = capWords(makeSentence()); 
+  } 
+  else {
+    currentQuote = makeSentence();
+  }
   renderText();
 }
 
