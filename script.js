@@ -106,8 +106,8 @@ function lengthChange(){
 
 function makeSentence(){
   var length = lengthLimit;
-  var word_list = []
-  var i = 0
+  var word_list = [];
+  var i = 0;
   while (i < length){
     random_number = (Math.floor(Math.random() * 3000) + 1);
     word_list.push(words[random_number]);
@@ -126,10 +126,36 @@ function setList(e) {
 
 // add random func that can capitalize random words in the phrasing 
 function capWords(e){ 
+  capList = [];
+  //andom_number = (Math.floor(Math.random() * 5) + 1);
   
+  console.log(e);
+  for (var i = 0; i < e.length; i++){
+    random_number = (Math.floor(Math.random() * 5) + 1);
+    //capList.push(e[i])
+    //console.log(e)
+    tempWord = []
+    for (var y = 0; y < e[i].length; y++){
+      random_number2 = (Math.floor(Math.random() * 3) + 1);
+      tempWord.push(e[i].slice(0, random_number2).toUpperCase());
+    }
+    
+
+    capList.push(tempWord[0]);
+  }
+    //random_number = (Math.floor(Math.random() * 5) + 1);
+    //random_number2 = (Math.floor(Math.random() * 3) + 1);
+  //console.log(random_number);
+  //console.log(random_number2); 
+  //}
+  console.log(capList);
+  return(capList);
 }
 
+var capList = capWords(makeSentence());
+
 makeSentence();
+
 
 
 /* async function renderNewQuote() {
@@ -323,23 +349,17 @@ quoteInputElement.addEventListener('keydown', e => {
     //console.log(currentQuote);
     //console.log(spaceCount);
     else if (quoteInputElement.value != '') {
-
       try{
-
         quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
       }
       catch (TypeError){
       }
-
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
-
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
-        
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
         goodList.push(currentQuote[spaceCount]);
         setCorrectWords();
       }
-
       else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
         quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
@@ -347,11 +367,9 @@ quoteInputElement.addEventListener('keydown', e => {
       }
       quoteInputElement.value = '';
       setCount();
-
       if (spaceCount == currentQuote.length) {
         newDate = Date.now();
         renderResults();
-        
         console.log(newDate);
       }
     }
