@@ -115,6 +115,20 @@
     background-color: lightgray;
   }
 
+  .btn {
+    position: absolute;
+    top: 20rem;
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:focus {outline:0;}
+
+  .success {color: white;}
+
+
   span {
     display: inline-block;
     margin-right: 10px;

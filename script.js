@@ -198,6 +198,8 @@ function scrollText() {
 
 }
 
+
+//clean up the var names here
 var myTimer;
    function clock() {
      myTimer = setInterval(myClock, 1000);
@@ -206,12 +208,12 @@ var myTimer;
        timerElement.innerHTML = 'time: ' + --c;
        if (c == 0) {
          clearInterval(myTimer);
-         alert("Reached zero");
+         timerElement.innerHTML = 'finito';
+         quoteInputElement.disabled = true;
        }
      }
    }
   
-
 function stopClock(){
   clearInterval(myTimer);
 }
@@ -261,11 +263,9 @@ quoteInputElement.addEventListener('keydown', e => {
 
   if (e.key == ' ') {
     event.preventDefault();
-
     //  the timed version and the word limit version both need scroll like this 
     try{
       if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
-        //quoteDisplayElement.childNodes[spaceCount].scrollIntoView();
         var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
         quoteDisplayElement.scrollBy({
           top: newOffset,
@@ -285,15 +285,14 @@ quoteInputElement.addEventListener('keydown', e => {
     else if (quoteInputElement.value != '') {
 
       try{
-        // this is where the bug is occurring - happens because nothing checks if the space is empty 
-        // should only be able to run this is the space isn't empty 
+
         quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
       }
       catch (TypeError){
       }
 
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
-        //console.log("a start");
+
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
         
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
@@ -302,7 +301,6 @@ quoteInputElement.addEventListener('keydown', e => {
       }
 
       else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
-        //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
         quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
         badList.push(currentQuote[spaceCount]);
@@ -311,7 +309,6 @@ quoteInputElement.addEventListener('keydown', e => {
       setCount();
 
       if (spaceCount == currentQuote.length) {
-        // need to fix to stop after last word 
         newDate = Date.now();
         renderResults();
         
