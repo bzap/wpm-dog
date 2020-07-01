@@ -8,6 +8,7 @@ const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const wpmElement = document.getElementById('wpm')
+//const accElement = document.getElementById('acc')
 
 
 //const words = require('data.json');
@@ -26,6 +27,9 @@ var words = ['a', 'abandon', 'ability', 'able', 'abortion', 'about', 'above', 'a
 'through', 'throughout', 'throw', 'thus', 'ticket', 'tie', 'tight', 'time', 'tiny', 'tip', 'tire', 'tired', 'tissue', 'title', 'to', 'tobacco', 'today', 
 'toe', 'together', 'tomato', 'tomorrow', 'tone', 'tongue', 'tonight', 'too', 'tool', 'tooth', 'top', 'topic', 'toss', 'total', 'totally', 'touch', 'tough', 'tour', 'tourist', 'tournament', 'toward', 'towards', 'tower', 'town', 'toy', 'trace', 'track', 'trade', 'tradition', 'traditional', 'traffic', 'tragedy', 'trail', 'train', 'training', 'transfer', 'transform', 'transformation', 'transition', 'translate', 'transportation', 'travel', 'treat', 'treatment', 'treaty', 'tree', 'tremendous', 'trend', 'trial', 'tribe', 'trick', 'trip', 'troop', 'trouble', 'truck', 'true', 'truly', 'trust', 'truth', 'try', 'tube', 'tunnel', 'turn', 'TV', 'twelve', 'twenty', 'twice', 'twin', 'two', 'type', 'typical', 'typically', 'ugly', 'ultimate', 'ultimately', 'unable', 'uncle', 'under', 'undergo', 'understand', 'understanding', 'unfortunately', 'uniform', 'union', 'unique', 'unit', 'United', 'universal', 'universe', 'university', 'unknown', 'unless', 'unlike', 'unlikely', 'until', 'unusual', 'up', 'upon', 'upper', 'urban', 'urge', 'us', 'use', 'used', 'useful', 'user', 'usual', 'usually', 'utility', 'vacation', 'valley', 'valuable', 'value', 'variable', 'variation', 'variety', 'various', 'vary', 'vast', 'vegetable', 'vehicle', 'venture', 'version', 'versus', 'very', 'vessel', 'veteran', 'via', 'victim', 'victory', 'video', 'view', 'viewer', 'village', 'violate', 'violation', 'violence', 'violent', 'virtually', 'virtue', 'virus', 'visible', 'vision', 'visit', 'visitor', 'visual', 'vital', 'voice', 'volume', 'volunteer', 'vote', 'voter', 'vs', 'vulnerable', 'wage', 'wait', 'wake', 'walk', 'wall', 'wander', 'want', 'war', 'warm', 'warn', 'warning', 'wash', 'waste', 'watch', 'water', 'wave', 'way', 'we', 'weak', 'wealth', 'wealthy', 'weapon', 'wear', 'weather', 'wedding', 'week', 'weekend', 'weekly', 'weigh', 'weight', 'welcome', 'welfare', 'well', 'west', 'western', 'wet', 'what', 'whatever', 'wheel', 'when', 'whenever', 'where', 'whereas', 'whether', 'which', 'while', 'whisper', 'white', 'who', 'whole', 'whom', 'whose', 'why', 'wide', 'widely', 'widespread', 'wife', 'wild', 'will', 'willing', 'win', 'wind', 'window', 'wine', 'wing', 'winner', 'winter', 'wipe', 'wire', 'wisdom', 'wise', 'wish', 'with', 'withdraw', 'within', 'without', 'witness', 'woman', 'wonder', 'wonderful', 
 'wood', 'wooden', 'word', 'work', 'worker', 'working', 'works', 'workshop', 'world', 'worried', 'worry', 'worth', 'would', 'wound', 'wrap', 'write', 'writer', 'writing', 'wrong', 'yard', 'yeah', 'year', 'yell', 'yellow', 'yes', 'yesterday', 'yet', 'yield', 'you', 'young', 'your', 'yours', 'yourself', 'youth', 'zon'];
+
+
+timerElement.innerHTML = "time: " + "60";
 
 var correct = 0;
 var incorrect = 0; 
@@ -170,6 +174,7 @@ function analysis() {
   console.log(bad);
   console.log(elapsed);
   wpmElement.innerHTML = 'WPM: ' + good;
+  
 }
 
 
@@ -185,7 +190,21 @@ function scrollText() {
 }
 
 
-function countTime(){ 
+function timer(){ 
+  var timeleft = 10;
+  var downloadTimer = setInterval(function(){
+    if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      timerElement.innerHTML = "finito";
+    } else {
+      timerElement.innerHTML = timeleft + " seconds remaining";
+    }
+    timeleft -= 1;
+  }, 1000);
+
+  
+
+
 
 }
 
@@ -214,6 +233,14 @@ var firstLetter = currentQuote[0][0];
 
 quoteInputElement.addEventListener('keydown', e => {
   
+  if ((spaceCount == 0) && (e.key == firstLetter)) {
+    oldDate = Date.now();
+    console.log(oldDate);
+    timer();
+    // subtract the date time and if it's 10 seconds then lol
+  }  
+
+
   var str1 = quoteInputElement.value;
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
   var match = str2.match(str1);
@@ -231,11 +258,7 @@ quoteInputElement.addEventListener('keydown', e => {
     quoteDisplayElement.childNodes[spaceCount].classList.remove('incorrect');
   }
   
-  if ((spaceCount == 0) && (e.key == firstLetter)) {
-    oldDate = Date.now();
-    console.log(oldDate);
-    // subtract the date time and if it's 10 seconds then lol
-  }
+
 
   if (e.key == ' ') {
     event.preventDefault();
@@ -296,11 +319,6 @@ quoteInputElement.addEventListener('keydown', e => {
         console.log(newDate);
       }
     }
-    
-
-
-    // iff last element 
-    // call function to display results 
   }
   
 
