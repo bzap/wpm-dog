@@ -128,7 +128,6 @@ function renderText() {
     quoteDisplayElement.appendChild(span);
   });
   quoteDisplayElement.firstChild.classList.add('highlight');
-  quoteDisplayElement.firstChild.classList.add('highlight:first-letter')
 }
 
 
@@ -252,11 +251,6 @@ quoteInputElement.addEventListener('keydown', e => {
     //console.log(currentQuote);
     //console.log(spaceCount);
     else if (quoteInputElement.value != '') {
-      console.log(quoteInputElement.value);
-      console.log(currentQuote[spaceCount]);
-      //console.log(currentQuote[0])
-      console.log(spaceCount);
-      console.log(quoteDisplayElement.childNodes[spaceCount].offsetTop + "offset");
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
         //console.log("a start");
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
