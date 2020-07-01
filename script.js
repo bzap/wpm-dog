@@ -46,7 +46,7 @@ var correctWords = 0;
 var incorrectWords = 0;
 
 
-var initTime = 60;
+var timeLimit = 60;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
@@ -85,11 +85,9 @@ console.log(words.length);
 
 } */
 
-
+// move some of this to reset
 function timeChange(){
-  var selection = timeSelElement.value;
-  timerElement.innerHTML = 'time: ' + selection;
-  initTime = parseInt(selection);
+  reset();
 }
 
 
@@ -200,24 +198,25 @@ function scrollText() {
 
 }
 
-
-function timer(){ 
-  var timeleft = initTime;
-  var downloadTimer = setInterval(function(){
-    if(timeleft <= 0){
-      clearInterval(downloadTimer);
-      timerElement.innerHTML = "finito";
-    } else {
-      timerElement.innerHTML = 'time: ' + timeleft;
-    }
-    timeleft -= 1;
-  }, 1000);
-
+var myTimer;
+   function clock() {
+     myTimer = setInterval(myClock, 1000);
+     var c = timeLimit;
+     function myClock() {
+       timerElement.innerHTML = 'time: ' + --c;
+       if (c == 0) {
+         clearInterval(myTimer);
+         alert("Reached zero");
+       }
+     }
+   }
   
 
-
-
+function stopClock(){
+  clearInterval(myTimer);
 }
+
+
 
 //need to count the total characters 
 var totalChar = 0;
@@ -225,11 +224,18 @@ var goodChar = 0;
 var firstLetter = currentQuote[0][0];
 
 quoteInputElement.addEventListener('keydown', e => {
-  
-  if ((spaceCount == 0) && (e.key == firstLetter)) {
+  totalChar++;
+
+  //doesnt work if the first letter is wrong lol 
+  // need a better way of detecting first keypress 
+
+
+  if ((spaceCount == 0) && (totalChar == 1)) {
+  //if ((spaceCount == 0) && (e.key == firstLetter)) {
     oldDate = Date.now();
     console.log(oldDate);
-    timer();
+    //startTimer();
+    clock();
     // subtract the date time and if it's 10 seconds then lol
   }  
 
@@ -321,6 +327,9 @@ quoteInputElement.addEventListener('keydown', e => {
 
 // variables need more cleanup
 function reset(){
+  stopClock();
+  timerElement.innerHTML = 'time: ' + timeSelElement.value;
+  timeLimit = parseInt(timeSelElement.value);
   correct = 0;
   incorrect = 0; 
   currentQuote = '';
