@@ -214,31 +214,24 @@ var firstLetter = currentQuote[0][0];
 
 quoteInputElement.addEventListener('keydown', e => {
   
-  //need to make it notice the characters vs the word 
-  //if (quoteInputElement != quoteDisplayElement.childNodes[spaceCount]){
-  //  quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
-  //}
-  
-
-
   var str1 = quoteInputElement.value;
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
-  //console.log(str1 + ' ' + str2);
-
-
   var match = str2.match(str1);
-  //console.log(match);
 
-  if (match == null){
+ // if (quoteInputElement.value == ''){
+ //   quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
+ // }
+
+ // need to add better detection if using ctrl + a 
+
+  if (match == null) {
     quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
-
-    }
-  else{ 
+  }
+  else { 
     quoteDisplayElement.childNodes[spaceCount].classList.remove('incorrect');
   }
   
-
-  if ((spaceCount == 0) && (e.key == firstLetter)){
+  if ((spaceCount == 0) && (e.key == firstLetter)) {
     oldDate = Date.now();
     console.log(oldDate);
     // subtract the date time and if it's 10 seconds then lol
