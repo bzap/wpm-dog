@@ -19,11 +19,17 @@
     <input type="checkbox" id="checkbox" onclick="checkBox()"><span>case-sensitive</span>
   </label>
 
+
+
   <div class="container">
     
     <div class="quote-display" id="quoteDisplay"></div>
-    <textarea id="quoteInput" class="quote-input" autofocus></textarea>
     <button id="redo" onclick="reset()" tabindex="2">restart</button>
+    <textarea id="quoteInput" class="quote-input" autofocus></textarea>
+
+  </div>
+
+  <div class ="options">
     <select id="lengthSelection" onchange="lengthChange()">
       <option value="10">10 words</option>
       <option value="50">50 words</option>
@@ -40,5 +46,6 @@
       <option value="10">10 seconds</option>
     </select>
   </div>
+
 </body>
 </html>

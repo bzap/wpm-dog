@@ -58,7 +58,7 @@ var lengthLimit = 350;
 
 //-------------------------------------
 // init values of stats 
-timerElement.innerHTML = 'time: ' + 60;
+timerElement.innerHTML = 'time: ' + 60 + 's';
 wpmElement.innerHTML = 'WPM: ' + '00';
 modeElement.innerHTML = 'mode: timed';
 lengthSelElement.disabled = true;
@@ -267,7 +267,10 @@ var myTimer;
      myTimer = setInterval(myClock, 1000);
      var c = timeLimit;
      function myClock() {
-       timerElement.innerHTML = 'time: ' + --c;
+    
+       timerElement.innerHTML = 'time: ' + --c + 's';
+       timerElement.classList.toggle('fadeOut');
+      // timerElement.classList.remove('hide')
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (c == 0) {
          clearInterval(myTimer);
@@ -289,7 +292,7 @@ var state = true;
      myTimer2 = setInterval(myClockup, 1000);
      var c = 0;
      function myClockup() {
-       timerElement.innerHTML = 'time: ' + ++c;
+       timerElement.innerHTML = 'time: ' + ++c + 's';
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (state == false) {
          clearInterval(myTimer2);

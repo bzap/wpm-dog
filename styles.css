@@ -9,18 +9,115 @@
     min-height: 100vh;
     margin: 0;
     background-color: #1E0555;
+
   }
   
   body, .quote-input {
     font-family: 'SF Mono', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
+
+  
+    
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-o-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-ms-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+  }
+  }
+
+  #changeText {
+    opacity: 1;
+    transition: opacity 2s;
+  }
+  .hide2 {
+      opacity: 0 !important;
+  }
+
   
   .container {
     background-color: white;
+    margin-top: 1rem;
     padding: 1rem;
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
     width: 700px;
     max-width: 90%;
+    margin: 0 auto;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
+  .options {
+    position: absolute;
+    background-color: white;
+    margin-top: 8rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 90%;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
   }
   
   .timer {
@@ -29,6 +126,8 @@
     font-size: 3rem;
     color: white;
     font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
   }
 
   .acc {
@@ -37,6 +136,8 @@
     font-size: 3rem;
     color: white;
     font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
   }
 
   /*.countdown {
@@ -54,8 +155,13 @@
     font-size: 3rem;
     color: white;
     font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    
   }
-  
+
+
+
   .quote-display {
     margin-bottom: 1rem;
     margin-left: calc(1rem + 2px);
@@ -66,7 +172,9 @@
     font-size: 20px;
     text-align: center;
     overflow: hidden;
-  
+    margin: 0 auto;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
 
   }
 
@@ -75,23 +183,28 @@
 
   .quote-input {
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid rgb(75, 74, 74);
     outline: none;
-    width: 50%;
     height: 2.5rem;
-    margin: 0 auto;
     resize: none;
     padding: .5rem .5rem;
     font-size: 1rem;
-    border-radius: 1.5rem;
+    border-radius: 0.3rem;
     text-align: center;
-    
+    display: inline-block;
+    margin: 0 auto;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
+  span {
+    display: inline-block;
+    margin-right: 10px;
     
   }
 
-
   .redo{
-
+    margin: 0 auto;
   }
 
 
@@ -118,10 +231,12 @@
 
  .switch {
     position: absolute;
-    top: 21rem;
+    top: 2rem;
     font-size: 14px;
     color: white;
     font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
 }
 
   .switch:checked{
@@ -129,16 +244,9 @@
     color:blue;
 
 }
-
-
-
   .success {color: white;}
 
 
-  span {
-    display: inline-block;
-    margin-right: 10px;
-  }
 
 
   .mode {
@@ -147,5 +255,7 @@
     font-size: 3rem;
     color: white;
     font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
   }
 
