@@ -267,9 +267,10 @@ var myTimer;
      myTimer = setInterval(myClock, 1000);
      var c = timeLimit;
      function myClock() {
-    
+       timerElement.classList.add('faderOut');
        timerElement.innerHTML = 'time: ' + --c + 's';
-       timerElement.classList.toggle('fadeOut');
+       timerElement.classList.remove('faderOut');
+       timerElement.classList.add("faderIn");
       // timerElement.classList.remove('hide')
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (c == 0) {
@@ -409,6 +410,7 @@ function reset(){
   modeElement.innerHTML = 'mode: ' + modeSelElement.value;
 
   if (modeSelElement.value == 'burst'){
+    
     timerElement.innerHTML = 'time: N/A';
     timeSelElement.disabled = true;
     lengthSelElement.disabled = false;

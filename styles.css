@@ -12,8 +12,33 @@
 
   }
   
+
+
+
+  
   body, .quote-input {
     font-family: 'SF Mono', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  header {
+    padding: 3rem 0 2rem 0;      
+    
+    align-items: center;  
+    margin: 1.2rem 0 0 0;
+  }
+
+  .title {  
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    font-size: 3em;
   }
 
   
@@ -88,6 +113,17 @@
   }
   }
 
+
+  .faderOut{
+    animation: fadeOut ease 1s;
+    -webkit-animation: fadeOut ease 1s;
+  }
+
+  .faderIn{
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
   #changeText {
     opacity: 1;
     transition: opacity 2s;
@@ -99,18 +135,21 @@
   
   .container {
     background-color: white;
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    width: 700px;
-    max-width: 90%;
-    margin: 0 auto;
+    
+    font-size: 1.25em;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+    max-width: 80rem;   
+    margin: auto;  
+    border-radius: 1em;  
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
   }
 
   .options {
-    position: absolute;
+    display: flex;
+    justify-content: center;
     background-color: white;
     margin-top: 8rem;
     padding: 1rem;
@@ -119,10 +158,38 @@
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
   }
+
+
+  .switch {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+}
+
+  .switch:checked{
+    background-color:#404040;
+    color:blue;
+}
+  .success {color: white;}
+
+
+  .stats {
+    font-size: 1.25em;  
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+    max-width: 80rem;   
+    margin: auto;  
+    border-radius: 1em;  
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
   
   .timer {
-    position: absolute;
-    top: 10rem;
+
     font-size: 3rem;
     color: white;
     font-weight: bold;
@@ -131,8 +198,7 @@
   }
 
   .acc {
-    position: absolute;
-    top: 15rem;
+
     font-size: 3rem;
     color: white;
     font-weight: bold;
@@ -150,8 +216,6 @@
 
 
   .wpm {
-    position: absolute;
-    top: 5rem;
     font-size: 3rem;
     color: white;
     font-weight: bold;
@@ -159,6 +223,16 @@
     -webkit-animation: fadeIn ease 1s;
     
   }
+
+
+  .mode {
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
 
 
 
@@ -191,7 +265,7 @@
     font-size: 1rem;
     border-radius: 0.3rem;
     text-align: center;
-    display: inline-block;
+    display: flex;
     margin: 0 auto;
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
@@ -204,7 +278,7 @@
   }
 
   .redo{
-    margin: 0 auto;
+    margin: auto;
   }
 
 
@@ -229,33 +303,8 @@
     background-color: lightgray;
   }
 
- .switch {
-    position: absolute;
-    top: 2rem;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-}
-
-  .switch:checked{
-    background-color:#404040;
-    color:blue;
-
-}
-  .success {color: white;}
 
 
 
 
-  .mode {
-    position: absolute;
-    top: 15rem;
-    font-size: 3rem;
-    color: white;
-    font-weight: bold;
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-  }
 
