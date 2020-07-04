@@ -58,7 +58,7 @@ var lengthLimit = 350;
 
 //-------------------------------------
 // init values of stats 
-timerElement.innerHTML = 'time: ' + 60 + 's';
+timerElement.innerHTML = 60 + 's';
 wpmElement.innerHTML = 'WPM: ' + '00';
 modeElement.innerHTML = 'mode: timed';
 lengthSelElement.disabled = true;
@@ -224,6 +224,9 @@ let newDate;
 var goodList = [];
 var badList = [];
 
+
+
+
 function analysis() { 
   var elapsed = (newDate - oldDate) / 1000;
   var accuracy = correctWords / currentQuote.length;
@@ -244,12 +247,20 @@ function analysis() {
 }
 
 
+
+
+
+
+
+
+
+
+
 function renderResults() { 
   //quoteInputElement.value = '';
   analysis();
   quoteInputElement.disabled = true;
 }
-
 
 function scrollText() {
 
@@ -268,14 +279,14 @@ var myTimer;
      var c = timeLimit;
      function myClock() {
        timerElement.classList.add('faderOut');
-       timerElement.innerHTML = 'time: ' + --c + 's';
+       timerElement.innerHTML = --c + 's';
        timerElement.classList.remove('faderOut');
        timerElement.classList.add("faderIn");
       // timerElement.classList.remove('hide')
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (c == 0) {
          clearInterval(myTimer);
-         timerElement.innerHTML = 'finito';
+         timerElement.innerHTML = '00';
          quoteInputElement.disabled = true;
        }
      }
@@ -293,11 +304,11 @@ var state = true;
      myTimer2 = setInterval(myClockup, 1000);
      var c = 0;
      function myClockup() {
-       timerElement.innerHTML = 'time: ' + ++c + 's';
+       timerElement.innerHTML = ++c + 's';
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (state == false) {
          clearInterval(myTimer2);
-         timerElement.innerHTML = 'finito';
+         timerElement.innerHTML = '00';
          // might not need this line if the burst closes it 
          //quoteInputElement.disabled = true;
        }
@@ -411,7 +422,7 @@ function reset(){
 
   if (modeSelElement.value == 'burst'){
     
-    timerElement.innerHTML = 'time: N/A';
+    timerElement.innerHTML = 'N/A';
     timeSelElement.disabled = true;
     lengthSelElement.disabled = false;
     if (lengthSelElement.value == '10'){
@@ -427,7 +438,7 @@ function reset(){
     
   }
   else{
-    timerElement.innerHTML = 'time: ' + timeSelElement.value
+    timerElement.innerHTML = timeSelElement.value + 's'
     timeLimit = parseInt(timeSelElement.value);
     timeSelElement.disabled = false;
     lengthSelElement.disabled = true;

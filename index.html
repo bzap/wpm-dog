@@ -21,28 +21,19 @@
 </header>
 
 <body>
-  <div class="stats" id="stats">
-    <div class="wpm" id="wpm"></div>
-    <div class="timer" id="timer"></div>
-    <div class="acc" id="timer"></div>
-    <div class="mode" id="mode"></div>
-    <label class="switch">
-      <input type="checkbox" id="checkbox" onclick="checkBox()"><span>case-sensitive</span>
-    </label>
-  </div>
+
 
   <div class="container">
     <div class="quote-display" id="quoteDisplay"></div>
-    <button id="redo" onclick="reset()" tabindex="2">restart</button>
-    <textarea id="quoteInput" class="quote-input" autofocus></textarea>
+
+    <div class="input">
+      <div class="timer" id="timer"></div>  
+      <textarea id="quoteInput" class="quote-input" autofocus></textarea>
+      <button id="redo" onclick="reset()" tabindex="2">restart</button>
+    </div>
   </div>
 
   <div class ="options">
-    <select id="lengthSelection" onchange="lengthChange()">
-      <option value="10">10 words</option>
-      <option value="50">50 words</option>
-      <option value="200">200 words</option>
-    </select>   
     <select id="modeSelection" onchange="modeChange()">
       <option value="timed">timed</option>
       <option value="burst">burst</option>
@@ -53,7 +44,27 @@
       <option value="30">30 seconds</option>
       <option value="10">10 seconds</option>
     </select>
+    <select id="lengthSelection" onchange="lengthChange()">
+      <option value="10">10 words</option>
+      <option value="50">50 words</option>
+      <option value="200">200 words</option>
+    </select>   
+
+
+
+    <label class="switch">
+      <input type="checkbox" id="checkbox" onclick="checkBox()"><span>case-sensitive</span>
+    </label>
   </div>
+
+  <div class="stats" id="stats">
+    <div class="wpm" id="wpm"></div>
+
+    <div class="acc" id="timer"></div>
+    <div class="mode" id="mode"></div>
+  </div>
+
+
 
 </body>
 

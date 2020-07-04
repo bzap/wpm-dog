@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 70vh;
     margin: 0;
     background-color: #1E0555;
 
@@ -135,23 +135,78 @@
   
   .container {
     background-color: white;
-    
-    font-size: 1.25em;  
     display: flex;
     align-items: center;
     flex-direction: column;  
-    max-width: 80rem;   
+    max-width: 60rem;   
     margin: auto;  
     border-radius: 1em;  
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
   }
 
+  .quote-display {
+    padding: 1.5rem 2.25rem;  
+    height: 4.4em;
+    line-height: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    overflow: hidden;
+    margin: 0 auto;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+
+  }
+
+
+
+  .input{
+    display: flex;
+    width: 100%;    
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    
+  }
+
+  .timer {
+    display: block;
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
+  .quote-input {
+    background-color: transparent;
+    border: 2px solid rgb(75, 74, 74);
+    outline: none;
+    height: 2.5rem;
+    resize: none;
+    padding: .5rem .5rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    text-align: center;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+
+
+  .redo{
+    width: 10px;
+  }
+
+
   .options {
     display: flex;
     justify-content: center;
     background-color: white;
-    margin-top: 8rem;
     padding: 1rem;
     border-radius: 0.5rem;
     max-width: 90%;
@@ -162,7 +217,7 @@
 
   .switch {
     font-size: 14px;
-    color: white;
+    color: black;
     font-weight: bold;
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
@@ -188,14 +243,7 @@
   }
 
   
-  .timer {
 
-    font-size: 3rem;
-    color: white;
-    font-weight: bold;
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-  }
 
   .acc {
 
@@ -236,40 +284,7 @@
 
 
 
-  .quote-display {
-    margin-bottom: 1rem;
-    margin-left: calc(1rem + 2px);
-    margin-right: calc(1rem + 2px);
-    height: 3em;
-    line-height: 1.5em;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    overflow: hidden;
-    margin: 0 auto;
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
 
-  }
-
-
-  
-
-  .quote-input {
-    background-color: transparent;
-    border: 2px solid rgb(75, 74, 74);
-    outline: none;
-    height: 2.5rem;
-    resize: none;
-    padding: .5rem .5rem;
-    font-size: 1rem;
-    border-radius: 0.3rem;
-    text-align: center;
-    display: flex;
-    margin: 0 auto;
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-  }
 
   span {
     display: inline-block;
@@ -277,9 +292,7 @@
     
   }
 
-  .redo{
-    margin: auto;
-  }
+ 
 
 
   .quote-input:focus {
