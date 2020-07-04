@@ -138,7 +138,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;  
-    max-width: 60rem;   
+    max-width: 50rem;   
     margin: auto;  
     border-radius: 1em;  
 
@@ -212,8 +212,27 @@
     padding: 1rem;
     border-radius: 0.5rem;
     max-width: 90%;
+    margin-top: 2rem;
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
+    
+  }
+
+
+  /* need to fix these */ 
+  .timeSelection{ 
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .modeSelection{ 
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .lengthSelection{ 
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
 
@@ -221,6 +240,7 @@
     font-size: 14px;
     color: black;
     font-weight: bold;
+
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
 }
@@ -238,7 +258,7 @@
     align-items: center;
     flex-direction: column;  
     max-width: 80rem;   
-    margin: auto;  
+    margin-top: 2rem;  
     border-radius: 1em;  
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
@@ -282,6 +302,22 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
+
+  .correctChar{ 
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
+
+  .incorrectChar{ 
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+  }
 
 
 

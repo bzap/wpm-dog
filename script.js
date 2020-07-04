@@ -9,11 +9,11 @@ const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const wpmElement = document.getElementById('wpm')
 const timeSelElement = document.getElementById('timeSelection')
-const modeElement = document.getElementById('mode')
 const modeSelElement = document.getElementById('modeSelection')
 const lengthSelElement = document.getElementById('lengthSelection')
 const caseElement = document.getElementById('checkbox')
-
+const correctElement = document.getElementById('correctChar')
+const incorrectElement = document.getElementById('incorrectChar')
 
 const accElement = document.getElementById('acc')
 //const accElement = document.getElementById('acc')
@@ -64,9 +64,10 @@ var lengthLimit = 350;
 timerElement.innerHTML = 60 + 's';
 wpmElement.innerHTML = '// ' + 'WPM  ' + '' + '// ' + 'gross WPM';
 
-modeElement.innerHTML = 'mode: timed';
-accElement.innerHTML = '// ' + 'acc';
+accElement.innerHTML = '// % ' + 'acc';
 lengthSelElement.disabled = true;
+incorrectElement.innerHTML = 'correct chars: 00';
+correctElement.innerHTML = 'incorrect chars: 00';
 
 
 
@@ -369,13 +370,21 @@ quoteInputElement.addEventListener('keydown', e => {
     event.preventDefault();
     //  the timed version and the word limit version both need scroll like this 
     try{
+
       if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
-        var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
-        quoteDisplayElement.scrollBy({
-          top: newOffset,
-          left: 0,
-          behavior: 'smooth'
-        });
+        // change if the max width of container is changing 
+        if ((currentQuote.length - spaceCount) < 10){ 
+        }
+        else{
+          var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
+          quoteDisplayElement.scrollBy({
+            top: newOffset,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }
+
+
       }
     }
     catch (TypeError){  
@@ -423,11 +432,9 @@ function reset(){
   stopClock();
 
 
-  modeElement.innerHTML = 'mode: ' + modeSelElement.value;
-
   if (modeSelElement.value == 'burst'){
     
-    timerElement.innerHTML = 'N/A';
+    timerElement.innerHTML = '//s';
     timeSelElement.disabled = true;
     lengthSelElement.disabled = false;
     if (lengthSelElement.value == '10'){
