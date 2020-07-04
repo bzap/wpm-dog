@@ -13,6 +13,9 @@ const modeElement = document.getElementById('mode')
 const modeSelElement = document.getElementById('modeSelection')
 const lengthSelElement = document.getElementById('lengthSelection')
 const caseElement = document.getElementById('checkbox')
+
+
+const accElement = document.getElementById('acc')
 //const accElement = document.getElementById('acc')
 
 
@@ -59,8 +62,10 @@ var lengthLimit = 350;
 //-------------------------------------
 // init values of stats 
 timerElement.innerHTML = 60 + 's';
-wpmElement.innerHTML = 'WPM: ' + '00';
+wpmElement.innerHTML = '// ' + 'WPM  ' + '' + '// ' + 'gross WPM';
+
 modeElement.innerHTML = 'mode: timed';
+accElement.innerHTML = '// ' + 'acc';
 lengthSelElement.disabled = true;
 
 
