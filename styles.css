@@ -375,7 +375,7 @@ span.choose {
   width: 300px;
   display: inline-block;
   background-color: #3b4252;
-  border-radius: 2px;
+  border-radius: 0.5rem;
   transition: all .5s ease;
   position: relative;
   font-size: 14px;
