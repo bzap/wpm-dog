@@ -126,7 +126,7 @@ $('.dropdown .toggle').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
   // if this css is white we can do green else red
-  $('.dropdown .toggle').css({ 'background-color': '#a3be8c'}).animate(1000);
+ // $('.dropdown .toggle').css({ 'background-color': '#a3be8c'}).animate(1000);
 });
 
 $('.dropdown').focusout(function () {

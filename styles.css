@@ -362,6 +362,51 @@
   display: flex;
 }
 
+.case-button {
+  position: relative;
+  background-color: #3b4252;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  color: white;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.case-button:hover {
+  box-shadow: 0 0 12px #3b4252
+}
+
+.case-button:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.case-button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+  background: #90EE90;
+}
+
+
 /*Styling Selectbox*/
 .dropdown {
   margin-left: 10px;
@@ -379,20 +424,6 @@
 }
 
 
-.dropdown .toggle {
-  cursor: pointer;
-  display: block;
-  padding: 10px
-}
-.dropdown .toggle > i {
-  font-size: 13px;
-  color: #888;
-  cursor: pointer;
-  transition: all .3s ease-in-out;
-  float: right;
-  line-height: 20px
-}
-
 
 .dropdown .select {
     cursor: pointer;
@@ -407,9 +438,7 @@
     float: right;
     line-height: 20px
 }
-.dropdown:hover {
-    box-shadow: 0 0 12px #3b4252
-}
+
 .dropdown:active {
     background-color: #4f596f
 }
