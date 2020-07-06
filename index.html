@@ -35,8 +35,11 @@
     <div class="input">
       <div class="timer" id="timer"></div>  
       <textarea id="quoteInput" class="quote-input" autofocus></textarea>
-      <button id="redo" onclick="reset()" tabindex="2">restart</button>
-      <button id="refresh-button" class="refresh-end" onclick="refreshContent()">refresh <img id="refresh-icon" class="refresh-start" src="./refresh-icon.svg" height="12" /></button>
+      <div class="buttons">
+        <button class="btn-white" onclick="reset()">
+          <img class="icon" src="./reset.png">
+        </button>
+      </div>
     </div>
   </div>
 
@@ -82,7 +85,7 @@
 
       <label class="switch">
         <input type="checkbox">
-        <span class="slider" data="case-scramble"></span>
+        <span class="slider" id="slider" data="case-scramble"></span>
       </label>
 
 </div>

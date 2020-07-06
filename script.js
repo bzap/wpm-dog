@@ -11,7 +11,7 @@ const wpmElement = document.getElementById('wpm')
 const timeSelElement = document.getElementById('timeSelection')
 const modeSelElement = document.getElementById('modeSelection')
 const lengthSelElement = document.getElementById('lengthSelection')
-const caseElement = document.getElementById('checkbox')
+const caseElement = document.getElementById('slider')
 const correctElement = document.getElementById('correctChar')
 const incorrectElement = document.getElementById('incorrectChar')
 
@@ -118,24 +118,8 @@ function checkBox(){
   reset();
 }
 
-function refreshContent() {
 
-  let refreshIcon = document.getElementById("refresh-icon")
-  let refreshButton = document.getElementById("refresh-button")
-  refreshButton.removeAttribute("class")
-  refreshButton.disabled = true
-  
-  setTimeout(function () {
-  
-  refreshIcon.addEventListener("animationiteration", function () {
-  refreshButton.setAttribute("class", "refresh-end")
-  refreshButton.disabled = false
-  refreshIcon.removeEventListener("animationiteration")
-  });
-  
-  }, 100)
-  
-  }
+
 
 function theFunction(){
   console.log("lol");
