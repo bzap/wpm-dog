@@ -16,6 +16,9 @@ const correctElement = document.getElementById('correctChar')
 const incorrectElement = document.getElementById('incorrectChar')
 
 const accElement = document.getElementById('acc')
+
+
+const buttElement = document.getElementById('case-button')
 //const accElement = document.getElementById('acc')
 
 
@@ -114,6 +117,26 @@ function lengthChange(){
 function checkBox(){
   reset();
 }
+
+function theFunction(){
+  console.log("lol");
+  document.body.style.background = color;
+
+}
+
+
+var white = false
+var bgcolor;
+$(document).ready(function () {
+    $("case-button").click(function () {
+        if (white = !white) {
+            bgcolor = $(this).css('backgroundColor');
+            $(this).css("background-color", "#FFF");
+        } else {
+            $(this).css("background-color", bgcolor);
+        }
+    });
+});
 
 /*Dropdown Menu*/
 $('.dropdown').click(function () {
