@@ -118,6 +118,25 @@ function checkBox(){
   reset();
 }
 
+function refreshContent() {
+
+  let refreshIcon = document.getElementById("refresh-icon")
+  let refreshButton = document.getElementById("refresh-button")
+  refreshButton.removeAttribute("class")
+  refreshButton.disabled = true
+  
+  setTimeout(function () {
+  
+  refreshIcon.addEventListener("animationiteration", function () {
+  refreshButton.setAttribute("class", "refresh-end")
+  refreshButton.disabled = false
+  refreshIcon.removeEventListener("animationiteration")
+  });
+  
+  }, 100)
+  
+  }
+
 function theFunction(){
   console.log("lol");
   document.body.style.background = color;

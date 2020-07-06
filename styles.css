@@ -12,10 +12,6 @@
     outline: 0;
   }
   
-
-
-
-  
   body, .quote-input {
     font-family: 'SF Mono', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
@@ -176,9 +172,9 @@
 
   .timer {
     display: block;
+    padding: 5px;
     font-size: 2rem;
     color: white;
-    font-weight: bold;
     font-size: 25px;
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
@@ -187,24 +183,35 @@
   .quote-input {
     background-color: #3b4252;
     color: white;
-    border: 1px solid #3b4252;
+    border: 2px solid #3b4252;
     outline: none;
     height: 2.5rem;
     resize: none;
     padding: .5rem .5rem;
-    font-size: 1rem;
-    border-radius: 0.3rem;
+    font-size: 18px;
+    border-radius: 0.5rem;
     text-align: center;
+    transition: all .5s ease;
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
     margin-left: 10px;
     margin-right: 10px;
+    white-space:nowrap;
+    overflow:hidden;
+    
   }
 
 
-  .redo{
-    width: 10px;
+  .quote-input:focus {
+    border-color: #4f596f;
+    
   }
+
+  .quote-input:hover{
+    box-shadow: 0 0 12px #3b4252
+  }
+
+
 
 
   .options {
@@ -222,20 +229,7 @@
 
 
 
-  .switch {
-    background-color: #3b4252;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-    border: 1px solid #3b4252;
-    border-radius: 0.3px;
-    animation: fadeIn ease 1s;
-    -webkit-animation: fadeIn ease 1s;
-}
 
-  .switch:checked{
-    background-color:#404040;
-    color:blue;
 }
   .success {color: white;}
 
@@ -320,9 +314,7 @@
  
 
 
-  .quote-input:focus {
-    border-color: white;
-  }
+
 
   
   .correct {
@@ -339,6 +331,8 @@
 
   
   .highlight{
+    
+    transition-duration: 0.1s;
     color: #fbdce2;
     background-color: #4f596f;
   }
@@ -362,29 +356,48 @@
   display: flex;
 }
 
-.case-button {
+
+.switch {
   position: relative;
-  background-color: #3b4252;
-  text-align: center;
+  display: inline-block;
+  width: 150px;
+  
+
+}
+
+.switch input {
+  display:relative;}
+
+.slider {
   border-radius: 0.5rem;
-
-  color: white;
-  height: 100%;
-  text-align: center;
-  padding: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
+  position: absolute;
   cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3b4252;
+  -webkit-transition: .4s;
+  transition: .4s;
+  justify-content: center;
 }
 
-.case-button:hover {
-  box-shadow: 0 0 12px #3b4252
+.slider:before {
+  content: attr(data);
+  color: white;
+  background-color: trans;
+  -webkit-transition: .4s;
+  transition: .4s;
+  
 }
 
+input:checked + .slider {
+  background-color: #4f596f;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4f596f;
+}
 
 
 
@@ -463,3 +476,20 @@
 .dropdown .dropdown-menu li:active {
     background-color: #4f596f
 }
+
+
+
+
+@keyframes rotate {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+    }
+  
+.refresh-start {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  
+  }
