@@ -392,10 +392,10 @@
     line-height: 20px
 }
 .dropdown:hover {
-    box-shadow: 0 0 8px #3b4252
+    box-shadow: 0 0 12px #3b4252
 }
 .dropdown:active {
-    background-color: #f8f8f8
+    background-color: #4f596f
 }
 .dropdown.active:hover,
 .dropdown.active {
