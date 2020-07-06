@@ -397,14 +397,14 @@ span.choose {
     line-height: 20px
 }
 .dropdown:hover {
-    box-shadow: 0 0 4px rgb(204, 204, 204)
+    box-shadow: 0 0 8px #3b4252
 }
 .dropdown:active {
     background-color: #f8f8f8
 }
 .dropdown.active:hover,
 .dropdown.active {
-    box-shadow: 0 0 4px rgb(204, 204, 204);
+    box-shadow: 0 0 4px #3b4252;
     border-radius: 2px 2px 0 0;
     background-color: #3b4252
 }
@@ -417,7 +417,7 @@ span.choose {
     width: 100%;
     left: 0;
     margin-top: 1px;
-    box-shadow: 0 1px 2px rgb(204, 204, 204);
+    box-shadow: 0 1px 2px #3b4252;
     border-radius: 0 1px 2px 2px;
     overflow: hidden;
     display: none;
