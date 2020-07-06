@@ -357,7 +357,6 @@
   border-radius: 1rem;
 
 
-  width: 500px;
   margin: 50px auto 0;
   text-align: center;
   display: flex;
@@ -367,7 +366,7 @@
 .dropdown {
   margin-left: 10px;
   margin-right: 10px;
-  width: 300px;
+  width: 150px;
   display: inline-block;
   background-color: #3b4252;
   border-radius: 0.5rem;
@@ -376,8 +375,25 @@
   font-size: 14px;
   color: white;
   height: 100%;
-  text-align: left
+  text-align: center
 }
+
+
+.dropdown .toggle {
+  cursor: pointer;
+  display: block;
+  padding: 10px
+}
+.dropdown .toggle > i {
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  float: right;
+  line-height: 20px
+}
+
+
 .dropdown .select {
     cursor: pointer;
     display: block;

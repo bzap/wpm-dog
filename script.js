@@ -119,12 +119,23 @@ function checkBox(){
 $('.dropdown').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
-  $(this).find('.dropdown-menu').slideToggle(300);
+  $(this).find('.dropdown-menu').slideToggle(250);
 });
+
+$('.dropdown .toggle').click(function () {
+  $(this).attr('tabindex', 1).focus();
+  $(this).toggleClass('active');
+  // if this css is white we can do green else red
+  $('.dropdown .toggle').css({ 'background-color': '#a3be8c'}).animate(1000);
+});
+
 $('.dropdown').focusout(function () {
   $(this).removeClass('active');
-  $(this).find('.dropdown-menu').slideUp(300);
+  $(this).find('.dropdown-menu').slideUp(250);
 });
+
+
+
 $('.dropdown .dropdown-menu li').click(function () {
   $(this).parents('.dropdown').find('span').text($(this).text());
   $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
