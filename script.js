@@ -141,18 +141,14 @@ $(document).ready(function () {
     });
 });
 
+
+var input;
+var state; 
 /*Dropdown Menu*/
 $('.dropdown').click(function () {
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
   $(this).find('.dropdown-menu').slideToggle(250);
-});
-
-$('.dropdown .toggle').click(function () {
-  $(this).attr('tabindex', 1).focus();
-  $(this).toggleClass('active');
-  // if this css is white we can do green else red
- // $('.dropdown .toggle').css({ 'background-color': '#a3be8c'}).animate(1000);
 });
 
 $('.dropdown').focusout(function () {
@@ -162,17 +158,23 @@ $('.dropdown').focusout(function () {
 
 
 
+
 $('.dropdown .dropdown-menu li').click(function () {
   $(this).parents('.dropdown').find('span').text($(this).text());
   $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
 });
 /*End Dropdown Menu*/
 $('.dropdown-menu li').click(function () {
-var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
-msg = '<span class="msg">Hidden input value: ';
-$('.msg').html(msg + input + '</span>');
+input = $(this).parents('.dropdown').find('input').val();
+reset();
+//$(this).find('.dropdown-menu').slideToggle(250);
 }); 
 
+console.log(input);
+
+function focusOnMe(){
+  quoteInputElement.focus();
+}
 
 function makeSentence(){
   var length = lengthLimit;
@@ -489,20 +491,22 @@ quoteInputElement.addEventListener('keydown', e => {
 function reset(){
   stopClock();
 
+  
 
-  if (modeSelElement.value == 'burst'){
+
+  if (input == 'burst'){
     
     timerElement.innerHTML = '//s';
-    timeSelElement.disabled = true;
-    lengthSelElement.disabled = false;
-    if (lengthSelElement.value == '10'){
+    //timeSelElement.disabled = true;
+    //lengthSelElement.disabled = false;
+    if (input == '10 words'){
       lengthLimit = 10;
       console.log("what");
     }
-    else if (lengthSelElement.value == '50'){
+    else if (input == '50 words'){
       lengthLimit = 50;
     }
-    else if (lengthSelElement.value == '200'){
+    else if (input == '200 words'){
       lengthLimit = 200;
     }
     
@@ -527,7 +531,6 @@ function reset(){
   totalChar = 0;
   goodChar = 0;
   quoteInputElement.disabled = false;
-  quoteInputElement.focus();
   quoteInputElement.value = '';
   quoteDisplayElement.innerHTML = '';
   //quoteDisplayElement.scrollTo(0,0);
@@ -544,6 +547,9 @@ function reset(){
   else {
     makeSentence();
   }
+
+
+
   renderText();
 }
 
