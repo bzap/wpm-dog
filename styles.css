@@ -259,6 +259,16 @@
     
   }
 
+  .modebtn{ 
+    background-color: black;
+    outline: transparent;
+  }
+
+  .modebtn:hover{
+    box-shadow: 0 0 12px #3b4252;
+    transition: all .2s ease-in-out;
+    transition-duration: 0.5s;
+  }
 
 
 

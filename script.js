@@ -144,8 +144,14 @@ $(document).ready(function () {
 
 var input;
 var state; 
+
+
+var mode; 
+var time;
+var words;
 /*Dropdown Menu*/
 $('.dropdown').click(function () {
+  // need to add a check here to that it focuses on thsi specifically 
   $(this).attr('tabindex', 1).focus();
   $(this).toggleClass('active');
   $(this).find('.dropdown-menu').slideToggle(250);
@@ -166,20 +172,29 @@ $('.dropdown .dropdown-menu li').click(function () {
 /*End Dropdown Menu*/
 $('.dropdown-menu li').click(function () {
 input = $(this).parents('.dropdown').find('input').val();
+if (input == 'burst' || input == 'timed' || input == quote){
+  mode = input; 
+}
+else if (input == '10' || input == '30' || input == '60'){
+  time = input;
+}
+else if (input == '10 words' || input == '50 words' || input == '200 words'){
+  wordNum = input;
+}
 reset();
 //$(this).find('.dropdown-menu').slideToggle(250);
 }); 
-
-console.log(input);
 
 function focusOnMe(){
   quoteInputElement.focus();
 }
 
 function makeSentence(){
+  console.log(lengthLimit);
   var length = lengthLimit;
   var word_list = [];
   var i = 0;
+
   while (i < length){
     random_number = (Math.floor(Math.random() * 3000) + 1);
     word_list.push(words[random_number]);
@@ -187,6 +202,7 @@ function makeSentence(){
   }
   currentQuote = word_list;
   //console.log(word_list);
+  console.log(word_list);
   return(word_list);
   
 
@@ -494,26 +510,32 @@ function reset(){
   
 
 
-  if (input == 'burst'){
+  if (mode == 'burst' ){
     
     timerElement.innerHTML = '//s';
-    //timeSelElement.disabled = true;
-    //lengthSelElement.disabled = false;
-    if (input == '10 words'){
+    timeSelElement.disabled = true;
+    lengthSelElement.disabled = false;
+    if (wordNum == '10 words'){
+      console.log(wordNum)
       lengthLimit = 10;
-      console.log("what");
+      console.log("yeahdfsf");
+      console.log(lengthLimit);
     }
-    else if (input == '50 words'){
+    else if (wordNum == '50 words'){
       lengthLimit = 50;
     }
-    else if (input == '200 words'){
+    else if (wordNum == '200 words'){
       lengthLimit = 200;
+      console.log(lengthLimit);
     }
     
   }
-  else{
-    timerElement.innerHTML = timeSelElement.value + 's'
-    timeLimit = parseInt(timeSelElement.value);
+  else {
+    console.log(timeLimit);
+
+    timerElement.innerHTML = time + 's'
+    timeLimit = parseInt(time);
+    
     timeSelElement.disabled = false;
     lengthSelElement.disabled = true;
     lengthLimit = 350;
@@ -540,8 +562,8 @@ function reset(){
     left: 0,
     behavior: 'smooth'
   });
-
-  if (caseElement.checked == true){
+  console.log(caseElement.value);
+  if (caseElement.pressed == true){
     capWords(makeSentence()); 
   } 
   else {
