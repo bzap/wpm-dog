@@ -383,6 +383,9 @@ var totalChar = 0;
 var goodChar = 0;
 var firstLetter = currentQuote[0][0];
 mode = 'timed';
+
+
+
 quoteInputElement.addEventListener('keydown', e => {
   totalChar++;
 
@@ -397,8 +400,6 @@ quoteInputElement.addEventListener('keydown', e => {
     clock();
     // subtract the date time and if it's 10 seconds then lol
   }  
-
-
   var str1 = quoteInputElement.value;
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
   var match = str2.match(str1);
@@ -416,13 +417,10 @@ quoteInputElement.addEventListener('keydown', e => {
     quoteDisplayElement.childNodes[spaceCount].classList.remove('incorrect');
   }
   
-
-
   if (e.key == ' ') {
     event.preventDefault();
     //  the timed version and the word limit version both need scroll like this 
     try{
-
       if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
         // change if the max width of container is changing 
         if ((currentQuote.length - spaceCount) < 10){ 
@@ -435,18 +433,13 @@ quoteInputElement.addEventListener('keydown', e => {
             behavior: 'smooth'
           });
         }
-
-
       }
     }
     catch (TypeError){  
     }
-  
     if (quoteInputElement.value == '') {
       quoteInputElement.value = '';
     }
-    //console.log(currentQuote);
-    //console.log(spaceCount);
     else if (quoteInputElement.value != '') {
       try{
         quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
@@ -473,8 +466,6 @@ quoteInputElement.addEventListener('keydown', e => {
       }
     }
   }
-  
-
 })
 
 
@@ -529,8 +520,7 @@ $('.dropdown-menu li').click(function () {
       console.log(lengthLimit);
       reset();
     }
-    
-    
+  
   }
   else if (mode == 'timed') {
     if (typeof time == 'undefined'){
@@ -543,10 +533,7 @@ $('.dropdown-menu li').click(function () {
     reset();
     console.log(typeof time);
     timerElement.innerHTML = timeLimit + 's'
-    
-    
-    
-    
+
   }
 //$(this).find('.dropdown-menu').slideToggle(250);
 }); 
@@ -585,11 +572,9 @@ function reset(){
   else {
     makeSentence();
   }
-
-
-
   renderText();
 }
+
 
 
 renderText();
