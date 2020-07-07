@@ -502,21 +502,26 @@ $('.dropdown-menu li').click(function () {
   stopClock();
   if (mode == 'burst' ){
     reset();
+    lengthLimit = 10;
     timerElement.innerHTML = '//s';
     timeSelElement.disabled = true;
     lengthSelElement.disabled = false;
     if (wordNum == '10 words'){
+      
       console.log(wordNum)
       lengthLimit = 10;
       console.log("yeahdfsf");
       console.log(lengthLimit);
+      reset();
     }
     else if (wordNum == '50 words'){
       lengthLimit = 50;
+      reset();
     }
     else if (wordNum == '200 words'){
       lengthLimit = 200;
       console.log(lengthLimit);
+      reset();
     }
     
     
@@ -528,6 +533,7 @@ $('.dropdown-menu li').click(function () {
     else{
       timeLimit = parseInt(time);
     }
+    lengthLimit = 350;
     reset();
     console.log(typeof time);
     timerElement.innerHTML = timeLimit + 's'
@@ -535,7 +541,7 @@ $('.dropdown-menu li').click(function () {
     
     timeSelElement.disabled = false;
     lengthSelElement.disabled = true;
-    lengthLimit = 350;
+    
     
   }
 //$(this).find('.dropdown-menu').slideToggle(250);
