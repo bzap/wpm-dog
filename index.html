@@ -51,7 +51,7 @@
           <span>timed</span>
           <i class="fa fa-chevron-left"></i>
         </div>
-        <input type="hidden" name="gender">
+        <input type="hidden" name="moding">
         <ul class="dropdown-menu">
           <li id="timed">timed</li>
           <li id="burst">burst</li>
@@ -63,7 +63,7 @@
           <span>60 seconds</span>
           <i class="fa fa-chevron-left"></i>
         </div>
-        <input type="hidden" name="gender">
+        <input type="hidden" name="timing">
         <ul class="dropdown-menu">
           <li id="60">60 seconds</li>
           <li id="30">30 seconds</li>
@@ -75,7 +75,7 @@
           <span>10 words</span>
           <i class="fa fa-chevron-left"></i>
         </div>
-        <input type="hidden" name="gender">
+        <input type="hidden" name="lengthing">
         <ul class="dropdown-menu">
           <li id="10 words">10 words</li>
           <li id="50 words">50 words</li>
@@ -92,31 +92,21 @@
 
 
 
-  <div class ="options">
-    <select class = "modebtn" id="modeSelection" onchange="modeChange()">
-      <option value="timed">timed</option>
-      <option value="burst">burst</option>
-      <option value="quote">quote</option>
-    </select>
-    <select class = "timebtn" id="timeSelection" onchange="timeChange()">
-      <option value="60">60 seconds</option>
-      <option value="30">30 seconds</option>
-      <option value="10">10 seconds</option>
-    </select>
-    <select class = "lenbtn" id="lengthSelection" onchange="lengthChange()">
-      <option value="10">10 words</option>
-      <option value="50">50 words</option>
-      <option value="200">200 words</option>
-    </select>   
 
 
   </div>
 
   <div class="stats" id="stats">
-    <div class="wpm" id="wpm"></div>
-    <div class="acc" id="acc"></div>
-    <div class="correctChar" id="correctChar"></div>
-    <div class="incorrectChar" id="incorrectChar"></div>
+    <div class ="wpm-stats"> 
+      <div class="wpm" id="wpm"></div>
+      <div class="gwpm" id="gwpm"></div>
+    </div>
+
+    <div class ="other">  
+      <div class="acc" id="acc"></div>
+      <div class="correctChar" id="correctChar"></div>
+      <div class="incorrectChar" id="incorrectChar"></div>
+    </div>
   </div>
 
 

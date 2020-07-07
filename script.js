@@ -8,12 +8,10 @@ const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
 const wpmElement = document.getElementById('wpm')
-const timeSelElement = document.getElementById('timeSelection')
-const modeSelElement = document.getElementById('modeSelection')
-const lengthSelElement = document.getElementById('lengthSelection')
 const caseElement = document.getElementById('slider')
 const correctElement = document.getElementById('correctChar')
 const incorrectElement = document.getElementById('incorrectChar')
+const gwpmElement = document.getElementById('gwpm')
 
 const accElement = document.getElementById('acc')
 
@@ -67,10 +65,9 @@ var flag;
 //-------------------------------------
 // init values of stats 
 timerElement.innerHTML = 60 + 's';
-wpmElement.innerHTML = '// ' + 'WPM  ' + '' + '// ' + 'gross WPM';
-
-accElement.innerHTML = '// % ' + 'acc';
-lengthSelElement.disabled = true;
+wpmElement.innerHTML = '100 ' + 'WPM  ';
+gwpmElement.innerHTML = '132 ' + 'gWPM';
+accElement.innerHTML = '93.2% ' + 'acc';
 incorrectElement.innerHTML = 'correct chars: 00';
 correctElement.innerHTML = 'incorrect chars: 00';
 
@@ -515,8 +512,6 @@ $('.dropdown-menu li').click(function () {
     reset();
     lengthLimit = 10;
     timerElement.innerHTML = '//s';
-    timeSelElement.disabled = true;
-    lengthSelElement.disabled = false;
     if (wordNum == '10 words'){
       
       console.log(wordNum)
@@ -550,8 +545,6 @@ $('.dropdown-menu li').click(function () {
     timerElement.innerHTML = timeLimit + 's'
     
     
-    timeSelElement.disabled = false;
-    lengthSelElement.disabled = true;
     
     
   }
@@ -563,6 +556,8 @@ $('.dropdown-menu li').click(function () {
 function reset(){
   stopClock();
 
+  // need to fix this 
+  timerElement.innerHTML = timeLimit + 's'
   correct = 0;
   incorrect = 0; 
   currentQuote = '';
