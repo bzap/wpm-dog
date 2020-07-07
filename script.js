@@ -58,6 +58,8 @@ var timeLimit = 60;
 var lengthLimit = 350;
 
 
+var timeState = false;
+
 var flag;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
@@ -65,9 +67,9 @@ var flag;
 //-------------------------------------
 // init values of stats 
 timerElement.innerHTML = 60 + 's';
-wpmElement.innerHTML = '100 ' + 'WPM  ';
-gwpmElement.innerHTML = '132 ' + 'gWPM';
-accElement.innerHTML = '93.2% ' + 'acc';
+wpmElement.innerHTML = '-- ' + 'WPM  ';
+gwpmElement.innerHTML = '-- ' + 'gWPM';
+accElement.innerHTML = '--.-% ' + 'acc';
 incorrectElement.innerHTML = 'correct chars: 00';
 correctElement.innerHTML = 'incorrect chars: 00';
 
@@ -285,37 +287,48 @@ var badList = [];
 
 
 function analysis() { 
-  var elapsed = (newDate - oldDate) / 1000;
-  var accuracy = correctWords / currentQuote.length;
-  var good = 0;
-  var bad = 0;
-  for (var i = 0; i < goodList.length; i++){
-    good += goodList[i].length;
-  }
 
-  for (var i = 0; i < badList.length; i++){
-    bad += badList[i].length;
-  }
-  console.log(good);
-  console.log(bad);
-  console.log(elapsed);
-  wpmElement.innerHTML = 'WPM: ' + good;
   
 }
 
 
 
-
-
-
-
-
-
-
-
 function renderResults() { 
-  //quoteInputElement.value = '';
-  analysis();
+  var wpm = 0;
+  var gwpm = 0;
+  var acc = 0;
+
+  var elapsed = (newDate - oldDate) / 1000;
+  var accuracy = correctWords / currentQuote.length;
+  var good = 0;
+  var bad = 0;
+
+  for (var i = 0; i < goodList.length; i++){
+    good += goodList[i].length;
+  }
+  for (var i = 0; i < badList.length; i++){
+    bad += badList[i].length;
+  }
+
+
+  if (timeLimit == 60) {
+    wpm = (((good + bad) / 5) / 1) - ((bad / 5) / 1);
+    gwpm = ((good + bad) / 5 / 1);
+  }
+  else if (timeLimit == 30){
+    wpm = (((good + bad) / 5) / 0.5) - ((bad / 5) / 0.5);
+    gwpm = ((good + bad) / 5 / 0.5);
+  }
+  else{
+    wpm = (((good + bad) / 5) / (1 / 6)) - ((bad / 5) / (1 / 6));
+    gwpm = ((good + bad) / 5 / (1 / 6));
+  }
+
+  acc = (good / (good + bad)) * 100;
+
+  wpmElement.innerHTML = wpm.toFixed(0) +  ' WPM';
+  gwpmElement.innerHTML = gwpm.toFixed(0) + ' gWPM';
+  accElement.innerHTML = acc.toFixed(1) + '% acc';
   quoteInputElement.disabled = true;
 }
 
@@ -333,25 +346,23 @@ function scrollText() {
 var myTimer;
    function clock() {
      myTimer = setInterval(myClock, 1000);
-     console.log('JERERER SERSER SE R');
-     console.log(timeLimit);
      var c = timeLimit;
      function myClock() {
-       timerElement.classList.add('faderOut');
        timerElement.innerHTML = --c + 's';
-       timerElement.classList.remove('faderOut');
-       timerElement.classList.add("faderIn");
+       // need to figure out the fading on the clock here maybe?
       // timerElement.classList.remove('hide')
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (c == 0) {
          clearInterval(myTimer);
          timerElement.innerHTML = '00';
          quoteInputElement.disabled = true;
+         renderResults();
        }
      }
    }
   
 function stopClock(){
+
   clearInterval(myTimer);
 }
 
@@ -505,10 +516,7 @@ $('.dropdown-menu li').click(function () {
     timerElement.innerHTML = '//s';
     if (wordNum == '10 words'){
       
-      console.log(wordNum)
       lengthLimit = 10;
-      console.log("yeahdfsf");
-      console.log(lengthLimit);
       reset();
     }
     else if (wordNum == '50 words'){
@@ -517,7 +525,6 @@ $('.dropdown-menu li').click(function () {
     }
     else if (wordNum == '200 words'){
       lengthLimit = 200;
-      console.log(lengthLimit);
       reset();
     }
   
@@ -531,7 +538,6 @@ $('.dropdown-menu li').click(function () {
     }
     lengthLimit = 350;
     reset();
-    console.log(typeof time);
     timerElement.innerHTML = timeLimit + 's'
 
   }
@@ -558,6 +564,8 @@ function reset(){
   quoteInputElement.disabled = false;
   quoteInputElement.value = '';
   quoteDisplayElement.innerHTML = '';
+  wpmElement.innerHTML = '00';
+  gwpmElement.innerHTML = '00';
   //quoteDisplayElement.scrollTo(0,0);
  //add fade animation to replace text instead of this or figure out to make it scroll up 
   quoteDisplayElement.scrollTo({
@@ -565,7 +573,6 @@ function reset(){
     left: 0,
     behavior: 'smooth'
   });
-  console.log(caseElement.value);
   if (flag == true){
     capWords(makeSentence()); 
   } 
