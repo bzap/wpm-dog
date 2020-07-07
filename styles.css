@@ -314,6 +314,17 @@
     
   }
 
+  .wpm:after {
+    font-weight: bold;
+  }
+
+  .wpm.before {
+
+    content:"WPM";
+    font-weight: bold;
+  }
+
+
   .gwpm {
     font-size: 3rem;
     color: white;

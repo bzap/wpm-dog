@@ -67,9 +67,9 @@ var flag;
 //-------------------------------------
 // init values of stats 
 timerElement.innerHTML = 60 + 's';
-wpmElement.innerHTML = '-- ' + 'WPM  ';
-gwpmElement.innerHTML = '-- ' + 'gWPM';
-accElement.innerHTML = '--.-% ' + 'acc';
+wpmElement.innerHTML = '00 ' + 'WPM  ';
+gwpmElement.innerHTML = '00 ' + 'gWPM';
+accElement.innerHTML = '00.0% ' + 'acc';
 incorrectElement.innerHTML = 'correct chars: 00';
 correctElement.innerHTML = 'incorrect chars: 00';
 
@@ -329,7 +329,8 @@ function renderResults() {
   wpmElement.innerHTML = wpm.toFixed(0) +  ' WPM';
   gwpmElement.innerHTML = gwpm.toFixed(0) + ' gWPM';
   accElement.innerHTML = acc.toFixed(1) + '% acc';
-  quoteInputElement.disabled = true;
+  correctElement.innerHTML = 'incorrect chars: ' + bad;
+  incorrectElement.innerHTML = 'correct chars: ' + good;
 }
 
 function scrollText() {
@@ -348,7 +349,14 @@ var myTimer;
      myTimer = setInterval(myClock, 1000);
      var c = timeLimit;
      function myClock() {
-       timerElement.innerHTML = --c + 's';
+       if (c <= 10){
+         timerElement.innerHTML = '0' + --c + 's';
+       }
+
+       else{
+        timerElement.innerHTML = --c + 's';
+       }
+       
        // need to figure out the fading on the clock here maybe?
       // timerElement.classList.remove('hide')
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
@@ -413,7 +421,12 @@ quoteInputElement.addEventListener('keydown', e => {
   }  
   var str1 = quoteInputElement.value;
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
-  var match = str2.match(str1);
+  try{
+    var match = str2.match(str1);
+  }
+  catch(SyntaxError){
+    
+  }
 
  // if (quoteInputElement.value == ''){
  //   quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
@@ -564,8 +577,8 @@ function reset(){
   quoteInputElement.disabled = false;
   quoteInputElement.value = '';
   quoteDisplayElement.innerHTML = '';
-  wpmElement.innerHTML = '00';
-  gwpmElement.innerHTML = '00';
+  wpmElement.innerHTML = '00 ' + 'WPM  ';
+  gwpmElement.innerHTML = '00 ' + 'gWPM';
   //quoteDisplayElement.scrollTo(0,0);
  //add fade animation to replace text instead of this or figure out to make it scroll up 
   quoteDisplayElement.scrollTo({
