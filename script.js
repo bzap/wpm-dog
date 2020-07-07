@@ -423,9 +423,10 @@ quoteInputElement.addEventListener('keydown', e => {
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
   try{
     var match = str2.match(str1);
+    console.log(match);
   }
   catch(SyntaxError){
-    
+
   }
 
  // if (quoteInputElement.value == ''){
@@ -435,10 +436,10 @@ quoteInputElement.addEventListener('keydown', e => {
  // need to add better detection if using ctrl + a 
 
   if (match == null) {
-    quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
+    quoteDisplayElement.childNodes[spaceCount].classList.add('highlight-red');
   }
   else { 
-    quoteDisplayElement.childNodes[spaceCount].classList.remove('incorrect');
+    quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
   }
   
   if (e.key == ' ') {
