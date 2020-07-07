@@ -150,40 +150,7 @@ var mode;
 var time;
 var words;
 /*Dropdown Menu*/
-$('.dropdown').click(function () {
-  // need to add a check here to that it focuses on thsi specifically 
-  $(this).attr('tabindex', 1).focus();
-  $(this).toggleClass('active');
-  $(this).find('.dropdown-menu').slideToggle(250);
-});
 
-$('.dropdown').focusout(function () {
-  $(this).removeClass('active');
-  $(this).find('.dropdown-menu').slideUp(250);
-});
-
-
-
-
-$('.dropdown .dropdown-menu li').click(function () {
-  $(this).parents('.dropdown').find('span').text($(this).text());
-  $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-});
-/*End Dropdown Menu*/
-$('.dropdown-menu li').click(function () {
-input = $(this).parents('.dropdown').find('input').val();
-if (input == 'burst' || input == 'timed' || input == quote){
-  mode = input; 
-}
-else if (input == '10' || input == '30' || input == '60'){
-  time = input;
-}
-else if (input == '10 words' || input == '50 words' || input == '200 words'){
-  wordNum = input;
-}
-reset();
-//$(this).find('.dropdown-menu').slideToggle(250);
-}); 
 
 function focusOnMe(){
   quoteInputElement.focus();
@@ -202,7 +169,7 @@ function makeSentence(){
   }
   currentQuote = word_list;
   //console.log(word_list);
-  console.log(word_list);
+  //console.log(word_list);
   return(word_list);
   
 
@@ -358,6 +325,8 @@ function scrollText() {
 var myTimer;
    function clock() {
      myTimer = setInterval(myClock, 1000);
+     console.log('JERERER SERSER SE R');
+     console.log(timeLimit);
      var c = timeLimit;
      function myClock() {
        timerElement.classList.add('faderOut');
@@ -405,15 +374,14 @@ var state = true;
 var totalChar = 0;
 var goodChar = 0;
 var firstLetter = currentQuote[0][0];
-
+mode = 'timed';
 quoteInputElement.addEventListener('keydown', e => {
   totalChar++;
 
   //doesnt work if the first letter is wrong lol 
   // need a better way of detecting first keypress 
-
-
-  if ((spaceCount == 0) && (totalChar == 1) && (modeSelElement.value == 'timed')) {
+  console.log("i am MODE" + mode);
+  if ((spaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
   //if ((spaceCount == 0) && (e.key == firstLetter)) {
     oldDate = Date.now();
     console.log(oldDate);
@@ -503,15 +471,37 @@ quoteInputElement.addEventListener('keydown', e => {
 
 
 
-// variables need more cleanup
-function reset(){
+
+$('.dropdown').click(function () {
+  // need to add a check here to that it focuses on thsi specifically 
+  $(this).attr('tabindex', 1).focus();
+  $(this).toggleClass('active');
+  $(this).find('.dropdown-menu').slideToggle(250);
+});
+
+$('.dropdown').focusout(function () {
+  $(this).removeClass('active');
+  $(this).find('.dropdown-menu').slideUp(250);
+});
+$('.dropdown .dropdown-menu li').click(function () {
+  $(this).parents('.dropdown').find('span').text($(this).text());
+  $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+});
+/*End Dropdown Menu*/
+$('.dropdown-menu li').click(function () {
+  input = $(this).parents('.dropdown').find('input').val();
+  if (input == 'burst' || input == 'timed' || input == quote){
+    mode = input; 
+  }
+  else if (input == '10' || input == '30' || input == '60'){
+    time = input;
+  }
+  else if (input == '10 words' || input == '50 words' || input == '200 words'){
+    wordNum = input;
+  }
   stopClock();
-
-  
-
-
   if (mode == 'burst' ){
-    
+    reset();
     timerElement.innerHTML = '//s';
     timeSelElement.disabled = true;
     lengthSelElement.disabled = false;
@@ -529,19 +519,33 @@ function reset(){
       console.log(lengthLimit);
     }
     
+    
   }
-  else {
-    console.log(timeLimit);
-
-    timerElement.innerHTML = time + 's'
-    timeLimit = parseInt(time);
+  else if (mode == 'timed') {
+    if (typeof time == 'undefined'){
+      timeLimit = 60;
+    }
+    else{
+      timeLimit = parseInt(time);
+    }
+    reset();
+    console.log(typeof time);
+    timerElement.innerHTML = timeLimit + 's'
+    
     
     timeSelElement.disabled = false;
     lengthSelElement.disabled = true;
     lengthLimit = 350;
+    
   }
-  
-  
+//$(this).find('.dropdown-menu').slideToggle(250);
+}); 
+
+
+// variables need more cleanup
+function reset(){
+  stopClock();
+
   correct = 0;
   incorrect = 0; 
   currentQuote = '';
