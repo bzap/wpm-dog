@@ -59,6 +59,8 @@ var incorrectWords = 0;
 var timeLimit = 60;
 var lengthLimit = 350;
 
+
+var flag;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
@@ -119,6 +121,15 @@ function checkBox(){
 }
 
 
+function scramble(){
+  if (flag == true){
+    flag = false;
+  }
+  else{ 
+    flag = true; 
+  }
+  reset();
+}
 
 
 function theFunction(){
@@ -573,7 +584,7 @@ function reset(){
     behavior: 'smooth'
   });
   console.log(caseElement.value);
-  if (caseElement.pressed == true){
+  if (flag == true){
     capWords(makeSentence()); 
   } 
   else {
