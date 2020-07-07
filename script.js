@@ -472,12 +472,14 @@ quoteInputElement.addEventListener('keydown', e => {
       catch (TypeError){
       }
       if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
+        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
         quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
         goodList.push(currentQuote[spaceCount]);
         setCorrectWords();
       }
       else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
+        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
         quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
         quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
         badList.push(currentQuote[spaceCount]);
