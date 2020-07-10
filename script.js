@@ -502,7 +502,7 @@ quoteInputElement.addEventListener('keydown', e => {
 })
 
 
-
+var wordNum;
 document.getElementById('drop3').classList.add('mask');
 $('.dropdown').click(function () {
   // need to add a check here to that it focuses on thsi specifically 
