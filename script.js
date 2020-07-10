@@ -503,7 +503,7 @@ quoteInputElement.addEventListener('keydown', e => {
 
 
 
-
+document.getElementById('drop3').classList.add('mask');
 $('.dropdown').click(function () {
   // need to add a check here to that it focuses on thsi specifically 
   $(this).attr('tabindex', 1).focus();
@@ -533,13 +533,13 @@ $('.dropdown-menu li').click(function () {
   }
   stopClock();
   if (mode == 'burst' ){
-    reset();
     lengthLimit = 10;
+    reset();
     timerElement.innerHTML = '//s';
-    document.getElementById('drop1').classList.add('mask');
+    document.getElementById('drop3').classList.remove('mask');
+    document.getElementById('drop2').classList.add('mask');
 
     if (wordNum == '10 words'){
-      
       lengthLimit = 10;
       reset();
     }
@@ -554,8 +554,8 @@ $('.dropdown-menu li').click(function () {
   
   }
   else if (mode == 'timed') {
-    document.getElementById('drop1').classList.remove('mask');
-
+    document.getElementById('drop2').classList.remove('mask');
+    document.getElementById('drop3').classList.add('mask');
     if (typeof time == 'undefined'){
       timeLimit = 60;
     }
