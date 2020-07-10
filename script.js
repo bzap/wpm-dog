@@ -17,6 +17,9 @@ const accElement = document.getElementById('acc')
 
 
 const buttElement = document.getElementById('case-button')
+
+
+const modingElement = document.getElementById('moding')
 //const accElement = document.getElementById('acc')
 
 
@@ -38,7 +41,7 @@ var words = ['a', 'abandon', 'ability', 'able', 'abortion', 'about', 'above', 'a
 'wood', 'wooden', 'word', 'work', 'worker', 'working', 'works', 'workshop', 'world', 'worried', 'worry', 'worth', 'would', 'wound', 'wrap', 'write', 'writer', 'writing', 'wrong', 'yard', 'yeah', 'year', 'yell', 'yellow', 'yes', 'yesterday', 'yet', 'yield', 'you', 'young', 'your', 'yours', 'yourself', 'youth', 'zon'];
 
 
-
+modingElement.disabled = true;
 //maybe change these to let variables
 var correct = 0;
 var incorrect = 0; 
@@ -129,6 +132,9 @@ function scramble(){
   }
   reset();
 }
+
+
+
 
 
 function theFunction(){
@@ -530,6 +536,8 @@ $('.dropdown-menu li').click(function () {
     reset();
     lengthLimit = 10;
     timerElement.innerHTML = '//s';
+    document.getElementById('drop1').classList.add('mask');
+
     if (wordNum == '10 words'){
       
       lengthLimit = 10;
@@ -546,6 +554,8 @@ $('.dropdown-menu li').click(function () {
   
   }
   else if (mode == 'timed') {
+    document.getElementById('drop1').classList.remove('mask');
+
     if (typeof time == 'undefined'){
       timeLimit = 60;
     }

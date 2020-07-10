@@ -497,6 +497,35 @@ input:focus + .slider {
     float: right;
     line-height: 20px
 }
+
+.dropdown .select2 {
+  cursor: pointer;
+  display: block;
+  padding: 10px
+}
+.dropdown .select2 > i {
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  float: right;
+  line-height: 20px
+}
+
+.dropdown .select3 {
+  cursor: pointer;
+  display: block;
+  padding: 10px
+}
+.dropdown .select3 > i {
+  font-size: 13px;
+  color: #888;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  float: right;
+  line-height: 20px
+}
+
 .dropdown:hover {
     box-shadow: 0 0 12px #3b4252
 }
@@ -542,7 +571,9 @@ input:focus + .slider {
     background-color: #4f596f
 }
 
-
-
+.mask{ 
+  pointer-events:none;
+  background-color: lightslategray;
+}
 
 
