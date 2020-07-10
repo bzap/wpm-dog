@@ -295,8 +295,6 @@ var badList = [];
 
 
 function analysis() { 
-
-  
 }
 
 
@@ -341,7 +339,7 @@ function renderResults() {
   }
 
   acc = (good / (good + bad)) * 100;
-
+  console.log("the wpm is " + wpm)
   wpmElement.innerHTML = wpm.toFixed(0) +  ' WPM';
   gwpmElement.innerHTML = gwpm.toFixed(0) + ' gWPM';
   accElement.innerHTML = acc.toFixed(1) + '% acc';
@@ -443,7 +441,6 @@ quoteInputElement.addEventListener('keydown', e => {
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
   try{
     var match = str2.match(str1);
-    console.log(match);
   }
   catch(SyntaxError){
 
@@ -549,7 +546,7 @@ $('.dropdown-menu li').click(function () {
   if (mode == 'burst' ){
     lengthLimit = 10;
     reset();
-    timerElement.innerHTML = '//s';
+    timerElement.innerHTML = '///';
     document.getElementById('drop3').classList.remove('mask');
     document.getElementById('drop2').classList.add('mask');
 
@@ -589,8 +586,15 @@ $('.dropdown-menu li').click(function () {
 function reset(){
   stopClock();
 
+
+  if (mode == 'burst'){
+    timerElement.innerHTML = '///';
+  }
+  else{
+    timerElement.innerHTML = timeLimit + 's'
+  }
   // need to fix this 
-  timerElement.innerHTML = timeLimit + 's'
+  
   correct = 0;
   incorrect = 0; 
   currentQuote = '';
@@ -601,6 +605,8 @@ function reset(){
   incorrectWords = 0;
   totalChar = 0;
   goodChar = 0;
+  goodList = [];
+  badList = [];
   quoteInputElement.disabled = false;
   quoteInputElement.value = '';
   quoteDisplayElement.innerHTML = '';
