@@ -41,6 +41,8 @@ var words = ['a', 'abandon', 'ability', 'able', 'abortion', 'about', 'above', 'a
 'wood', 'wooden', 'word', 'work', 'worker', 'working', 'works', 'workshop', 'world', 'worried', 'worry', 'worth', 'would', 'wound', 'wrap', 'write', 'writer', 'writing', 'wrong', 'yard', 'yeah', 'year', 'yell', 'yellow', 'yes', 'yesterday', 'yet', 'yield', 'you', 'young', 'your', 'yours', 'yourself', 'youth', 'zon'];
 
 
+var nounverb = [];
+
 modingElement.disabled = true;
 //maybe change these to let variables
 var correct = 0;
@@ -305,6 +307,7 @@ function renderResults() {
   var acc = 0;
 
   var elapsed = (newDate - oldDate) / 1000;
+  console.log(elapsed);
   var accuracy = correctWords / currentQuote.length;
   var good = 0;
   var bad = 0;
@@ -316,18 +319,25 @@ function renderResults() {
     bad += badList[i].length;
   }
 
+  if (mode == 'timed'){
+    if (timeLimit == 60) {
 
-  if (timeLimit == 60) {
-    wpm = (((good + bad) / 5) / 1) - ((bad / 5) / 1);
-    gwpm = ((good + bad) / 5 / 1);
+      // possibly get rid of this and just use the elapsed method so no more cases required
+      wpm = (((good + bad) / 5) / 1) - ((bad / 5) / 1);
+      gwpm = ((good + bad) / 5 / 1);
+    }
+    else if (timeLimit == 30){
+      wpm = (((good + bad) / 5) / 0.5) - ((bad / 5) / 0.5);
+      gwpm = ((good + bad) / 5 / 0.5);
+    }
+    else{
+      wpm = (((good + bad) / 5) / (1 / 6)) - ((bad / 5) / (1 / 6));
+      gwpm = ((good + bad) / 5 / (1 / 6));
+    }
   }
-  else if (timeLimit == 30){
-    wpm = (((good + bad) / 5) / 0.5) - ((bad / 5) / 0.5);
-    gwpm = ((good + bad) / 5 / 0.5);
-  }
-  else{
-    wpm = (((good + bad) / 5) / (1 / 6)) - ((bad / 5) / (1 / 6));
-    gwpm = ((good + bad) / 5 / (1 / 6));
+  else if (mode == 'burst'){
+    wpm = (((good + bad) / 5) / (elapsed / 60)) - ((bad / 5) / (elapsed / 60));
+    gwpm = ((good + bad) / 5 / (elapsed / 60));
   }
 
   acc = (good / (good + bad)) * 100;
@@ -390,14 +400,15 @@ var state = true;
      function myClockup() {
        timerElement.innerHTML = ++c + 's';
        //wpmElement.innerHTML = 'WPM: ' + goodChar;
-       if (state == false) {
-         clearInterval(myTimer2);
-         timerElement.innerHTML = '00';
-         // might not need this line if the burst closes it 
-         //quoteInputElement.disabled = true;
-       }
+       if (spaceCount == currentQuote.length) {
+        clearInterval(myTimer2);
+        quoteInputElement.disabled = true;
+        renderResults();
      }
    }
+  }
+
+
 
 // add a variation of that clock 
 
@@ -416,15 +427,18 @@ quoteInputElement.addEventListener('keydown', e => {
 
   //doesnt work if the first letter is wrong lol 
   // need a better way of detecting first keypress 
-  console.log("i am MODE" + mode);
-  if ((spaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
+  if ((spaceCount == 0) && (totalChar == 1) && (mode == 'timed' || mode == 'quote')) {
   //if ((spaceCount == 0) && (e.key == firstLetter)) {
-    oldDate = Date.now();
+    
     console.log(oldDate);
     //startTimer();
     clock();
     // subtract the date time and if it's 10 seconds then lol
   }  
+  else if ((spaceCount == 0) && (totalChar == 1) && (mode == 'burst')){
+    oldDate = Date.now();
+    console.log(oldDate);
+  }
   var str1 = quoteInputElement.value;
   var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
   try{

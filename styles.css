@@ -573,8 +573,9 @@ input:focus + .slider {
 
 .mask{ 
   pointer-events:none;
+  cursor: not-allowed;
   background-color: #323947;
-  color: #717383;
+  color: #656779;
 }
 
 
