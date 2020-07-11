@@ -612,6 +612,10 @@ function reset(){
   quoteDisplayElement.innerHTML = '';
   wpmElement.innerHTML = '00 ' + 'WPM  ';
   gwpmElement.innerHTML = '00 ' + 'gWPM';
+  accElement.innerHTML = '00.0% acc';
+  correctElement.innerHTML = 'correct chars: 00';
+  incorrectElement.innerHTML = 'incorrect chars: 00';
+
   //quoteDisplayElement.scrollTo(0,0);
  //add fade animation to replace text instead of this or figure out to make it scroll up 
   quoteDisplayElement.scrollTo({
