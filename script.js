@@ -358,7 +358,7 @@ $('.dropdown-menu li').click(function () {
   }
   stopClock();
   if (mode == 'burst' ){
-    DISP_ELEM.classList.add('quote-display-short');
+    DISP_ELEM.classList.add('display-short');
     lengthLimit = 10;
     reset();
     TIME_ELEM.innerHTML = '///';
@@ -381,7 +381,7 @@ $('.dropdown-menu li').click(function () {
     }
   }
   else if (mode == 'timed') {
-    DISP_ELEM.classList.remove('quote-display-short');
+    DISP_ELEM.classList.remove('display-short');
     document.getElementById('switch').classList.remove('mask-button');
     document.getElementById('slider').classList.remove('mask-slider');
     document.getElementById('slider').classList.remove('mask-before');
@@ -399,7 +399,7 @@ $('.dropdown-menu li').click(function () {
   }
   else if (mode == 'quote'){
     TIME_ELEM.innerHTML = '///';
-    DISP_ELEM.classList.remove('quote-display-short');
+    DISP_ELEM.classList.remove('display-short');
     document.getElementById('timeDropdown').classList.add('mask');
     document.getElementById('wordDropdown').classList.add('mask');
     document.getElementById('switch').classList.add('mask-button');
