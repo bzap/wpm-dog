@@ -127,7 +127,7 @@ function makeSentence(){
     if (words[random_number] == undefined){
       i--;
     }
-    else if (words[random_number].length >= 5 && i % 4 == 0){
+    else if (words[random_number].length >= 4 && i % 4 == 0){
       i--;
     }
     else{ 
