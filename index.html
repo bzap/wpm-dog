@@ -7,53 +7,52 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>papi</title>
+  <title>WPMDOG</title>
 </head>
 <header> 
   <div class="title" id="title">>WPMDOG</div>
 </header>
 <body>
-  <div class="container">
-    <div class="quote-display" id="quoteDisplay"></div>
-
-    <div class="input">
-      <div class="timer" id="timer"></div>  
-      <textarea id="quoteInput" class="quote-input" autofocus></textarea>
-      <div class="buttons">
-        <button class="btn-white" onclick="reset()">
+  <div class="text-container">
+    <div class="display" id="display"></div>
+    <div class="bottom-container">
+      <div class="clock" id="clock"></div>  
+      <textarea id="input" class="input" autofocus></textarea>
+      <div class="reset">
+        <button class="reset-button" onclick="reset()">
           <img class="icon" src="./reset.png">
         </button>
       </div>
     </div>
   </div>
-<div class="container2">
-      <div class="dropdown" id="drop1">
+<div class="option-container">
+      <div class="dropdown" id="modeDropdown">
         <div class="select">
           <span>timed</span>
         </div>
-        <input type="hidden" name="moding" id="moding">
+        <input type="hidden">
         <ul class="dropdown-menu">
           <li id="timed">timed</li>
           <li id="burst">burst</li>
           <li id="quote">quote</li>
         </ul>
       </div>
-      <div class="dropdown" id="drop2">
-        <div class="select" >
+      <div class="dropdown" id="timeDropdown">
+        <div class="select">
           <span>60 seconds</span>
         </div>
-        <input type="hidden" name="timing">
+        <input type="hidden">
         <ul class="dropdown-menu">
           <li id="60">60 seconds</li>
           <li id="30">30 seconds</li>
           <li id="10">10 seconds</li>
         </ul>
       </div>
-      <div class="dropdown" id="drop3">
+      <div class="dropdown" id="wordDropdown">
         <div class="select">
           <span>10 words</span>
         </div>
-        <input type="hidden" name="lengthing">
+        <input type="hidden">
         <ul class="dropdown-menu">
           <li id="10 words">10 words</li>
           <li id="50 words">50 words</li>
@@ -71,10 +70,10 @@
       <div class="wpm" id="wpm"></div>
       <div class="gwpm" id="gwpm"></div>
     </div>
-    <div class ="other">  
+    <div class ="other-stats">  
       <div class="acc" id="acc"></div>
-      <div class="correctChar" id="correctChar"></div> 
-      <div class="incorrectChar" id="incorrectChar"></div>
+      <div class="correct-char" id="correctChar"></div> 
+      <div class="incorrect-char" id="incorrectChar"></div>
 
     </div>
   </div>

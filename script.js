@@ -1,6 +1,6 @@
-const DISP_ELEM = document.getElementById('quoteDisplay')
-const INP_ELEM = document.getElementById('quoteInput')
-const TIME_ELEM = document.getElementById('timer')
+const DISP_ELEM = document.getElementById('display')
+const INP_ELEM = document.getElementById('input')
+const TIME_ELEM = document.getElementById('clock')
 const WPM_ELEM = document.getElementById('wpm')
 const CASE_ELEM = document.getElementById('slider')
 const CORR_ELEM = document.getElementById('correctChar')
@@ -66,8 +66,6 @@ var flag;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
-//-------------------------------------
-// init values of stats 
 TIME_ELEM.innerHTML = 60 + 's';
 WPM_ELEM.innerHTML = '00 ' + 'WPM  ';
 GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
@@ -76,7 +74,6 @@ ACC_ELEM.innerHTML = '00.0% ' + 'acc';
 CORR_ELEM.innerHTML = 'correct chars: 00';
 INCORR_ELEM.innerHTML = 'incorrect chars: 00';
 
-// move some of this to reset
 function timeChange(){
   reset();
 }
@@ -243,7 +240,7 @@ var counter;
        }
        if (c == 0) {
          clearInterval(counter);
-         TIME_ELEM.innerHTML = '00';
+         TIME_ELEM.innerHTML = '00s';
          INP_ELEM.disabled = true;
          renderResults();
        }
@@ -333,7 +330,7 @@ INP_ELEM.addEventListener('keydown', e => {
 })
 
 var lengthSelection;
-document.getElementById('drop3').classList.add('mask');
+document.getElementById('wordDropdown').classList.add('mask');
 $('.dropdown').click(function () {
   // need to add a check here to that it focuses on thsi specifically 
   $(this).attr('tabindex', 1).focus();
@@ -365,11 +362,11 @@ $('.dropdown-menu li').click(function () {
     lengthLimit = 10;
     reset();
     TIME_ELEM.innerHTML = '///';
-    document.getElementById('drop3').classList.remove('mask');
+    document.getElementById('wordDropdown').classList.remove('mask');
     document.getElementById('switch').classList.remove('mask-button');
     document.getElementById('slider').classList.remove('mask-slider');
     document.getElementById('slider').classList.remove('mask-before');
-    document.getElementById('drop2').classList.add('mask');
+    document.getElementById('timeDropdown').classList.add('mask');
     if (lengthSelection == '10 words'){
       lengthLimit = 10;
       reset();
@@ -388,8 +385,8 @@ $('.dropdown-menu li').click(function () {
     document.getElementById('switch').classList.remove('mask-button');
     document.getElementById('slider').classList.remove('mask-slider');
     document.getElementById('slider').classList.remove('mask-before');
-    document.getElementById('drop2').classList.remove('mask');
-    document.getElementById('drop3').classList.add('mask');
+    document.getElementById('timeDropdown').classList.remove('mask');
+    document.getElementById('wordDropdown').classList.add('mask');
     if (typeof time == 'undefined'){
       timeLimit = 60;
     }
@@ -403,8 +400,8 @@ $('.dropdown-menu li').click(function () {
   else if (mode == 'quote'){
     TIME_ELEM.innerHTML = '///';
     DISP_ELEM.classList.remove('quote-display-short');
-    document.getElementById('drop2').classList.add('mask');
-    document.getElementById('drop3').classList.add('mask');
+    document.getElementById('timeDropdown').classList.add('mask');
+    document.getElementById('wordDropdown').classList.add('mask');
     document.getElementById('switch').classList.add('mask-button');
     document.getElementById('slider').classList.add('mask-slider');
     document.getElementById('slider').classList.add('mask-before');

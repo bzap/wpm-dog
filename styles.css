@@ -12,7 +12,7 @@
     outline: 0;
   }
   
-  body, .quote-input {
+  body, .input {
     font-family: 'SF Mono', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
     flex-direction: column;
@@ -143,7 +143,7 @@
     transition: opacity 2s;
   }
 
-  .container {
+  .text-container {
     background-color: #2e3440;
     display: flex;
     align-items: center;
@@ -156,7 +156,7 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
-  .quote-display {
+  .display {
     color: white;
     margin-top: 2rem; 
     margin-right: 3rem;
@@ -172,14 +172,14 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
-  .quote-display-short{
+  .display-short{
     margin-top: 2rem; 
     margin-right: 8rem;
     margin-left: 8rem;
     margin-bottom: 0.2rem;
   }
 
-  .input{
+  .bottom-container{
     display: flex;
     width: 100%;    
     justify-content: center;
@@ -188,7 +188,7 @@
     
   }
 
-  .timer {
+  .clock {
     display: block;
     padding: 5px;
     font-size: 2rem;
@@ -198,7 +198,7 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
-  .quote-input {
+  .input {
     background-color: #3b4252;
     color: white;
     border: 2px solid #3b4252;
@@ -221,26 +221,26 @@
   .icon {
       position: relative;
   }
-  .btn-white {
+  .reset-button {
       background: transparent;
 
   }
-  .btn-white .icon {
+  .reset-button .icon {
       margin-top: 7px;
       width: 24px;
       height: 24px;
       transition: all 0.4s ease-in-out;
   }
-  .btn-white:hover .icon {
+  .reset-button:hover .icon {
       transform: rotate(360deg) scale(1);
   }
 
-  .quote-input:focus {
+  .input:focus {
     border-color: #4f596f;
     
   }
 
-  .quote-input:hover{
+  .input:hover{
     box-shadow: 0 0 12px #3b4252
   }
 
@@ -259,7 +259,7 @@
     display: flex;
   }
 
-  .other {  
+  .other-stats {  
     text-align: center;
     justify-content: center;
   }
@@ -271,14 +271,14 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
-  .correctChar{ 
+  .correct-char{ 
     font-size: 1.5rem;
     color: white;
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
   }
 
-  .incorrectChar{ 
+  .incorrect-char{ 
     margin-top: 2px;
     font-size: 1.5rem;
     color: white;
@@ -349,7 +349,7 @@
   outline: 0;
 }
 
-.container2 {
+.option-container {
   background-color: #2e3440;
   padding: 1rem;
   border-radius: 1rem;
