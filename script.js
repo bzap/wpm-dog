@@ -465,22 +465,13 @@ quoteInputElement.addEventListener('keydown', e => {
     var match = str2.match(str1);
   }
   catch(SyntaxError){
-
   }
-
- // if (quoteInputElement.value == ''){
- //   quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
- // }
-
- // need to add better detection if using ctrl + a 
-
   if (match == null) {
     quoteDisplayElement.childNodes[spaceCount].classList.add('highlight-red');
   }
   else { 
     quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
   }
-  
   if (e.key == ' ') {
     event.preventDefault();
     //  the timed version and the word limit version both need scroll like this 
@@ -534,7 +525,6 @@ quoteInputElement.addEventListener('keydown', e => {
   }
 })
 
-
 var wordNum;
 document.getElementById('drop3').classList.add('mask');
 $('.dropdown').click(function () {
@@ -575,8 +565,6 @@ $('.dropdown-menu li').click(function () {
     document.getElementById('slider').classList.remove('mask-slider');
     document.getElementById('slider').classList.remove('mask-before');
     document.getElementById('drop2').classList.add('mask');
-
-
     if (wordNum == '10 words'){
       lengthLimit = 10;
       reset();
@@ -589,7 +577,6 @@ $('.dropdown-menu li').click(function () {
       lengthLimit = 200;
       reset();
     }
-  
   }
   else if (mode == 'timed') {
     quoteDisplayElement.classList.remove('quote-display-short');
