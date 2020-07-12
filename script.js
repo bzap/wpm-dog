@@ -54,7 +54,7 @@ var displayText = '';
 var whitespaceCount = 0;
 var correctChar = 0;
 var incorrectChar = 0;
-var timeLimit = 60;
+var timeLimit = 10;
 var lengthLimit = 350;
 
 var input;
@@ -66,7 +66,7 @@ var flag;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
-TIME_ELEM.innerHTML = 60 + 's';
+TIME_ELEM.innerHTML = 10 + 's';
 WPM_ELEM.innerHTML = '00 ' + 'WPM  ';
 GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
 ACC_ELEM.innerHTML = '00.0% ' + 'acc';
