@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'SF Mono';
+  src: url(SFMono-Regular.otf);
+}
+
 * {
+    font-family: 'SF Mono';
     box-sizing: border-box;
   }
   
@@ -335,7 +341,7 @@
   
   .highlight{
     transition-duration: 0.1s;
-    color: #fbdce2;
+    color: white;
     background-color: #4f596f;
   }
 
