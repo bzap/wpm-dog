@@ -215,7 +215,7 @@
     outline: none;
     cursor: pointer;
     overflow: hidden;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
   button:active {
@@ -457,7 +457,7 @@ input:not(:checked) + .slider:hover {
 
 
 .slider:before {
-  content: attr(data);
+  content:'case-scramble';
   color: white;
   background-color: trans;
 }
@@ -480,7 +480,7 @@ input:focus + .slider {
   display: inline-block;
   background-color: #3b4252;
   border-radius: 0.5rem;
-  transition: all .5s ease;
+  transition: all .5s ease-in-out;
   position: relative;
   font-size: 14px;
   color: white;
@@ -499,7 +499,7 @@ input:focus + .slider {
     font-size: 13px;
     color: #888;
     cursor: pointer;
-    transition: all .3s ease-in-out;
+    transition: all .5s ease-in-out;
     float: right;
     line-height: 20px
 }
@@ -513,7 +513,7 @@ input:focus + .slider {
   font-size: 13px;
   color: #888;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all .5s ease-in-out;
   float: right;
   line-height: 20px
 }
@@ -527,7 +527,7 @@ input:focus + .slider {
   font-size: 13px;
   color: #888;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all .5s ease-in-out;
   float: right;
   line-height: 20px
 }
@@ -582,17 +582,22 @@ input:focus + .slider {
   cursor: not-allowed;
   background-color: #323947;
   color: #656779;
+  transition: all .5s ease-in-out;
 }
 
 .mask-button{ 
   pointer-events:none;
   cursor: not-allowed;
-  
-  
-  transition: all .3s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 .mask-slider{ 
   color: #656779;
+  transition: all .5s ease-in-out;
   background-color: #323947;
+}
+
+.mask-before:before{ 
+  transition: all .5s ease-in-out;
+  color: #656779;
 }

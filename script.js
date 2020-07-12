@@ -571,7 +571,11 @@ $('.dropdown-menu li').click(function () {
     reset();
     timerElement.innerHTML = '///';
     document.getElementById('drop3').classList.remove('mask');
+    document.getElementById('switch').classList.remove('mask-button');
+    document.getElementById('slider').classList.remove('mask-slider');
+    document.getElementById('slider').classList.remove('mask-before');
     document.getElementById('drop2').classList.add('mask');
+
 
     if (wordNum == '10 words'){
       lengthLimit = 10;
@@ -589,6 +593,9 @@ $('.dropdown-menu li').click(function () {
   }
   else if (mode == 'timed') {
     quoteDisplayElement.classList.remove('quote-display-short');
+    document.getElementById('switch').classList.remove('mask-button');
+    document.getElementById('slider').classList.remove('mask-slider');
+    document.getElementById('slider').classList.remove('mask-before');
     document.getElementById('drop2').classList.remove('mask');
     document.getElementById('drop3').classList.add('mask');
     if (typeof time == 'undefined'){
@@ -608,6 +615,7 @@ $('.dropdown-menu li').click(function () {
     document.getElementById('drop3').classList.add('mask');
     document.getElementById('switch').classList.add('mask-button');
     document.getElementById('slider').classList.add('mask-slider');
+    document.getElementById('slider').classList.add('mask-before');
     //document.getElementById('slider').classList.add('mask-button');
     //document.getElementById('slider').onclick = null;
     reset();
