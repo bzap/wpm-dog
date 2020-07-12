@@ -7,6 +7,7 @@ const CORR_ELEM = document.getElementById('correctChar')
 const INCORR_ELEM = document.getElementById('incorrectChar')
 const GWPM_ELEM = document.getElementById('gwpm')
 const ACC_ELEM = document.getElementById('acc')
+const LIVE_WPM_ELEM = document.getElementById('liveWpm')
 
 var words = ['be', 'and', 'of', 'a', 'in', 'to', 'have', 'too', 'it', 'that', 'for', 'you', 'he', 'with', 'on', 'do', 'say', 'this', 'they', 'at', 'but', 'we', 'his', 'from', 'that', 'not', 'can’t', 'won’t', 'by', 'she', 'or', 'as', 'what', 'go', 'their', 'can', 'who', 'get', 'if', 'would', 'her', 'all', 'my', 'make', 'about', 'know', 'will', 'as', 'up', 'one', 'time', 'there', 'year', 'so', 'think', 'when', 'which', 'them', 'some', 'me', 
 'people', 'take', 'out', 'into', 'just', 'see', 'him', 'your', 'come', 'could', 'now', 'than', 'like', 'other', 'how', 'then', 'its', 'our', 'two', 'more', 'these', 'want', 'way', 'look', 'first', 'also', 'new', 'because', 'day', 'more', 'use', 'no', 'man', 'find', 'here', 'thing', 'give', 'many', 'well', 'only', 'those', 'tell', 'one', 'very', 'her', 'even', 'back', 'any', 'good', 'woman', 'through', 'us', 'life', 'child', 'there', 'work', 'down', 'may', 'after', 'should', 'call', 'world', 'over', 'school', 'still', 'try', 'in', 'as', 'last', 'ask', 'need', 'too', 'feel', 'three', 'when', 'state', 'never', 'become', 'between', 'high', 'really', 
@@ -67,12 +68,14 @@ var flag;
 
 
 TIME_ELEM.innerHTML = 10 + 's';
-WPM_ELEM.innerHTML = '00 ' + 'WPM  ';
+WPM_ELEM.innerHTML = '-- ' + 'WPM  ';
 GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
 ACC_ELEM.innerHTML = '00.0% ' + 'acc';
 
 CORR_ELEM.innerHTML = 'correct chars: 00';
 INCORR_ELEM.innerHTML = 'incorrect chars: 00';
+LIVE_WPM_ELEM.innerHTML = '127 WPM';
+
 
 function timeChange(){
   reset();
