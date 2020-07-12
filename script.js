@@ -1,31 +1,12 @@
-
-// REMAKE THIS FROM SCRATCH WITH CALLS TO GET THE WORDS 
-// TIMER CALCULATOR AND STUFF
-// remember one step at a time - > the css and html styling can come last to an extent 
-
-const RANDOM_QUOTE_API_URL = 'http://api.quotable.io/random/'
-const quoteDisplayElement = document.getElementById('quoteDisplay')
-const quoteInputElement = document.getElementById('quoteInput')
-const timerElement = document.getElementById('timer')
-const wpmElement = document.getElementById('wpm')
-const caseElement = document.getElementById('slider')
-const correctElement = document.getElementById('correctChar')
-const incorrectElement = document.getElementById('incorrectChar')
-const gwpmElement = document.getElementById('gwpm')
-
-const accElement = document.getElementById('acc')
-
-
-const buttElement = document.getElementById('case-button')
-
-
-const modingElement = document.getElementById('moding')
-//const accElement = document.getElementById('acc')
-
-
-//const words = require('data.json');
-//console.log(words[1]);
-
+const DISP_ELEM = document.getElementById('quoteDisplay')
+const INP_ELEM = document.getElementById('quoteInput')
+const TIME_ELEM = document.getElementById('timer')
+const WPM_ELEM = document.getElementById('wpm')
+const CASE_ELEM = document.getElementById('slider')
+const CORR_ELEM = document.getElementById('correctChar')
+const INCORR_ELEM = document.getElementById('incorrectChar')
+const GWPM_ELEM = document.getElementById('gwpm')
+const ACC_ELEM = document.getElementById('acc')
 
 var words = ['be', 'and', 'of', 'a', 'in', 'to', 'have', 'too', 'it', 'I', 'that', 'for', 'you', 'he', 'with', 'on', 'do', 'say', 'this', 'they', 'at', 'but', 'we', 'his', 'from', 'that', 'not', 'can’t', 'won’t', 'by', 'she', 'or', 'as', 'what', 'go', 'their', 'can', 'who', 'get', 'if', 'would', 'her', 'all', 'my', 'make', 'about', 'know', 'will', 'as', 'up', 'one', 'time', 'there', 'year', 'so', 'think', 'when', 'which', 'them', 'some', 'me', 
 'people', 'take', 'out', 'into', 'just', 'see', 'him', 'your', 'come', 'could', 'now', 'than', 'like', 'other', 'how', 'then', 'its', 'our', 'two', 'more', 'these', 'want', 'way', 'look', 'first', 'also', 'new', 'because', 'day', 'more', 'use', 'no', 'man', 'find', 'here', 'thing', 'give', 'many', 'well', 'only', 'those', 'tell', 'one', 'very', 'her', 'even', 'back', 'any', 'good', 'woman', 'through', 'us', 'life', 'child', 'there', 'work', 'down', 'may', 'after', 'should', 'call', 'world', 'over', 'school', 'still', 'try', 'in', 'as', 'last', 'ask', 'need', 'too', 'feel', 'three', 'when', 'state', 'never', 'become', 'between', 'high', 'really', 
@@ -33,7 +14,6 @@ var words = ['be', 'and', 'of', 'a', 'in', 'to', 'have', 'too', 'it', 'I', 'that
 'others', 'read', 'level', 'allow', 'add', 'office', 'spend', 'door', 'health', 'person', 'art', 'sure', 'such', 'war', 'history', 'party', 'within', 'grow', 'result', 'open', 'change', 'morning', 'walk', 'reason', 'low', 'win', 'research', 'girl', 'guy', 'early', 'food', 'before', 'moment', 'himself', 'air', 'teacher', 'force', 'offer', 'enough', 'both', 'education', 'across', 'although', 'remember', 'foot', 'second', 'boy', 'maybe', 'toward', 'able', 'age', 'off', 'policy', 'everything', 'love', 'process', 'music', 'including', 'consider', 'appear', 'actually', 'buy', 'probably', 'human', 'wait', 'serve', 'market', 'die', 'send', 'expect', 'home', 'sense', 'build', 'stay', 'fall', 'oh', 'nation', 'plan', 'cut', 'college', 'interest', 'death', 'course', 'someone', 'experience', 'behind', 'reach', 'local', 'kill', 'six', 'remain', 'effect', 'use', 'yeah', 'suggest', 'class', 'control', 'raise', 'care', 'perhaps', 'little', 'late', 'hard', 'field', 'else', 'pass', 'former', 'sell', 'major', 'sometimes', 'require', 'along', 'development', 'themselves', 'report', 'role', 'better', 'economic', 'effort', 'up', 'decide', 'rate', 'strong', 'possible', 'heart', 'drug', 'show', 'leader', 'light', 'voice', 'wife', 'whole', 'police', 'mind', 'finally', 'pull', 'return', 'free', 'military', 'price', 'report', 'less', 'according', 'decision', 'explain', 'son', 'hope', 'even', 'develop', 'view', 'relationship', 'carry', 'town', 'road', 'drive', 'arm', 'true', 'federal', 'break', 'better', 'difference', 'thank', 'receive', 'value', 'international', 'building', 'action', 'full', 'model', 'join', 'season', 'society', 'because', 'tax', 'director', 'early', 'position', 'player', 'agree', 'especially', 'record', 'pick', 'wear', 'paper', 'special', 'space', 'ground', 'form', 'support', 'event', 'official', 'whose', 'matter', 'everyone', 'center', 'couple', 'site', 'end', 'project', 'hit', 'base', 'activity', 'star', 'table', 'need', 'court', 'produce', 'eat', 'American', 'teach', 'oil', 'half', 'situation', 'easy', 'cost', 'industry', 'figure', 'face', 'street', 'image', 'itself', 'phone', 'either', 'data', 'cover', 'quite', 'picture', 'clear', 'practice', 'piece', 'land', 'recent', 'describe', 'product', 'doctor', 'wall', 'patient', 'worker', 'news', 'test', 'movie', 'certain', 'north', 'love', 'personal', 'open', 'support', 'simply', 'third', 'technology', 'catch', 'step', 'baby', 'computer', 'type', 'attention', 'draw', 'film', 'Republican', 'tree', 'source', 'red', 'nearly', 'organization', 'choose', 'cause', 'hair', 'look', 'point', 'century', 'evidence', 'window', 'difficult', 'listen', 'place', 'single', 'rule', 'daughter', 'administration', 'south', 'husband', 'Congress', 'floor', 'campaign', 'material', 'population', 'well', 'call', 'economy', 'medical', 'hospital', 'church', 'close', 'thousand', 'risk', 'current', 'fire', 'future', 'wrong', 'involve', 'defense', 'anyone', 'increase', 'security', 'bank', 'myself', 'certainly', 'west', 'sport', 'board', 'seek', 'per', 'subject', 'officer', 'private', 'rest', 'behavior', 'deal', 'performance', 'fight', 'throw', 'top', 'quickly', 'past', 'goal', 'second', 'bed', 'order', 'author', 'fill', 'represent', 'focus', 'foreign', 'drop', 'plan', 'blood', 'upon', 'agency', 'push', 'nature', 'color', 'no', 'recently', 'store', 'reduce', 'sound', 'note', 'fine', 'before', 'near', 'movement', 'page', 'enter', 'share', 'than', 'common', 'poor', 'other', 'natural', 'race', 'concern', 'series', 'significant', 'similar', 'hot', 'language', 'each', 'usually', 'response', 'dead', 'rise', 'animal', 'factor', 'decade', 'article', 'shoot', 'east', 'save', 'seven', 'artist', 'away', 'scene', 'stock', 'career', 'despite', 'central', 'eight', 'thus', 'treatment', 'beyond', 'happy', 'exactly', 'protect', 'approach', 'lie', 'size', 'dog', 'fund', 'serious', 'occur', 'media', 'ready', 'sign', 'thought', 'list', 'individual', 'simple', 'quality', 'pressure', 'accept', 'answer', 'hard', 'resource', 'identify', 'left', 'meeting', 'determine', 'prepare', 'disease', 'whatever', 'success', 'argue', 'cup', 'particularly', 'amount', 'ability', 'staff', 'recognize', 
 'indicate', 'character', 'growth', 'loss', 'degree', 'wonder', 'attack', 'herself', 'region', 'television', 'box', 'TV', 'training', 'pretty', 'trade', 'deal', 'election', 'everybody', 'physical', 'lay', 'general', 'feeling', 'standard', 'bill', 'message', 'fail', 'outside', 'arrive', 'analysis', 'benefit', 'name', 'sun', 'forward', 'lawyer', 'present', 'section', 'environmental', 'glass', 'answer', 'skill', 'sister', 'PM', 'professor', 'operation', 'financial', 'crime', 'stage', 'ok', 'compare', 'authority', 'miss', 'design', 'sort', 'one', 'act', 'ten', 'knowledge', 'gun', 'station', 'blue', 'state', 'strategy', 'little', 'clearly', 'discuss', 
 'indeed', 'force', 'truth', 'song', 'example', 'democratic', 'check', 'environment', 'leg', 'dark', 'public', 'various', 'rather', 'laugh', 'guess', 'executive', 'set', 'study', 'prove', 'hang', 'entire', 'rock', 'design', 'enough', 'forget', 'since', 'claim', 'note', 'remove', 'manager', 'help', 'close', 'sound', 'enjoy', 'network', 'legal', 'religious', 'cold', 'form', 'final', 'main', 'science', 'green', 'memory', 'card', 'above', 'seat', 'cell', 'establish', 'nice', 'trial', 'expert', 'that', 'spring', 'firm', 'Democrat', 'radio', 'visit', 'management', 'care', 'avoid', 'imagine', 'tonight', 'huge', 'ball', 'no', 'close', 'finish', 'yourself', 'talk', 'theory', 'impact', 'respond', 'statement', 'maintain', 'charge', 'popular', 'traditional', 'onto', 'reveal', 'direction', 'weapon', 'employee', 'cultural', 'contain', 'peace', 'head', 'control', 'base', 'pain', 'apply', 'play', 'measure', 'wide', 'shake', 'fly', 'interview', 'manage', 'chair', 'fish', 'particular', 'camera', 'structure', 'politics', 'perform', 'bit', 'weight', 'suddenly', 'discover', 'candidate', 'top', 'production', 'treat', 'trip', 'evening', 'affect', 'inside', 'conference', 'unit', 'best', 'style', 'adult', 'worry', 'range', 'mention', 'rather', 'far', 'deep', 'front', 'edge', 'individual', 'specific', 'writer', 'trouble', 'necessary', 'throughout', 'challenge', 'fear', 'shoulder', 'institution', 'middle', 'sea', 'dream', 'bar', 'beautiful', 'property', 'instead', 'improve', 'stuff', 'claim'];
-
 
 var quotes = [['It', 'was', 'just', 'a', 'burger.', 'Why', "couldn't", 'she', 'understand', 'that?', 'She', 'knew', "he'd", 'completely', 'changed', 'his', 'life', 'around', 'her', 'eating', 'habits,', 'so', 'why', "couldn't", 'she', 'give', 'him', 'a', 'break', 'this', 'one', 'time?', 'She', "wasn't", 'even', 'supposed', 'to', 'have', 'found', 'out.', 'Yes,', 'he', 'had', 'promised', 'her', 'and', 'yes,', 'he', 'had', 'broken', 'that', 'promise,', 'but', 'still', 'in', 'his', 'mind,', 'all', 'it', 'had', 'been', 'was', 'just', 'a', 'burger.'], ['Barbara', 'had', 'been', 'waiting', 'at', 'the', 'table', 'for', 'twenty', 'minutes.', 'it', 'had', 'been', 'twenty', 'long', 'and', 'excruciating', 'minutes.', 'David', 'had', 'promised', 'that', 'he', 'would', 'be', 'on', 'time', 'today.', 'He', 'never', 'was,', 'but', 'he', 'had', 'promised', 'this', 'one', 'time.', 'She', 
 'had', 'made', 'him', 'repeat', 'the', 'promise', 'multiple', 'times', 'over', 'the', 'last', 'week', 'until', "she'd", 'believed', 'his', 'promise.', 'Now', 'she', 'was', 'paying', 'the', 'price.'], ["I'm", 'heading', 'back', 'to', 'Colorado', 'tomorrow', 'after', 'being', 'down', 'in', 'Santa', 'Barbara', 'over', 'the', 'weekend', 'for', 'the', 'festival', 'there.', 'I', 'will', 'be', 'making', 'October', 'plans', 'once', 'there', 'and', 'will', 'try', 'to', 'arrange', 'so', "I'm", 'back', 'here', 'for', 'the', 'birthday', 'if', 'possible.', "I'll", 'let', 'you', 'know', 'as', 'soon', 'as', 'I', 'know', 'the', "doctor's", 'appointment', 'schedule', 'and', 'my', 'flight', 'plans.'], ['Indescribable', 'oppression,', 'which', 'seemed', 'to', 'generate', 'in', 'some', 'unfamiliar', 'part', 'of', 'her', 'consciousness,', 'filled', 'her', 'whole', 'being', 'with', 'a', 'vague', 'anguish.', 'It', 'was', 'like', 'a', 'shadow,', 'like', 'a', 'mist', 'passing', 'across', 'her', "soul's", 'summer', 'day.', 'It', 'was', 'strange', 'and', 'unfamiliar;', 'it', 'was', 'a', 'mood.', 'She', 'did', 'not', 'sit', 'there', 'inwardly', 'upbraiding', 'her', 'husband,', 'lamenting', 'at', 'Fate,', 'which', 'had', 'directed', 'her', 'footsteps', 'to', 'the', 'path', 'which', 'they', 'had', 'taken.', 'She', 'was', 'just', 'having', 'a', 'good', 'cry', 'all', 'to', 'herself.', 'The', 'mosquitoes', 'made', 'merry', 'over', 'her,', 'biting', 'her', 'firm,', 'round', 'arms', 'and', 'nipping', 'at', 'her', 'bare', 'insteps.'], ['MaryLou', 'wore', 'the', 'tiara', 'with', 'pride.', 'There', 'was', 'something', 'that', 'made', 'doing', 'anything', 'she', "didn't", 'really', 'want', 'to', 'do', 'a', 'bit', 'easier', 'when', 'she', 'wore', 'it.', 'She', 'really', "didn't", 'care', 'what', 'those', 'staring', 'through', 'the', 'window', 'were', 'thinking', 'as', 'she', 'vacuumed', 'her', 'apartment.'], ['The', 'headphones', 'were', 'on.', 'They', 'had', 'been', 'utilized', 'on', 'purpose.', 'She', 'could', 'hear', 'her', 'mom', 'yelling', 'in', 'the', 'background,', 'but', "couldn't", 'make', 'out', 'exactly', 'what', 'the', 'yelling', 'was', 'about.', 'That', 'was', 'exactly', 'why', 'she', 'had', 'put', 'them', 'on.', 'She', 'knew', 'her', 'mom', 'would', 'enter', 'her', 'room', 'at', 'any', 'minute,', 'and', 'she', 'could', 'pretend', 'that', 'she', "hadn't", 'heard', 'any', 
@@ -74,14 +54,10 @@ var quotes = [['It', 'was', 'just', 'a', 'burger.', 'Why', "couldn't", 'she', 'u
 //maybe change these to let variables
 var correct = 0;
 var incorrect = 0; 
-var currentQuote = '';
-var spaceCount = 0;
-
-
+var displayText = '';
+var whitespaceCount = 0;
 var correctChar = 0;
 var incorrectChar = 0;
-
-
 var correctWords = 0;
 var incorrectWords = 0;
 
@@ -98,13 +74,13 @@ var flag;
 
 //-------------------------------------
 // init values of stats 
-timerElement.innerHTML = 60 + 's';
-wpmElement.innerHTML = '00 ' + 'WPM  ';
-gwpmElement.innerHTML = '00 ' + 'gWPM';
-accElement.innerHTML = '00.0% ' + 'acc';
+TIME_ELEM.innerHTML = 60 + 's';
+WPM_ELEM.innerHTML = '00 ' + 'WPM  ';
+GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
+ACC_ELEM.innerHTML = '00.0% ' + 'acc';
 
-correctElement.innerHTML = 'correct chars: 00';
-incorrectElement.innerHTML = 'incorrect chars: 00';
+CORR_ELEM.innerHTML = 'correct chars: 00';
+INCORR_ELEM.innerHTML = 'incorrect chars: 00';
 
 
 console.log(words.length);
@@ -129,7 +105,7 @@ console.log(words.length);
   const data = fetch(RANDOM_QUOTE_API_URL)
     .then(response => response.json())
     .then(data => data.content)
-  //currentQuote = data.toString().split(' ');
+  //displayText = data.toString().split(' ');
   return data;
 
 } */
@@ -187,28 +163,26 @@ var time;
 var words;
 
 function focusOnMe(){
-  quoteInputElement.focus();
+  INP_ELEM.focus();
 }
 
 function selectQuote(){
-  var i = 0;
-  var word_list = [];
+  var currentWords = [];
   random_number1 = (Math.floor(Math.random() * quotes.length) + 1);
   quote = quotes[random_number1];
-  console.log(quote);
+  var i = 0;
   while (i < quote.length){
-    word_list.push(quote[i]);
+    currentWords.push(quote[i]);
     i++;
   }
-  currentQuote = word_list;
-  console.log(currentQuote);
-  return(word_list);
+  displayText = currentWords;
+  console.log(displayText);
+  return(currentWords);
 }
 
 function makeSentence(){
-  console.log(lengthLimit);
   var length = lengthLimit;
-  var word_list = [];
+  var currentWords = [];
   var i = 0;
   while (i < length){
     random_number = (Math.floor(Math.random() * 1000) + 1);
@@ -219,22 +193,22 @@ function makeSentence(){
       i--;
     }
     else{ 
-      word_list.push(words[random_number].toLowerCase());
+      currentWords.push(words[random_number].toLowerCase());
     }
     i++;
   }
-  currentQuote = word_list;
-  console.log(currentQuote);
-  return(word_list);
+  displayText = currentWords;
+  console.log(displayText);
+  return(currentWords);
   
 }
 
 function setList(e) {
-  currentQuote = e;
+  displayText = e;
 }
 
 function capWords(e){ 
-  capList = [];
+  capitalWords = [];
   for (var i = 0; i < e.length; i++){
     var cap;
     random_number = (Math.floor(Math.random() * 5) + 1);
@@ -251,26 +225,25 @@ function capWords(e){
     }
     catch (TypeError){
     }
-    capList.push(cap);
+    capitalWords.push(cap);
   }
-  currentQuote = capList;
+  displayText = capitalWords;
 }
-
 makeSentence();
 
 function renderText() {
-  currentQuote.forEach(word => {
+  displayText.forEach(word => {
     let span = document.createElement('span');
     //console.log(span)
     span.innerHTML = ' ' + word;
     
-    quoteDisplayElement.appendChild(span);
+    DISP_ELEM.appendChild(span);
   });
-  quoteDisplayElement.firstChild.classList.add('highlight');
+  DISP_ELEM.firstChild.classList.add('highlight');
 }
  
 function setCount() {
-  spaceCount++;
+  whitespaceCount++;
 }
 
 function setCorrect() {
@@ -285,8 +258,8 @@ function setIncorrect() {
   incorrectChar++;
 }
 
-let oldDate; 
-let newDate;
+var oldDate; 
+var newDate;
 var goodList = [];
 var badList = [];
 
@@ -294,10 +267,8 @@ function renderResults() {
   var wpm = 0;
   var gwpm = 0;
   var acc = 0;
-
   var elapsed = (newDate - oldDate) / 1000;
-  console.log(elapsed);
-  var accuracy = correctWords / currentQuote.length;
+  var accuracy = correctWords / displayText.length;
   var good = 0;
   var bad = 0;
 
@@ -330,76 +301,74 @@ function renderResults() {
 
   acc = (good / (good + bad)) * 100;
   console.log("the wpm is " + wpm)
-  wpmElement.innerHTML = wpm.toFixed(0) +  ' WPM';
-  gwpmElement.innerHTML = gwpm.toFixed(0) + ' gWPM';
-  accElement.innerHTML = acc.toFixed(1) + '% acc';
-  correctElement.innerHTML = 'correct chars: ' + good;
-  incorrectElement.innerHTML = 'incorrect chars: ' + bad;
+  WPM_ELEM.innerHTML = wpm.toFixed(0) +  ' WPM';
+  GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
+  ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
+  CORR_ELEM.innerHTML = 'correct chars: ' + good;
+  INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
 }
 
-var myTimer;
+var counter;
    function clock() {
-     myTimer = setInterval(myClock, 1000);
+     counter = setInterval(clockConditions, 1000);
      var c = timeLimit;
-     function myClock() {
+     function clockConditions() {
        if (c <= 10){
-         timerElement.innerHTML = '0' + --c + 's';
+         TIME_ELEM.innerHTML = '0' + --c + 's';
        }
        else{
-        timerElement.innerHTML = --c + 's';
+        TIME_ELEM.innerHTML = --c + 's';
        }
        if (c == 0) {
-         clearInterval(myTimer);
-         timerElement.innerHTML = '00';
-         quoteInputElement.disabled = true;
+         clearInterval(counter);
+         TIME_ELEM.innerHTML = '00';
+         INP_ELEM.disabled = true;
          renderResults();
        }
      }
    }
   
 function stopClock(){
-  clearInterval(myTimer);
+  clearInterval(counter);
 }
 
 var totalChar = 0;
-var goodChar = 0;
-var firstLetter = currentQuote[0][0];
+var firstLetter = displayText[0][0];
 mode = 'timed';
 
-quoteInputElement.addEventListener('keydown', e => {
+INP_ELEM.addEventListener('keydown', e => {
   totalChar++;
-
-  if ((spaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
+  if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
     clock();
   }  
-  else if ((spaceCount == 0) && (totalChar == 1) && (mode == 'burst' || mode == 'quote')){
+  else if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'burst' || mode == 'quote')){
     oldDate = Date.now();
     console.log(oldDate);
   }
-  var str1 = quoteInputElement.value;
-  var str2 = quoteDisplayElement.childNodes[spaceCount].innerText;
+  var innerString = INP_ELEM.value;
+  var totalString = DISP_ELEM.childNodes[whitespaceCount].innerText;
   try{
-    var match = str2.match(str1);
+    var match = totalString.match(innerString);
   }
   catch(SyntaxError){
   }
   if (match == null) {
-    quoteDisplayElement.childNodes[spaceCount].classList.add('highlight-red');
+    DISP_ELEM.childNodes[whitespaceCount].classList.add('highlight-red');
   }
   else { 
-    quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
+    DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
   }
   if (e.key == ' ') {
     event.preventDefault();
     //  the timed version and the word limit version both need scroll like this 
     try{
-      if (quoteDisplayElement.childNodes[spaceCount + 1].offsetTop > quoteDisplayElement.childNodes[spaceCount].offsetTop){
+      if (DISP_ELEM.childNodes[whitespaceCount + 1].offsetTop > DISP_ELEM.childNodes[whitespaceCount].offsetTop){
         // change if the max width of container is changing 
-        if ((currentQuote.length - spaceCount) < 10){ 
+        if ((displayText.length - whitespaceCount) < 10){ 
         }
         else{
-          var newOffset = quoteDisplayElement.childNodes[spaceCount + 1].offsetTop - quoteDisplayElement.childNodes[spaceCount].offsetTop;
-          quoteDisplayElement.scrollBy({
+          var newOffset = DISP_ELEM.childNodes[whitespaceCount + 1].offsetTop - DISP_ELEM.childNodes[whitespaceCount].offsetTop;
+          DISP_ELEM.scrollBy({
             top: newOffset,
             left: 0,
             behavior: 'smooth'
@@ -409,31 +378,31 @@ quoteInputElement.addEventListener('keydown', e => {
     }
     catch (TypeError){  
     }
-    if (quoteInputElement.value == '') {
-      quoteInputElement.value = '';
+    if (INP_ELEM.value == '') {
+      INP_ELEM.value = '';
     }
-    else if (quoteInputElement.value != '') {
+    else if (INP_ELEM.value != '') {
       try{
-        quoteDisplayElement.childNodes[spaceCount + 1].classList.add('highlight');
+        DISP_ELEM.childNodes[whitespaceCount + 1].classList.add('highlight');
       }
       catch (TypeError){
       }
-      if (quoteInputElement.value.trim() == currentQuote[spaceCount]){
-        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
-        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
-        quoteDisplayElement.childNodes[spaceCount].classList.add('correct');
-        goodList.push(currentQuote[spaceCount]);
+      if (INP_ELEM.value.trim() == displayText[whitespaceCount]){
+        DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
+        DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight');
+        DISP_ELEM.childNodes[whitespaceCount].classList.add('correct');
+        goodList.push(displayText[whitespaceCount]);
         setCorrectWords();
       }
-      else if (quoteInputElement.value.trim() != currentQuote[spaceCount]){
-        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight-red');
-        quoteDisplayElement.childNodes[spaceCount].classList.remove('highlight');
-        quoteDisplayElement.childNodes[spaceCount].classList.add('incorrect');
-        badList.push(currentQuote[spaceCount]);
+      else if (INP_ELEM.value.trim() != displayText[whitespaceCount]){
+        DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
+        DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight');
+        DISP_ELEM.childNodes[whitespaceCount].classList.add('incorrect');
+        badList.push(displayText[whitespaceCount]);
       }
-      quoteInputElement.value = '';
+      INP_ELEM.value = '';
       setCount();
-      if (spaceCount == currentQuote.length) {
+      if (whitespaceCount == displayText.length) {
         newDate = Date.now();
         renderResults();
         console.log(newDate);
@@ -442,7 +411,7 @@ quoteInputElement.addEventListener('keydown', e => {
   }
 })
 
-var wordNum;
+var lengthSelection;
 document.getElementById('drop3').classList.add('mask');
 $('.dropdown').click(function () {
   // need to add a check here to that it focuses on thsi specifically 
@@ -469,34 +438,34 @@ $('.dropdown-menu li').click(function () {
     time = input;
   }
   else if (input == '10 words' || input == '50 words' || input == '200 words'){
-    wordNum = input;
+    lengthSelection = input;
   }
   stopClock();
   if (mode == 'burst' ){
-    quoteDisplayElement.classList.add('quote-display-short');
+    DISP_ELEM.classList.add('quote-display-short');
     lengthLimit = 10;
     reset();
-    timerElement.innerHTML = '///';
+    TIME_ELEM.innerHTML = '///';
     document.getElementById('drop3').classList.remove('mask');
     document.getElementById('switch').classList.remove('mask-button');
     document.getElementById('slider').classList.remove('mask-slider');
     document.getElementById('slider').classList.remove('mask-before');
     document.getElementById('drop2').classList.add('mask');
-    if (wordNum == '10 words'){
+    if (lengthSelection == '10 words'){
       lengthLimit = 10;
       reset();
     }
-    else if (wordNum == '50 words'){
+    else if (lengthSelection == '50 words'){
       lengthLimit = 50;
       reset();
     }
-    else if (wordNum == '200 words'){
+    else if (lengthSelection == '200 words'){
       lengthLimit = 200;
       reset();
     }
   }
   else if (mode == 'timed') {
-    quoteDisplayElement.classList.remove('quote-display-short');
+    DISP_ELEM.classList.remove('quote-display-short');
     document.getElementById('switch').classList.remove('mask-button');
     document.getElementById('slider').classList.remove('mask-slider');
     document.getElementById('slider').classList.remove('mask-before');
@@ -510,54 +479,51 @@ $('.dropdown-menu li').click(function () {
     }
     lengthLimit = 350;
     reset();
-    timerElement.innerHTML = timeLimit + 's'
+    TIME_ELEM.innerHTML = timeLimit + 's'
   }
   else if (mode == 'quote'){
-    timerElement.innerHTML = '///';
-    quoteDisplayElement.classList.remove('quote-display-short');
+    TIME_ELEM.innerHTML = '///';
+    DISP_ELEM.classList.remove('quote-display-short');
     document.getElementById('drop2').classList.add('mask');
     document.getElementById('drop3').classList.add('mask');
     document.getElementById('switch').classList.add('mask-button');
     document.getElementById('slider').classList.add('mask-slider');
     document.getElementById('slider').classList.add('mask-before');
     reset();
-    
   }
 }); 
 
-
 function reset(){
   stopClock();
+
   if (mode == 'burst' || mode == 'quote'){
-    timerElement.innerHTML = '///';
+    TIME_ELEM.innerHTML = '///';
   }
   else{
-    timerElement.innerHTML = timeLimit + 's'
+    TIME_ELEM.innerHTML = timeLimit + 's'
   }
-  
+
   correct = 0;
   incorrect = 0; 
-  currentQuote = '';
-  spaceCount = 0;
+  displayText = '';
+  whitespaceCount = 0;
   correctChar = 0;
   incorrectChar = 0;
   correctWords = 0; 
   incorrectWords = 0;
   totalChar = 0;
-  goodChar = 0;
   goodList = [];
   badList = [];
-  quoteInputElement.disabled = false;
-  quoteInputElement.value = '';
-  quoteDisplayElement.innerHTML = '';
-  wpmElement.innerHTML = '00 ' + 'WPM  ';
-  gwpmElement.innerHTML = '00 ' + 'gWPM';
-  accElement.innerHTML = '00.0% acc';
-  correctElement.innerHTML = 'correct chars: 00';
-  incorrectElement.innerHTML = 'incorrect chars: 00';
-  
+  INP_ELEM.disabled = false;
+  INP_ELEM.value = '';
+  DISP_ELEM.innerHTML = '';
+  WPM_ELEM.innerHTML = '00 ' + 'WPM  ';
+  GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
+  ACC_ELEM.innerHTML = '00.0% acc';
+  CORR_ELEM.innerHTML = 'correct chars: 00';
+  INCORR_ELEM.innerHTML = 'incorrect chars: 00';
  //add fade animation to replace text instead of this or figure out to make it scroll up 
-  quoteDisplayElement.scrollTo({
+  DISP_ELEM.scrollTo({
     top: 0,
     left: 0,
     behavior: 'smooth'
@@ -577,8 +543,6 @@ function reset(){
   }
   renderText();
 }
-
-
 
 renderText();
 
