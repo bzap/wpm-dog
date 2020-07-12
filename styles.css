@@ -19,7 +19,6 @@
     justify-content: center;
   }
 
-
   header {
     padding: 3rem 0 6rem 0;      
     
@@ -27,18 +26,28 @@
     margin: 1.2rem 0 0 0;
   }
 
-  .title {  
-    color: white;
-    font-style: italic;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-    font-size: 3.5em;
+  span {
+    display: inline-block;
+    margin-right: 10px;
+    
   }
 
-  
-    
+  button {
+    display: block;
+    position: relative;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  button:active {
+    top: 1px;
+    box-shadow: none;
+  }
+
   @keyframes fadeIn {
     0% {opacity:0;}
     100% {opacity:1;}
@@ -106,9 +115,18 @@
     }
     100% {
       opacity:0;
-  }
+    }
   }
 
+  .title {  
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    font-size: 3.5em;
+  }
 
   .faderOut{
     animation: fadeOut ease 1s;
@@ -124,11 +142,7 @@
     opacity: 1;
     transition: opacity 2s;
   }
-  .hide2 {
-      opacity: 0 !important;
-  }
 
-  
   .container {
     background-color: #2e3440;
     display: flex;
@@ -157,7 +171,6 @@
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
   }
-
 
   .quote-display-short{
     margin-top: 2rem; 
@@ -202,43 +215,25 @@
     margin-left: 10px;
     margin-right: 10px;
     white-space:nowrap;
-    overflow:hidden;
-    
+    overflow:hidden;    
   }
 
-
-  button {
-    display: block;
-    position: relative;
-    text-align: center;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.5s ease-in-out;
-}
-
-  button:active {
-    top: 1px;
-    box-shadow: none;
+  .icon {
+      position: relative;
   }
+  .btn-white {
+      background: transparent;
 
-.icon {
-    position: relative;
-}
-.btn-white {
-    background: transparent;
-
-}
-.btn-white .icon {
-    margin-top: 7px;
-    width: 24px;
-    height: 24px;
-    transition: all 0.4s ease-in-out;
-}
-.btn-white:hover .icon {
-    transform: rotate(360deg) scale(1);
-}
+  }
+  .btn-white .icon {
+      margin-top: 7px;
+      width: 24px;
+      height: 24px;
+      transition: all 0.4s ease-in-out;
+  }
+  .btn-white:hover .icon {
+      transform: rotate(360deg) scale(1);
+  }
 
   .quote-input:focus {
     border-color: #4f596f;
@@ -249,12 +244,7 @@
     box-shadow: 0 0 12px #3b4252
   }
 
-
-  .success {color: white;}
-
-
   .stats {
-  
     display: flex;
     align-items: center;
     flex-direction: column;  
@@ -264,18 +254,6 @@
     animation: fadeIn ease 1s;
     -webkit-animation: fadeIn ease 1s;
   }
-
-  
-
-
-
-  /*.countdown {
-    position: absolute;
-    top: 5rem;
-    font-size: 3rem;
-    color: white;
-    font-weight: bold;
-  } */
 
   .wpm-stats {
     display: flex;
@@ -294,7 +272,6 @@
   }
 
   .correctChar{ 
-
     font-size: 1.5rem;
     color: white;
     animation: fadeIn ease 1s;
@@ -329,7 +306,6 @@
     font-weight: bold;
   }
 
-
   .gwpm {
     font-size: 3rem;
     color: white;
@@ -344,25 +320,6 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
-
-
-
-
-
-
-
-  span {
-    display: inline-block;
-    margin-right: 10px;
-    
-  }
-
- 
-
-
-
-
-  
   .correct {
     color: #a3be8c;
   }
@@ -377,23 +334,16 @@
 
   
   .highlight{
-    
     transition-duration: 0.1s;
     color: #fbdce2;
     background-color: #4f596f;
   }
 
-
   .highlight-red{
-    
     transition-duration: 0.2s;
     color: white;
     background-color: lightcoral;
   }
-
-
-/* custom select */
-
 
 * {
   outline: 0;
@@ -403,16 +353,10 @@
   background-color: #2e3440;
   padding: 1rem;
   border-radius: 1rem;
-
-
   margin: 30px auto 0;
   text-align: center;
   display: flex;
 }
-
-
-
-
 
 .switch {
   position: relative;
@@ -421,8 +365,6 @@
   margin-left: 10px;
   margin-right: 10px;
   text-align: center
-  
-
 }
 
 .switch input {
@@ -444,8 +386,6 @@
   
 }
 
-
-/* need to tune these animations */
 input:checked + .slider:hover {
   box-shadow: 0 0 12px #3b4252
 }
@@ -453,8 +393,6 @@ input:checked + .slider:hover {
 input:not(:checked) + .slider:hover {
   box-shadow: 0 0 12px #3b4252
 }
-
-
 
 .slider:before {
   content:'case-scramble';
@@ -470,9 +408,6 @@ input:focus + .slider {
   box-shadow: 0 0 1px #4f596f;
 }
 
-
-
-/*Styling Selectbox*/
 .dropdown {
   margin-left: 10px;
   margin-right: 10px;
@@ -487,8 +422,6 @@ input:focus + .slider {
   height: 100%;
   text-align: center
 }
-
-
 
 .dropdown .select {
     cursor: pointer;
