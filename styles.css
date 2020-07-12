@@ -417,7 +417,7 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 170px;
+  width: 150px;
   margin-left: 10px;
   margin-right: 10px;
   text-align: center
@@ -430,6 +430,7 @@
 
 .slider {
   font-size: 14px;
+  width: 150px;
   border-radius: 0.5rem;
   position: absolute;
   cursor: pointer;
@@ -581,4 +582,17 @@ input:focus + .slider {
   cursor: not-allowed;
   background-color: #323947;
   color: #656779;
+}
+
+.mask-button{ 
+  pointer-events:none;
+  cursor: not-allowed;
+  
+  
+  transition: all .3s ease-in-out;
+}
+
+.mask-slider{ 
+  color: #656779;
+  background-color: #323947;
 }

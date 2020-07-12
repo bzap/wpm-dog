@@ -606,6 +606,10 @@ $('.dropdown-menu li').click(function () {
     quoteDisplayElement.classList.remove('quote-display-short');
     document.getElementById('drop2').classList.add('mask');
     document.getElementById('drop3').classList.add('mask');
+    document.getElementById('switch').classList.add('mask-button');
+    document.getElementById('slider').classList.add('mask-slider');
+    //document.getElementById('slider').classList.add('mask-button');
+    //document.getElementById('slider').onclick = null;
     reset();
     
   }
