@@ -103,8 +103,8 @@ wpmElement.innerHTML = '00 ' + 'WPM  ';
 gwpmElement.innerHTML = '00 ' + 'gWPM';
 accElement.innerHTML = '00.0% ' + 'acc';
 
-correctElement.innerHTML = 'incorrect chars: 00';
-incorrectElement.innerHTML = 'correct chars: 00';
+correctElement.innerHTML = 'correct chars: 00';
+incorrectElement.innerHTML = 'incorrect chars: 00';
 
 
 console.log(words.length);
@@ -151,9 +151,6 @@ function checkBox(){
   reset();
 }
 
-
-
-
 function scramble(){
   if (flag == true){
     flag = false;
@@ -164,16 +161,11 @@ function scramble(){
   reset();
 }
 
-
-
-
-
 function theFunction(){
   console.log("lol");
   document.body.style.background = color;
 
 }
-
 
 var white = false
 var bgcolor;
@@ -188,21 +180,15 @@ $(document).ready(function () {
     });
 });
 
-
 var input;
 var state; 
-
-
 var mode; 
 var time;
 var words;
-/*Dropdown Menu*/
-
 
 function focusOnMe(){
   quoteInputElement.focus();
 }
-
 
 function selectQuote(){
   var i = 0;
@@ -219,13 +205,11 @@ function selectQuote(){
   return(word_list);
 }
 
-
 function makeSentence(){
   console.log(lengthLimit);
   var length = lengthLimit;
   var word_list = [];
   var i = 0;
-
   while (i < length){
     random_number = (Math.floor(Math.random() * 1000) + 1);
     if (words[random_number] == undefined){
@@ -239,37 +223,23 @@ function makeSentence(){
     }
     i++;
   }
-
   currentQuote = word_list;
-  //console.log(word_list);
-  //console.log(word_list);
   console.log(currentQuote);
   return(word_list);
   
-
 }
-
 
 function setList(e) {
   currentQuote = e;
 }
 
-// add random func that can capitalize random words in the phrasing 
 function capWords(e){ 
   capList = [];
-  //andom_number = (Math.floor(Math.random() * 5) + 1);
-  
-  //console.log(e);
   for (var i = 0; i < e.length; i++){
     var cap;
     random_number = (Math.floor(Math.random() * 5) + 1);
-    //console.log(random_number);
-    //capList.push(e[i])
-    //console.log(e)
-    //for (var y = 0; y < e[i].length; y++){
     try{
       random_number2 = (Math.floor(Math.random() * (e[i].length)) + 1);
-      //console.log(random_number2);
       random_number3 = (Math.floor(Math.random() * random_number2) + 1);
       if (random_number == 2 || random_number == 3 || random_number == 4){
         cap = e[i].slice(0, random_number3) + e[i].slice(random_number3, random_number2).toUpperCase() + 
@@ -283,34 +253,10 @@ function capWords(e){
     }
     capList.push(cap);
   }
-
-    //random_number = (Math.floor(Math.random() * 5) + 1);
-    //random_number2 = (Math.floor(Math.random() * 3) + 1);
-  //console.log(random_number);
-  //console.log(random_number2); 
-  //}
-  console.log(capList);
   currentQuote = capList;
 }
 
-//var capList = capWords(makeSentence());
-
 makeSentence();
-
-
-
-/* async function renderNewQuote() {
-  const quote = makeSentence()
-  quoteDisplayElement.innerHTML = ' '
-  quote.forEach(character => {
-    const characterSpan = document.createElement('span')
-    characterSpan.innerText = character + " "
-    quoteDisplayElement.appendChild(characterSpan)
-  })
-  quoteInputElement.value = null;
-}
-
-renderNewQuote() */
 
 function renderText() {
   currentQuote.forEach(word => {
@@ -322,9 +268,6 @@ function renderText() {
   });
   quoteDisplayElement.firstChild.classList.add('highlight');
 }
-
-
-
  
 function setCount() {
   spaceCount++;
@@ -347,14 +290,6 @@ let newDate;
 var goodList = [];
 var badList = [];
 
-
-
-
-function analysis() { 
-}
-
-
-
 function renderResults() { 
   var wpm = 0;
   var gwpm = 0;
@@ -375,7 +310,6 @@ function renderResults() {
 
   if (mode == 'timed'){
     if (timeLimit == 60) {
-
       // possibly get rid of this and just use the elapsed method so no more cases required
       wpm = (((good + bad) / 5) / 1) - ((bad / 5) / 1);
       gwpm = ((good + bad) / 5 / 1);
@@ -399,21 +333,10 @@ function renderResults() {
   wpmElement.innerHTML = wpm.toFixed(0) +  ' WPM';
   gwpmElement.innerHTML = gwpm.toFixed(0) + ' gWPM';
   accElement.innerHTML = acc.toFixed(1) + '% acc';
-  correctElement.innerHTML = 'incorrect chars: ' + bad;
-  incorrectElement.innerHTML = 'correct chars: ' + good;
+  correctElement.innerHTML = 'correct chars: ' + good;
+  incorrectElement.innerHTML = 'incorrect chars: ' + bad;
 }
 
-function scrollText() {
-
-}
-
-
-//clean up the var names here
-// create a switch or if statement based on the mode 
-
-
-
-// to show live wpm add a line here as it updates 
 var myTimer;
    function clock() {
      myTimer = setInterval(myClock, 1000);
@@ -422,14 +345,9 @@ var myTimer;
        if (c <= 10){
          timerElement.innerHTML = '0' + --c + 's';
        }
-
        else{
         timerElement.innerHTML = --c + 's';
        }
-       
-       // need to figure out the fading on the clock here maybe?
-      // timerElement.classList.remove('hide')
-       //wpmElement.innerHTML = 'WPM: ' + goodChar;
        if (c == 0) {
          clearInterval(myTimer);
          timerElement.innerHTML = '00';
@@ -440,7 +358,6 @@ var myTimer;
    }
   
 function stopClock(){
-
   clearInterval(myTimer);
 }
 
@@ -603,17 +520,12 @@ $('.dropdown-menu li').click(function () {
     document.getElementById('switch').classList.add('mask-button');
     document.getElementById('slider').classList.add('mask-slider');
     document.getElementById('slider').classList.add('mask-before');
-    //document.getElementById('slider').classList.add('mask-button');
-    //document.getElementById('slider').onclick = null;
     reset();
     
   }
-
-//$(this).find('.dropdown-menu').slideToggle(250);
 }); 
 
 
-// variables need more cleanup
 function reset(){
   stopClock();
   if (mode == 'burst' || mode == 'quote'){
@@ -622,7 +534,6 @@ function reset(){
   else{
     timerElement.innerHTML = timeLimit + 's'
   }
-  // need to fix this 
   
   correct = 0;
   incorrect = 0; 
@@ -642,10 +553,9 @@ function reset(){
   wpmElement.innerHTML = '00 ' + 'WPM  ';
   gwpmElement.innerHTML = '00 ' + 'gWPM';
   accElement.innerHTML = '00.0% acc';
-
-  incorrectElement.innerHTML = 'incorrect chars: 00';
   correctElement.innerHTML = 'correct chars: 00';
-  //quoteDisplayElement.scrollTo(0,0);
+  incorrectElement.innerHTML = 'incorrect chars: 00';
+  
  //add fade animation to replace text instead of this or figure out to make it scroll up 
   quoteDisplayElement.scrollTo({
     top: 0,
