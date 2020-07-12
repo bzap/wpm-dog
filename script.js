@@ -10,7 +10,7 @@ const ACC_ELEM = document.getElementById('acc')
 
 var words = ['be', 'and', 'of', 'a', 'in', 'to', 'have', 'too', 'it', 'I', 'that', 'for', 'you', 'he', 'with', 'on', 'do', 'say', 'this', 'they', 'at', 'but', 'we', 'his', 'from', 'that', 'not', 'can’t', 'won’t', 'by', 'she', 'or', 'as', 'what', 'go', 'their', 'can', 'who', 'get', 'if', 'would', 'her', 'all', 'my', 'make', 'about', 'know', 'will', 'as', 'up', 'one', 'time', 'there', 'year', 'so', 'think', 'when', 'which', 'them', 'some', 'me', 
 'people', 'take', 'out', 'into', 'just', 'see', 'him', 'your', 'come', 'could', 'now', 'than', 'like', 'other', 'how', 'then', 'its', 'our', 'two', 'more', 'these', 'want', 'way', 'look', 'first', 'also', 'new', 'because', 'day', 'more', 'use', 'no', 'man', 'find', 'here', 'thing', 'give', 'many', 'well', 'only', 'those', 'tell', 'one', 'very', 'her', 'even', 'back', 'any', 'good', 'woman', 'through', 'us', 'life', 'child', 'there', 'work', 'down', 'may', 'after', 'should', 'call', 'world', 'over', 'school', 'still', 'try', 'in', 'as', 'last', 'ask', 'need', 'too', 'feel', 'three', 'when', 'state', 'never', 'become', 'between', 'high', 'really', 
-'something', 'most', 'another', 'much', 'family', 'own', 'out', 'leave', 'put', 'old', 'while', 'mean', 'on', 'keep', 'student', 'why', 'let', 'great', 'same', 'big', 'group', 'begin', 'seem', 'country', 'help', 'talk', 'where', 'turn', 'problem', 'every', 'start', 'hand', 'might', 'American', 'show', 'part', 'about', 'against', 'place', 'over', 'such', 'again', 'few', 'case', 'most', 'week', 'company', 'where', 'system', 'each', 'right', 'program', 'hear', 'so', 'question', 'during', 'work', 'play', 'government', 'run', 'small', 'number', 'off', 'always', 'move', 'like', 'night', 'live', 'Mr.', 'point', 'believe', 'hold', 'today', 'bring', 'happen', 'next', 'without', 'before', 'large', 'all', 'million', 'must', 'home', 'under', 'water', 'room', 'write', 'mother', 'area', 'national', 'money', 'story', 'young', 'fact', 'month', 'different', 'lot', 'right', 'study', 'book', 'eye', 'job', 'word', 'though', 'business', 'issue', 'side', 'kind', 'four', 'head', 'far', 'black', 'long', 'both', 'little', 'house', 'yes', 'after', 'since', 'long', 'provide', 'service', 'around', 'friend', 'important', 'father', 'sit', 'away', 'until', 'power', 'hour', 'game', 'often', 'yet', 'line', 'political', 'end', 'among', 'ever', 'stand', 'bad', 'lose', 'however', 'member', 'pay', 'law', 'meet', 'car', 'city', 'almost', 'include', 'continue', 'set', 'later', 'community', 'much', 'name', 'five', 'once', 'white', 'least', 'president', 'learn', 'real', 'change', 'team', 'minute', 'best', 'several', 'idea', 'kid', 'body', 'information', 'nothing', 'ago', 'right', 'lead', 'social', 'understand', 'whether', 'back', 'watch', 'together', 'follow', 'around', 'parent', 'only', 'stop', 'face', 'anything', 'create', 'public', 'already', 'speak', 
+'something', 'most', 'another', 'much', 'family', 'own', 'out', 'leave', 'put', 'old', 'while', 'mean', 'on', 'keep', 'student', 'why', 'let', 'great', 'same', 'big', 'group', 'begin', 'seem', 'country', 'help', 'talk', 'where', 'turn', 'problem', 'every', 'start', 'hand', 'might', 'American', 'show', 'part', 'about', 'against', 'place', 'over', 'such', 'again', 'few', 'case', 'most', 'week', 'company', 'where', 'system', 'each', 'right', 'program', 'hear', 'so', 'question', 'during', 'work', 'play', 'government', 'run', 'small', 'number', 'off', 'always', 'move', 'like', 'night', 'live', 'Mr', 'point', 'believe', 'hold', 'today', 'bring', 'happen', 'next', 'without', 'before', 'large', 'all', 'million', 'must', 'home', 'under', 'water', 'room', 'write', 'mother', 'area', 'national', 'money', 'story', 'young', 'fact', 'month', 'different', 'lot', 'right', 'study', 'book', 'eye', 'job', 'word', 'though', 'business', 'issue', 'side', 'kind', 'four', 'head', 'far', 'black', 'long', 'both', 'little', 'house', 'yes', 'after', 'since', 'long', 'provide', 'service', 'around', 'friend', 'important', 'father', 'sit', 'away', 'until', 'power', 'hour', 'game', 'often', 'yet', 'line', 'political', 'end', 'among', 'ever', 'stand', 'bad', 'lose', 'however', 'member', 'pay', 'law', 'meet', 'car', 'city', 'almost', 'include', 'continue', 'set', 'later', 'community', 'much', 'name', 'five', 'once', 'white', 'least', 'president', 'learn', 'real', 'change', 'team', 'minute', 'best', 'several', 'idea', 'kid', 'body', 'information', 'nothing', 'ago', 'right', 'lead', 'social', 'understand', 'whether', 'back', 'watch', 'together', 'follow', 'around', 'parent', 'only', 'stop', 'face', 'anything', 'create', 'public', 'already', 'speak', 
 'others', 'read', 'level', 'allow', 'add', 'office', 'spend', 'door', 'health', 'person', 'art', 'sure', 'such', 'war', 'history', 'party', 'within', 'grow', 'result', 'open', 'change', 'morning', 'walk', 'reason', 'low', 'win', 'research', 'girl', 'guy', 'early', 'food', 'before', 'moment', 'himself', 'air', 'teacher', 'force', 'offer', 'enough', 'both', 'education', 'across', 'although', 'remember', 'foot', 'second', 'boy', 'maybe', 'toward', 'able', 'age', 'off', 'policy', 'everything', 'love', 'process', 'music', 'including', 'consider', 'appear', 'actually', 'buy', 'probably', 'human', 'wait', 'serve', 'market', 'die', 'send', 'expect', 'home', 'sense', 'build', 'stay', 'fall', 'oh', 'nation', 'plan', 'cut', 'college', 'interest', 'death', 'course', 'someone', 'experience', 'behind', 'reach', 'local', 'kill', 'six', 'remain', 'effect', 'use', 'yeah', 'suggest', 'class', 'control', 'raise', 'care', 'perhaps', 'little', 'late', 'hard', 'field', 'else', 'pass', 'former', 'sell', 'major', 'sometimes', 'require', 'along', 'development', 'themselves', 'report', 'role', 'better', 'economic', 'effort', 'up', 'decide', 'rate', 'strong', 'possible', 'heart', 'drug', 'show', 'leader', 'light', 'voice', 'wife', 'whole', 'police', 'mind', 'finally', 'pull', 'return', 'free', 'military', 'price', 'report', 'less', 'according', 'decision', 'explain', 'son', 'hope', 'even', 'develop', 'view', 'relationship', 'carry', 'town', 'road', 'drive', 'arm', 'true', 'federal', 'break', 'better', 'difference', 'thank', 'receive', 'value', 'international', 'building', 'action', 'full', 'model', 'join', 'season', 'society', 'because', 'tax', 'director', 'early', 'position', 'player', 'agree', 'especially', 'record', 'pick', 'wear', 'paper', 'special', 'space', 'ground', 'form', 'support', 'event', 'official', 'whose', 'matter', 'everyone', 'center', 'couple', 'site', 'end', 'project', 'hit', 'base', 'activity', 'star', 'table', 'need', 'court', 'produce', 'eat', 'American', 'teach', 'oil', 'half', 'situation', 'easy', 'cost', 'industry', 'figure', 'face', 'street', 'image', 'itself', 'phone', 'either', 'data', 'cover', 'quite', 'picture', 'clear', 'practice', 'piece', 'land', 'recent', 'describe', 'product', 'doctor', 'wall', 'patient', 'worker', 'news', 'test', 'movie', 'certain', 'north', 'love', 'personal', 'open', 'support', 'simply', 'third', 'technology', 'catch', 'step', 'baby', 'computer', 'type', 'attention', 'draw', 'film', 'Republican', 'tree', 'source', 'red', 'nearly', 'organization', 'choose', 'cause', 'hair', 'look', 'point', 'century', 'evidence', 'window', 'difficult', 'listen', 'place', 'single', 'rule', 'daughter', 'administration', 'south', 'husband', 'Congress', 'floor', 'campaign', 'material', 'population', 'well', 'call', 'economy', 'medical', 'hospital', 'church', 'close', 'thousand', 'risk', 'current', 'fire', 'future', 'wrong', 'involve', 'defense', 'anyone', 'increase', 'security', 'bank', 'myself', 'certainly', 'west', 'sport', 'board', 'seek', 'per', 'subject', 'officer', 'private', 'rest', 'behavior', 'deal', 'performance', 'fight', 'throw', 'top', 'quickly', 'past', 'goal', 'second', 'bed', 'order', 'author', 'fill', 'represent', 'focus', 'foreign', 'drop', 'plan', 'blood', 'upon', 'agency', 'push', 'nature', 'color', 'no', 'recently', 'store', 'reduce', 'sound', 'note', 'fine', 'before', 'near', 'movement', 'page', 'enter', 'share', 'than', 'common', 'poor', 'other', 'natural', 'race', 'concern', 'series', 'significant', 'similar', 'hot', 'language', 'each', 'usually', 'response', 'dead', 'rise', 'animal', 'factor', 'decade', 'article', 'shoot', 'east', 'save', 'seven', 'artist', 'away', 'scene', 'stock', 'career', 'despite', 'central', 'eight', 'thus', 'treatment', 'beyond', 'happy', 'exactly', 'protect', 'approach', 'lie', 'size', 'dog', 'fund', 'serious', 'occur', 'media', 'ready', 'sign', 'thought', 'list', 'individual', 'simple', 'quality', 'pressure', 'accept', 'answer', 'hard', 'resource', 'identify', 'left', 'meeting', 'determine', 'prepare', 'disease', 'whatever', 'success', 'argue', 'cup', 'particularly', 'amount', 'ability', 'staff', 'recognize', 
 'indicate', 'character', 'growth', 'loss', 'degree', 'wonder', 'attack', 'herself', 'region', 'television', 'box', 'TV', 'training', 'pretty', 'trade', 'deal', 'election', 'everybody', 'physical', 'lay', 'general', 'feeling', 'standard', 'bill', 'message', 'fail', 'outside', 'arrive', 'analysis', 'benefit', 'name', 'sun', 'forward', 'lawyer', 'present', 'section', 'environmental', 'glass', 'answer', 'skill', 'sister', 'PM', 'professor', 'operation', 'financial', 'crime', 'stage', 'ok', 'compare', 'authority', 'miss', 'design', 'sort', 'one', 'act', 'ten', 'knowledge', 'gun', 'station', 'blue', 'state', 'strategy', 'little', 'clearly', 'discuss', 
 'indeed', 'force', 'truth', 'song', 'example', 'democratic', 'check', 'environment', 'leg', 'dark', 'public', 'various', 'rather', 'laugh', 'guess', 'executive', 'set', 'study', 'prove', 'hang', 'entire', 'rock', 'design', 'enough', 'forget', 'since', 'claim', 'note', 'remove', 'manager', 'help', 'close', 'sound', 'enjoy', 'network', 'legal', 'religious', 'cold', 'form', 'final', 'main', 'science', 'green', 'memory', 'card', 'above', 'seat', 'cell', 'establish', 'nice', 'trial', 'expert', 'that', 'spring', 'firm', 'Democrat', 'radio', 'visit', 'management', 'care', 'avoid', 'imagine', 'tonight', 'huge', 'ball', 'no', 'close', 'finish', 'yourself', 'talk', 'theory', 'impact', 'respond', 'statement', 'maintain', 'charge', 'popular', 'traditional', 'onto', 'reveal', 'direction', 'weapon', 'employee', 'cultural', 'contain', 'peace', 'head', 'control', 'base', 'pain', 'apply', 'play', 'measure', 'wide', 'shake', 'fly', 'interview', 'manage', 'chair', 'fish', 'particular', 'camera', 'structure', 'politics', 'perform', 'bit', 'weight', 'suddenly', 'discover', 'candidate', 'top', 'production', 'treat', 'trip', 'evening', 'affect', 'inside', 'conference', 'unit', 'best', 'style', 'adult', 'worry', 'range', 'mention', 'rather', 'far', 'deep', 'front', 'edge', 'individual', 'specific', 'writer', 'trouble', 'necessary', 'throughout', 'challenge', 'fear', 'shoulder', 'institution', 'middle', 'sea', 'dream', 'bar', 'beautiful', 'property', 'instead', 'improve', 'stuff', 'claim'];
@@ -50,23 +50,17 @@ var quotes = [['It', 'was', 'just', 'a', 'burger.', 'Why', "couldn't", 'she', 'u
 'trying', 'to', 'imagine', 'it', 'was', 'the', 'first', 'time.', 'It', "wasn't.", 'Had', 'it', 'been', 'a', 'hundred?', 'It', 'quite', 'possibly', 'could', 'have', 'been.', 'Two', 'hundred?', 'Probably', 'not.', 'His', 'mind', 'wandered', 'until', 'he', 'caught', 'himself', 'and', 'again', 'tried', 'to', 'imagine', 'it', 'was', 'the', 'first', 'time.'], ['The', 'robot', 'clicked', 'disapprovingly,', 'gurgled', 'briefly', 'inside', 'its', 'cubical', 'interior', 'and', 'extruded', 'a', 'pony', 'glass', 'of', 'brownish', 'liquid.', '"Sir,', 'you', 'will', 'undoubtedly', 'end', 'up', 'in', 'a', "drunkard's", 'grave,', 'dead', 'of', 'hepatic', 'cirrhosis,"', 'it', 'informed', 'me', 'virtuously', 'as', 'it', 'returned', 'my', 'ID', 'card.', 'I', 'glared', 'as', 'I', 'pushed', 'the', 'glass', 'across', 'the', 'table.'], ['He', 'watched', 'as', 'the', 'young', 'man', 'tried', 'to', 'impress', 'everyone', 'in', 'the', 'room', 'with', 'his', 'intelligence.', 'There', 'was', 'no', 'doubt', 'that', 'he', 'was', 'smart.', 'The', 'fact', 'that', 'he', 'was', 'more', 'intelligent', 'than', 'anyone', 'else', 'in', 'the', 'room', 'could', 'have', 'been', 'easily', 'deduced,', 'but', 'nobody', 'was', 'really', 'paying', 'any', 'attention', 'due', 'to', 'the', 'fact', 'that', 'it', 'was', 'also', 'obvious', 'that', 'the', 'young', 'man', 'only', 'cared', 'about', 'his', 'intelligence.'], ['I', "haven't", 'bailed', 'on', 'writing.', 'Look,', "I'm", 'generating', 'a', 'random', 'paragraph', 'at', 'this', 'very', 'moment', 'in', 'an', 'attempt', 'to', 'get', 'my', 'writing', 'back', 'on', 'track.', 'I', 'am', 'making', 'an', 'effort.', 'I', 'will', 'start', 'writing', 'consistently', 'again!'], ['She', 'wanted', 'rainbow', 'hair.', "That's", 'what', 'she', 'told', 'the', 'hairdresser.', 'It', 'should', 'be', 'deep', 'rainbow', 'colors,', 'too.', 'She', "wasn't", 'interested', 'in', 'pastel', 'rainbow', 'hair.', 'She', 'wanted', 'it', 'deep', 'and', 'vibrant', 'so', 'there', 'was', 'no', 'doubt', 'that', 'she', 'had', 'done', 'this', 'on', 'purpose.'], ['I', 'recently', 'discovered', 'I', 'could', 'make', 'fudge', 'with', 'just', 'chocolate', 'chips,', 'sweetened', 'condensed', 'milk,', 'vanilla', 'extract,', 'and', 'a', 'thick', 'pot', 'on', 'slow', 'heat.', 'I', 'tried', 'it', 'with', 'dark', 'chocolate', 'chunks', 'and', 'I', 'tried', 'it', 'with', 'semi-sweet', 'chocolate', 'chips.', "It's", 'better', 'with', 'both', 'kinds.', 'It', 'comes', 'out', 'pretty', 'bad', 'with', 'just', 'the', 'dark', 'chocolate.', 'The', 'best', 'add-ins', 'are', 'crushed', 'almonds', 'and', 'marshmallows', '--', 'what', 'you', 'get', 'from', 'that', 'is', 'Rocky', 'Road.', 'It', 'takes', 'about', 'twenty', 'minutes', 'from', 'start', 'to', 'fridge,', 'and', 'then', 'it', 'takes', 'about', 'six', 'months', 'to', 'work', 'off', 'the', 'twenty', 'pounds', 'you', 'gain', 'from', 'eating', 'it.', 'All', 'things', 'in', 'moderation,', 'friends.', 'All', 'things', 'in', 'moderation.'], ['He', "couldn't", 'move.', 'His', 'head', 'throbbed', 'and', 'spun.', 'He', "couldn't", 'decide', 'if', 'it', 'was', 'the', 'flu', 'or', 'the', 'drinking', 'last', 'night.', 'It', 'was', 'probably', 'a', 'combination', 'of', 'both.'], ['There', 'was', 'no', 'time.', 'He', 'ran', 'out', 'of', 'the', 'door', 'without', 'half', 'the', 'stuff', 'he', 'needed', 'for', 'work,', 'but', 'it', "didn't", 'matter.', 'He', 'was', 'late', 'and', 'if', 'he', "didn't", 'make', 'this', 'meeting', 'on', 'time,', "someone's", 'life', 'may', 'be', 'in', 'danger.'], ["Don't", 'forget', 'that', 'gifts', 'often', 'come', 'with', 'costs', 'that', 'go', 'beyond', 'their', 'purchase', 'price.', 'When', 'you', 
 'purchase', 'a', 'child', 'the', 'latest', 'smartphone,', "you're", 'also', 'committing', 'to', 'a', 'monthly', 'phone', 'bill.', 'When', 'you', 'purchase', 'the', 'latest', 'gaming', 'system,', "you're", 'likely', 'not', 'going', 'to', 'be', 'satisfied', 'with', 'the', 'games', 'that', 'come', 'with', 'it', 'for', 'long', 'and', 'want', 'to', 'purchase', 'new', 'titles', 'to', 'play.', 'When', 'you', 'buy', 'gifts', "it's", 'important', 'to', 'remember', 'that', 'some', 'come', 'with', 'additional', 'costs', 'down', 'the', 'road', 'that', 'can', 'be', 'much', 'more', 'expensive', 'than', 'the', 'initial', 'gift', 'itself.'], ['Josh', 'had', 'spent', 'year', 'and', 'year', 'accumulating', 'the', 'information.', 'He', 'knew', 'it', 'inside', 'out', 'and', 'if', 'there', 'was', 'ever', 'anyone', 'looking', 'for', 'an', 'expert', 'in', 'the', 'field,', 'Josh', 'would', 'be', 'the', 'one', 'to', 'call.', 'The', 'problem', 'was', 'that', 'there', 'was', 'nobody', 'interested', 'in', 'the', 'information', 'besides', 'him', 'and', 'he', 'knew', 'it.', 'Years', 'of', 'information', 'painstakingly', 'memorized', 'and', 'sorted', 'with', 'not', 'a', 'sole', 'giving', 'even', 'an', 'ounce', 'of', 'interest', 'in', 'the', 'topic.'], ['He', 'took', 'a', 'sip', 'of', 'the', 'drink.', 'He', "wasn't", 'sure', 'whether', 'he', 'liked', 'it', 'or', 'not,', 'but', 'at', 'this', 'moment', 'it', "didn't", 'matter.', 'She', 'had', 'made', 'it', 'especially', 'for', 'him', 'so', 'he', 'would', 'have', 'forced', 'it', 'down', 'even', 'if', 'he', 'had', 'absolutely', 'hated', 'it.', "That's", 'simply', 'the', 'way', 'things', 'worked.', 'She', 'made', 'him', 'a', 'new-fangled', 'drink', 'each', 'day', 'and', 'he', 'took', 'a', 'sip', 'of', 'it', 'and', 'smiled,', 'saying', 'it', 'was', 'excellent.'], ['One', 'dollar', 'and', 'eighty-seven', 'cents.', 'That', 'was', 'all.', 'And', 'sixty', 'cents', 'of', 'it', 'was', 'in', 'pennies.', 'Pennies', 'saved', 'one', 'and', 'two', 'at', 'a', 'time', 'by', 'bulldozing', 'the', 'grocer', 'and', 'the', 'vegetable', 'man', 'and', 'the', 'butcher', 'until', 'one’s', 'cheeks', 'burned', 'with', 'the', 'silent', 'imputation', 'of', 'parsimony', 'that', 'such', 'close', 'dealing', 'implied.', 'One', 'dollar', 'and', 'eighty-seven', 'cents.', 'And', 'the', 'next', 'day', 'would', 'be', 'Christmas...']];
 
-
-//maybe change these to let variables
-var correct = 0;
-var incorrect = 0; 
 var displayText = '';
 var whitespaceCount = 0;
 var correctChar = 0;
 var incorrectChar = 0;
-var correctWords = 0;
-var incorrectWords = 0;
-
-
 var timeLimit = 60;
 var lengthLimit = 350;
 
-
-var timeState = false;
+var input;
+var state; 
+var mode; 
+var time;
 
 var flag;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
@@ -81,34 +75,6 @@ ACC_ELEM.innerHTML = '00.0% ' + 'acc';
 
 CORR_ELEM.innerHTML = 'correct chars: 00';
 INCORR_ELEM.innerHTML = 'incorrect chars: 00';
-
-
-console.log(words.length);
-
-//var fs = require('fs');
-//var obj = JSON.parse(fs.readFileSync('data.json', 'utf8'));
-//var student = JSON.parse(rawdata);
-//console.log(student);
-/* function getText() { 
-  fetch('data.json')
-  .then(response => response.json())
-  .then(lol => {
-    //console.log(lol)
-  })
-  .catch(error => console.error(error));
-  
-
-} */
-//getText();
-
-/* function getRandomQuote() {
-  const data = fetch(RANDOM_QUOTE_API_URL)
-    .then(response => response.json())
-    .then(data => data.content)
-  //displayText = data.toString().split(' ');
-  return data;
-
-} */
 
 // move some of this to reset
 function timeChange(){
@@ -128,45 +94,20 @@ function checkBox(){
 }
 
 function scramble(){
-  if (flag == true){
+  if (flag == true) {
     flag = false;
   }
-  else{ 
+  else { 
     flag = true; 
   }
   reset();
 }
 
-function theFunction(){
-  console.log("lol");
-  document.body.style.background = color;
-
-}
-
-var white = false
-var bgcolor;
-$(document).ready(function () {
-    $("case-button").click(function () {
-        if (white = !white) {
-            bgcolor = $(this).css('backgroundColor');
-            $(this).css("background-color", "#FFF");
-        } else {
-            $(this).css("background-color", bgcolor);
-        }
-    });
-});
-
-var input;
-var state; 
-var mode; 
-var time;
-var words;
-
-function focusOnMe(){
+function focusOnMe() {
   INP_ELEM.focus();
 }
 
-function selectQuote(){
+function selectQuote() {
   var currentWords = [];
   random_number1 = (Math.floor(Math.random() * quotes.length) + 1);
   quote = quotes[random_number1];
@@ -200,7 +141,6 @@ function makeSentence(){
   displayText = currentWords;
   console.log(displayText);
   return(currentWords);
-  
 }
 
 function setList(e) {
@@ -234,9 +174,7 @@ makeSentence();
 function renderText() {
   displayText.forEach(word => {
     let span = document.createElement('span');
-    //console.log(span)
     span.innerHTML = ' ' + word;
-    
     DISP_ELEM.appendChild(span);
   });
   DISP_ELEM.firstChild.classList.add('highlight');
@@ -246,39 +184,24 @@ function setCount() {
   whitespaceCount++;
 }
 
-function setCorrect() {
-  correctWords++; 
-}
-
-function setCorrectWords() {
-  correctChar++; 
-}
-
-function setIncorrect() { 
-  incorrectChar++;
-}
-
 var oldDate; 
 var newDate;
-var goodList = [];
-var badList = [];
+var goodWords = [];
+var badWords = [];
 
 function renderResults() { 
   var wpm = 0;
   var gwpm = 0;
   var acc = 0;
   var elapsed = (newDate - oldDate) / 1000;
-  var accuracy = correctWords / displayText.length;
   var good = 0;
   var bad = 0;
-
-  for (var i = 0; i < goodList.length; i++){
-    good += goodList[i].length;
+  for (var i = 0; i < goodWords.length; i++){
+    good += goodWords[i].length;
   }
-  for (var i = 0; i < badList.length; i++){
-    bad += badList[i].length;
+  for (var i = 0; i < badWords.length; i++){
+    bad += badWords[i].length;
   }
-
   if (mode == 'timed'){
     if (timeLimit == 60) {
       // possibly get rid of this and just use the elapsed method so no more cases required
@@ -298,7 +221,6 @@ function renderResults() {
     wpm = (((good + bad) / 5) / (elapsed / 60)) - ((bad / 5) / (elapsed / 60));
     gwpm = ((good + bad) / 5 / (elapsed / 60));
   }
-
   acc = (good / (good + bad)) * 100;
   console.log("the wpm is " + wpm)
   WPM_ELEM.innerHTML = wpm.toFixed(0) +  ' WPM';
@@ -391,14 +313,13 @@ INP_ELEM.addEventListener('keydown', e => {
         DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
         DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight');
         DISP_ELEM.childNodes[whitespaceCount].classList.add('correct');
-        goodList.push(displayText[whitespaceCount]);
-        setCorrectWords();
+        goodWords.push(displayText[whitespaceCount]);
       }
       else if (INP_ELEM.value.trim() != displayText[whitespaceCount]){
         DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
         DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight');
         DISP_ELEM.childNodes[whitespaceCount].classList.add('incorrect');
-        badList.push(displayText[whitespaceCount]);
+        badWords.push(displayText[whitespaceCount]);
       }
       INP_ELEM.value = '';
       setCount();
@@ -419,7 +340,6 @@ $('.dropdown').click(function () {
   $(this).toggleClass('active');
   $(this).find('.dropdown-menu').slideToggle(250);
 });
-
 $('.dropdown').focusout(function () {
   $(this).removeClass('active');
   $(this).find('.dropdown-menu').slideUp(250);
@@ -428,7 +348,6 @@ $('.dropdown .dropdown-menu li').click(function () {
   $(this).parents('.dropdown').find('span').text($(this).text());
   $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
 });
-/*End Dropdown Menu*/
 $('.dropdown-menu li').click(function () {
   input = $(this).parents('.dropdown').find('input').val();
   if (input == 'burst' || input == 'timed' || input == 'quote'){
@@ -495,25 +414,19 @@ $('.dropdown-menu li').click(function () {
 
 function reset(){
   stopClock();
-
   if (mode == 'burst' || mode == 'quote'){
     TIME_ELEM.innerHTML = '///';
   }
   else{
     TIME_ELEM.innerHTML = timeLimit + 's'
-  }
-
-  correct = 0;
-  incorrect = 0; 
+  } 
   displayText = '';
   whitespaceCount = 0;
   correctChar = 0;
   incorrectChar = 0;
-  correctWords = 0; 
-  incorrectWords = 0;
   totalChar = 0;
-  goodList = [];
-  badList = [];
+  goodWords = [];
+  badWords = [];
   INP_ELEM.disabled = false;
   INP_ELEM.value = '';
   DISP_ELEM.innerHTML = '';
@@ -528,7 +441,6 @@ function reset(){
     left: 0,
     behavior: 'smooth'
   });
-  
   if (flag == true){
     capWords(makeSentence()); 
   } 
@@ -539,7 +451,6 @@ function reset(){
     else{
       makeSentence();
     }
-    
   }
   renderText();
 }
