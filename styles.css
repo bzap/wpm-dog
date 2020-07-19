@@ -329,7 +329,7 @@
 
   .wpm {
     display: inline-flex;
-    margin-left: 6.5rem;
+    margin-left: 7.2rem;
     margin-right: 30px;
     font-size: 3.1rem;
     color: white;
@@ -346,7 +346,6 @@
     left: 17%;
     transform: translate(-50%, 0);
     margin-left: 4px;
-    margin-right: 5px;
     font-size: 3.1rem;
     color: white;
     font-weight: bold;
