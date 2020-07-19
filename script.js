@@ -59,6 +59,7 @@ var quotes = [['It', 'was', 'just', 'a', 'burger.', 'Why', "couldn't", 'she', 'u
 
 var displayText = '';
 var whitespaceCount = 0;
+var correctWhiteSpace = 0;
 var correctChar = 0;
 var incorrectChar = 0;
 var timeLimit = 10;
@@ -225,6 +226,10 @@ function setCount() {
   whitespaceCount++;
 }
 
+function setCorrectCount(){
+  correctWhiteSpace++;
+}
+
 var oldDate; 
 var newDate;
 var goodWords = [];
@@ -248,21 +253,21 @@ function renderResults() {
   if (mode == 'timed'){
     if (timeLimit == 60) {
       // possibly get rid of this and just use the elapsed method so no more cases required
-      wpm = (((good + whitespaceCount) / 5) / 1);
-      gwpm = ((good + bad + whitespaceCount) / 5 / 1);
+      wpm = (((good + correctWhiteSpace) / 5) / 1);
+      gwpm = ((good + bad + correctWhiteSpace) / 5 / 1);
     }
     else if (timeLimit == 30){
-      wpm = (((good + whitespaceCount) / 5) / 0.5);;
-      gwpm = ((good + bad + whitespaceCount) / 5 / 0.5);
+      wpm = (((good + correctWhiteSpace) / 5) / 0.5);;
+      gwpm = ((good + bad + correctWhiteSpace) / 5 / 0.5);
     }
     else{
-      wpm = (((good + whitespaceCount) / 5) / (1 / 6));
-      gwpm = ((good + bad + whitespaceCount) / 5 / (1 / 6));
+      wpm = (((good + correctWhiteSpace) / 5) / (1 / 6));
+      gwpm = ((good + bad + correctWhiteSpace) / 5 / (1 / 6));
     }
   }
   else if (mode == 'burst' || mode == 'quote'){
-    wpm = (((good + whitespaceCount) / 5) / (elapsed / 60));
-    gwpm = ((good + bad + whitespaceCount) / 5 / (elapsed / 60));
+    wpm = (((good + correctWhiteSpace) / 5) / (elapsed / 60));
+    gwpm = ((good + bad + correctWhiteSpace) / 5 / (elapsed / 60));
   }
   acc = (good / (good + bad)) * 100;
   console.log("this isthe good " + good);
@@ -270,7 +275,7 @@ function renderResults() {
   
   GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
   ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
-  CORR_ELEM.innerHTML = 'correct chars: ' + (good + whitespaceCount);
+  CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
   INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
 }
 
@@ -307,8 +312,9 @@ var counter2;
           for (var i = 0; i < goodWords.length; i++){
             goodLive += goodWords[i].length;
           }
+          // to fix counter if over a minute long session
           console.log("this isthe live good " + goodLive);
-          liveWpm = (((goodLive + whitespaceCount) / 5) / (c / 60));
+          liveWpm = (((goodLive + correctWhiteSpace) / 5) / (c / 60));
           LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
          }
      }
@@ -396,6 +402,7 @@ INP_ELEM.addEventListener('keydown', e => {
         DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight');
         DISP_ELEM.childNodes[whitespaceCount].classList.add('correct');
         goodWords.push(displayText[whitespaceCount]);
+        setCorrectCount();
       }
       else if (INP_ELEM.value.trim() != displayText[whitespaceCount]){
         DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
