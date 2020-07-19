@@ -263,10 +263,12 @@
   .stats {
     background-color: #2e3440;
     padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border-radius: 1rem;
     display: flex;
     align-items: center;
-    max-width: 90rem;   
+    box-sizing: border-box; 
     margin-top: 2rem;  
     border-radius: 1em;  
     animation: fadeIn ease 1s;
@@ -325,9 +327,26 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
+  .wpm-stats{ 
+    display: flex;
+  }
+
   .wpm {
+    display: inline-block;
     margin-left: 10px;
-    margin-right: 30px;
+    margin-right: 20px;
+    font-size: 3.1rem;
+    color: white;
+    font-weight: bold;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    
+  }
+
+  .wpm-num {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 3.1rem;
     color: white;
     font-weight: bold;
