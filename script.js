@@ -311,7 +311,8 @@ INP_ELEM.addEventListener('keydown', e => {
     event.preventDefault();
     //  the timed version and the word limit version both need scroll like this 
     try{
-      if (DISP_ELEM.childNodes[whitespaceCount + 1].offsetTop > DISP_ELEM.childNodes[whitespaceCount].offsetTop){
+    
+      if (DISP_ELEM.childNodes[whitespaceCount + 1].offsetTop > DISP_ELEM.childNodes[whitespaceCount].offsetTop && INP_ELEM.value != ''){
         // change if the max width of container is changing 
         if ((displayText.length - whitespaceCount) < 10){ 
         }
@@ -330,7 +331,7 @@ INP_ELEM.addEventListener('keydown', e => {
     if (INP_ELEM.value == '') {
       INP_ELEM.value = '';
     }
-    else if (INP_ELEM.value != '') {
+    if (INP_ELEM.value != '') {
       try{
         DISP_ELEM.childNodes[whitespaceCount + 1].classList.add('highlight');
       }
