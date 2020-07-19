@@ -248,27 +248,27 @@ function renderResults() {
   if (mode == 'timed'){
     if (timeLimit == 60) {
       // possibly get rid of this and just use the elapsed method so no more cases required
-      wpm = (((good) / 5) / 1);
-      gwpm = ((good + bad) / 5 / 1);
+      wpm = (((good + whitespaceCount) / 5) / 1);
+      gwpm = ((good + bad + whitespaceCount) / 5 / 1);
     }
     else if (timeLimit == 30){
-      wpm = (((good) / 5) / 0.5);;
-      gwpm = ((good + bad) / 5 / 0.5);
+      wpm = (((good + whitespaceCount) / 5) / 0.5);;
+      gwpm = ((good + bad + whitespaceCount) / 5 / 0.5);
     }
     else{
-      wpm = (((good) / 5) / (1 / 6));
-      gwpm = ((good + bad) / 5 / (1 / 6));
+      wpm = (((good + whitespaceCount) / 5) / (1 / 6));
+      gwpm = ((good + bad + whitespaceCount) / 5 / (1 / 6));
     }
   }
   else if (mode == 'burst' || mode == 'quote'){
-    wpm = (((good) / 5) / (elapsed / 60));
-    gwpm = ((good + bad) / 5 / (elapsed / 60));
+    wpm = (((good + whitespaceCount) / 5) / (elapsed / 60));
+    gwpm = ((good + bad + whitespaceCount) / 5 / (elapsed / 60));
   }
   acc = (good / (good + bad)) * 100;
+  console.log("this isthe good " + good);
+  WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
   
-  WPM_NUM_ELEM.innerHTML = (wpm + whitespaceCount).toFixed(0);
-  
-  GWPM_ELEM.innerHTML = (gwpm + whitespaceCount).toFixed(0) + ' gWPM';
+  GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
   ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
   CORR_ELEM.innerHTML = 'correct chars: ' + (good + whitespaceCount);
   INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
@@ -286,7 +286,7 @@ var counter;
         TIME_ELEM.innerHTML = --c + 's';
        }
        if (c == 0) {
-         clearInterval(counter);
+         stopClock();
          TIME_ELEM.innerHTML = '00s';
          INP_ELEM.disabled = true;
          renderResults();
@@ -295,18 +295,20 @@ var counter;
    }
 
 var counter2;
+   
    function clockUp() {
      counter2 = setInterval(clockConditionsUp, 1000);
      var c = 0;
      function clockConditionsUp() {
-        TIME_ELEM.innerHTML = '0' + ++c + 's';
-        if (c == 1 || c % 3 == 0){
+        ++c;
+        if (c == 1 || c % 2 == 0){
           var liveWpm = 0;
           var goodLive = 0;
           for (var i = 0; i < goodWords.length; i++){
             goodLive += goodWords[i].length;
           }
-          liveWpm = (((goodLive) / 5) / (c / 60));
+          console.log("this isthe live good " + goodLive);
+          liveWpm = (((goodLive + whitespaceCount) / 5) / (c / 60));
           LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
          }
      }
@@ -330,6 +332,7 @@ INP_ELEM.addEventListener('keydown', e => {
   totalChar++;
   if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
     clock();
+    clockUp();
   }  
 
   else if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'infinite')) {
