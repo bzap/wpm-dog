@@ -259,7 +259,7 @@ function renderResults() {
   WPM_ELEM.innerHTML = (wpm + whitespaceCount).toFixed(0) +  ' WPM';
   GWPM_ELEM.innerHTML = (gwpm + whitespaceCount).toFixed(0) + ' gWPM';
   ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
-  CORR_ELEM.innerHTML = 'correct chars: ' + good;
+  CORR_ELEM.innerHTML = 'correct chars: ' + (good + whitespaceCount);
   INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
 }
 
