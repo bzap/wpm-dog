@@ -352,6 +352,7 @@ INP_ELEM.addEventListener('keydown', e => {
       setCount();
       if (whitespaceCount == displayText.length) {
         newDate = Date.now();
+        INP_ELEM.disabled = true;
         renderResults();
         console.log(newDate);
       }
@@ -438,6 +439,7 @@ $('.dropdown-menu li').click(function () {
     reset();
   }
   else if (mode == 'infinite'){
+    lengthLimit = 100;
     console.log("got here");
     TIME_ELEM.innerHTML = '///';
     DISP_ELEM.classList.remove('display-short');
