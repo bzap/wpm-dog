@@ -437,7 +437,7 @@ $('.dropdown-menu li').click(function () {
     document.getElementById('timeDropdown').classList.remove('mask');
     document.getElementById('wordDropdown').classList.add('mask');
     if (typeof time == 'undefined'){
-      timeLimit = 60;
+      timeLimit = 10;
     }
     else{
       timeLimit = parseInt(time);
