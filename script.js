@@ -155,21 +155,31 @@ function setList(e) {
   displayText = e;
 }
 
-
+var newWords;
 // make another fucntion to append more once the end is near 
 function infiniteWords(){
   console.log("infite");
-  newWords = [];
-  for (var i = 0; i < 5; i++){
+  newWords = displayText;
+  var tempWords = []
+  var concatWords = []
+  if (whitespaceCount == (displayText.length - 30)){ 
+    console.log(whitespaceCount + "this is the whitespace");
+    console.log(displayText.length);
+    console.log("newtext made")
     tempWords = makeSentence();
-    console.log(tempWords);
-    for (var y = 0; y < tempWords.length; y++){
-      newWords.push(tempWords[y]);
-    }
+    concatWords = newWords.concat(tempWords);
+    console.log(concatWords);
+    displayText = concatWords;
+    renderText();
   }
-  console.log(newWords);
-  displayText = newWords; 
-
+  else{ 
+    console.log('first text');
+    newWords = makeSentence();
+    console.log(newWords);
+    displayText = newWords;
+    
+  }
+   
 }
 
 
@@ -351,6 +361,11 @@ INP_ELEM.addEventListener('keydown', e => {
       }
       INP_ELEM.value = '';
       setCount();
+
+      if (mode == 'infinite' && whitespaceCount == (displayText.length - 30)){
+        infiniteWords();
+      }
+
       if (whitespaceCount == displayText.length) {
         newDate = Date.now();
         INP_ELEM.disabled = true;
