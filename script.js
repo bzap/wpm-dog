@@ -82,7 +82,7 @@ ACC_ELEM.innerHTML = '00.0% ' + 'acc';
 
 CORR_ELEM.innerHTML = 'correct chars: 00';
 INCORR_ELEM.innerHTML = 'incorrect chars: 00';
-LIVE_WPM_ELEM.innerHTML = '127 WPM';
+LIVE_WPM_ELEM.innerHTML = '--';
 
 
 function timeChange(){
@@ -162,14 +162,19 @@ function infiniteWords(){
   newWords = displayText;
   var tempWords = []
   var concatWords = []
-  if (whitespaceCount == (displayText.length - 30)){ 
+  if (whitespaceCount == (displayText.length - 70)){ 
     console.log(whitespaceCount + "this is the whitespace");
     console.log(displayText.length);
     console.log("newtext made")
     tempWords = makeSentence();
     concatWords = newWords.concat(tempWords);
     console.log(concatWords);
-    displayText = concatWords;
+    if (flag == true){
+      capWords(concatWords);
+    }
+    else{
+      displayText = concatWords;
+    }
     renderText();
   }
   else{ 
@@ -179,7 +184,7 @@ function infiniteWords(){
     displayText = newWords;
     
   }
-   
+  
 }
 
 
@@ -362,7 +367,7 @@ INP_ELEM.addEventListener('keydown', e => {
       INP_ELEM.value = '';
       setCount();
 
-      if (mode == 'infinite' && whitespaceCount == (displayText.length - 30)){
+      if (mode == 'infinite' && whitespaceCount == (displayText.length - 70)){
         infiniteWords();
       }
 
@@ -504,6 +509,7 @@ function reset(){
   });
   if (flag == true){
     capWords(makeSentence()); 
+    
   } 
   else {
     if (mode == 'quote'){
