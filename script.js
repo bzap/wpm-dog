@@ -230,11 +230,13 @@ var newDate;
 var goodWords = [];
 var badWords = [];
 
+
+var elapsed;
 function renderResults() { 
   var wpm = 0;
   var gwpm = 0;
   var acc = 0;
-  var elapsed = (newDate - oldDate) / 1000;
+  elapsed = (newDate - oldDate) / 1000;
   var good = 0;
   var bad = 0;
   for (var i = 0; i < goodWords.length; i++){
@@ -291,9 +293,29 @@ var counter;
        }
      }
    }
-  
+
+var counter2;
+   function clockUp() {
+     counter2 = setInterval(clockConditionsUp, 1000);
+     var c = 0;
+     function clockConditionsUp() {
+        TIME_ELEM.innerHTML = '0' + ++c + 's';
+        if (c == 1 || c % 3 == 0){
+          var liveWpm = 0;
+          var goodLive = 0;
+          for (var i = 0; i < goodWords.length; i++){
+            goodLive += goodWords[i].length;
+          }
+          liveWpm = (((goodLive) / 5) / (c / 60));
+          LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
+         }
+     }
+
+   }
+
 function stopClock(){
   clearInterval(counter);
+  clearInterval(counter2);
 }
 
 var totalChar = 0;
@@ -301,14 +323,28 @@ var firstLetter = displayText[0][0];
 mode = 'timed';
 
 INP_ELEM.addEventListener('keydown', e => {
+
+  
+
+
   totalChar++;
   if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
     clock();
   }  
+
+  else if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'infinite')) {
+    clockUp();
+  }  
+
+
+
   else if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'burst' || mode == 'quote')){
     oldDate = Date.now();
     console.log(oldDate);
   }
+
+
+
   var innerString = INP_ELEM.value;
   var totalString = DISP_ELEM.childNodes[whitespaceCount].innerText;
   try{
@@ -380,6 +416,7 @@ INP_ELEM.addEventListener('keydown', e => {
     }
   }
 })
+
 
 var lengthSelection;
 document.getElementById('wordDropdown').classList.add('mask');
@@ -501,6 +538,7 @@ function reset(){
   ACC_ELEM.innerHTML = '00.0% acc';
   CORR_ELEM.innerHTML = 'correct chars: 00';
   INCORR_ELEM.innerHTML = 'incorrect chars: 00';
+  LIVE_WPM_ELEM.innerHTML = '--';
  //add fade animation to replace text instead of this or figure out to make it scroll up 
   DISP_ELEM.scrollTo({
     top: 0,
