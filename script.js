@@ -403,10 +403,12 @@ $('.dropdown-menu li').click(function () {
       reset();
     }
     else if (lengthSelection == '50 words'){
+      DISP_ELEM.classList.remove('display-short');
       lengthLimit = 50;
       reset();
     }
     else if (lengthSelection == '200 words'){
+      DISP_ELEM.classList.remove('display-short');
       lengthLimit = 200;
       reset();
     }
