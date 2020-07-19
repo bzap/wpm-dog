@@ -133,7 +133,7 @@ function makeSentence(){
     console.log("my rando" + inside_random_number);
     if (inside_random_number < 3){
       if (inside_random_number == 1){
-        random_number = (Math.floor(Math.random() * 250) + 1);
+        random_number = (Math.floor(Math.random() * 125) + 1);
       }
       else{ 
         random_number = (Math.floor(Math.random() * 250) + 1);
