@@ -162,8 +162,6 @@
     -webkit-animation: fadeIn 1s;
   }
 
-
-
   .display {
     color: white;
     margin-top: 2rem; 
@@ -251,8 +249,6 @@
     box-shadow: 0 0 12px #3b4252
   }
 
-
-  
   .live-wpm{
     margin-bottom: 10px;
     font-size: 15px;
@@ -274,8 +270,6 @@
     animation: fadeIn 1s;
     -webkit-animation: fadeIn 1s;
   }
-
-
 
   .acc {
     margin-left: 10px;
@@ -340,7 +334,6 @@
     font-weight: bold;
     animation: fadeIn 1s;
     -webkit-animation: fadeIn 1s;
-    
   }
 
   .wpm-num {
@@ -354,7 +347,6 @@
     font-weight: bold;
     animation: fadeIn 1s;
     -webkit-animation: fadeIn 1s;
-    
   }
 
   .gwpm {

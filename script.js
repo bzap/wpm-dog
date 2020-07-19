@@ -126,7 +126,6 @@ function selectQuote() {
     i++;
   }
   displayText = currentWords;
-  console.log(displayText);
   return(currentWords);
 }
 
@@ -159,17 +158,12 @@ function setList(e) {
 var newWords;
 // make another fucntion to append more once the end is near 
 function infiniteWords(){
-  console.log("infite");
   newWords = displayText;
   var tempWords = []
   var concatWords = []
   if (whitespaceCount == (displayText.length - 70)){ 
-    console.log(whitespaceCount + "this is the whitespace");
-    console.log(displayText.length);
-    console.log("newtext made")
     tempWords = makeSentence();
     concatWords = newWords.concat(tempWords);
-    console.log(concatWords);
     if (flag == true){
       capWords(concatWords);
     }
@@ -179,15 +173,10 @@ function infiniteWords(){
     renderText();
   }
   else{ 
-    console.log('first text');
     newWords = makeSentence();
-    console.log(newWords);
     displayText = newWords;
-    
   }
-  
 }
-
 
 function capWords(e){ 
   capitalWords = [];
@@ -270,9 +259,7 @@ function renderResults() {
     gwpm = ((good + bad + correctWhiteSpace) / 5 / (elapsed / 60));
   }
   acc = (good / (good + bad)) * 100;
-  console.log("this isthe good " + good);
   WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
-  
   GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
   ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
   CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
@@ -299,10 +286,9 @@ var counter;
      }
    }
 
-var counter2;
-   
+var secondCounter;
    function clockUp() {
-     counter2 = setInterval(clockConditionsUp, 1000);
+     secondCounter = setInterval(clockConditionsUp, 1000);
      var c = 0;
      function clockConditionsUp() {
         ++c;
@@ -313,47 +299,31 @@ var counter2;
             goodLive += goodWords[i].length;
           }
           // to fix counter if over a minute long session
-          console.log("this isthe live good " + goodLive);
           liveWpm = (((goodLive + correctWhiteSpace) / 5) / (c / 60));
           LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
          }
      }
-
    }
-
 function stopClock(){
   clearInterval(counter);
-  clearInterval(counter2);
+  clearInterval(secondCounter);
 }
 
 var totalChar = 0;
 var firstLetter = displayText[0][0];
 mode = 'timed';
-
 INP_ELEM.addEventListener('keydown', e => {
-
-  
-
-
   totalChar++;
   if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'timed')) {
     clock();
     clockUp();
   }  
-
   else if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'infinite')) {
     clockUp();
   }  
-
-
-
   else if ((whitespaceCount == 0) && (totalChar == 1) && (mode == 'burst' || mode == 'quote')){
     oldDate = Date.now();
-    console.log(oldDate);
   }
-
-
-
   var innerString = INP_ELEM.value;
   var totalString = DISP_ELEM.childNodes[whitespaceCount].innerText;
   try{
@@ -416,12 +386,10 @@ INP_ELEM.addEventListener('keydown', e => {
       if (mode == 'infinite' && whitespaceCount == (displayText.length - 70)){
         infiniteWords();
       }
-
       if (whitespaceCount == displayText.length) {
         newDate = Date.now();
         INP_ELEM.disabled = true;
         renderResults();
-        console.log(newDate);
       }
     }
   }
@@ -510,10 +478,8 @@ $('.dropdown-menu li').click(function () {
   }
   else if (mode == 'infinite'){
     lengthLimit = 100;
-    console.log("got here");
     TIME_ELEM.innerHTML = '///';
     DISP_ELEM.classList.remove('display-short');
-
     document.getElementById('timeDropdown').classList.add('mask');
     document.getElementById('wordDropdown').classList.add('mask');
     document.getElementById('switch').classList.remove('mask-button');
@@ -522,7 +488,6 @@ $('.dropdown-menu li').click(function () {
     reset();
   }
 }); 
-
 
 function reset(){
   stopClock();
@@ -557,7 +522,6 @@ function reset(){
   });
   if (flag == true){
     capWords(makeSentence()); 
-    
   } 
   else {
     if (mode == 'quote'){
