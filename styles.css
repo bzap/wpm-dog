@@ -327,10 +327,9 @@
   }
 
 
-
   .wpm {
     display: inline-flex;
-    margin-left: 8rem;
+    margin-left: 6.5rem;
     margin-right: 30px;
     font-size: 3.1rem;
     color: white;
@@ -346,7 +345,7 @@
     display: inline-block;
     left: 17%;
     transform: translate(-50%, 0);
-    margin-left: 10px;
+    margin-left: 4px;
     margin-right: 5px;
     font-size: 3.1rem;
     color: white;
