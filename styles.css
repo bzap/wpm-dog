@@ -326,11 +326,14 @@
     -webkit-animation: fadeIn ease 1s;
   }
 
+  .wpm-stats{ 
+    display: flex;
+  }
 
   .wpm {
-    display: inline-flex;
-    margin-left: 7.2rem;
-    margin-right: 30px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 20px;
     font-size: 3.1rem;
     color: white;
     font-weight: bold;
@@ -340,12 +343,9 @@
   }
 
   .wpm-num {
-    position: absolute;
-    text-align: center;
     display: inline-block;
-    left: 17%;
-    transform: translate(-50%, 0);
-    margin-left: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
     font-size: 3.1rem;
     color: white;
     font-weight: bold;
