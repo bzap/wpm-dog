@@ -16,4 +16,12 @@ def make_array():
     print(len(textlol))
     print(len(text2))
     print(len(text3))
+
+    comb = "["
+    for i in text3: 
+        comb += '"%s"' % i 
+        comb += ',' + ' '
+
+    comb += ']'
+    print(comb)
 make_array()

@@ -11,7 +11,9 @@ const ACC_ELEM = document.getElementById('acc')
 const LIVE_WPM_ELEM = document.getElementById('liveWpm')
 
 
-var words = ['between', 'keep', 'two', 'earth', 'well', 'real', 'hard', 'without', 'new', 'show', 'one', 'begin', 'talk', 'write', 'learn', 'still', 'another', 'follow', 'young', 'end', 'change', 'seem', 'thing', 'head', 'three', 
+
+
+var words = ['people', 'between','keep', 'two', 'earth', 'well', 'real', 'hard', 'without', 'new', 'show', 'one', 'begin', 'talk', 'write', 'learn', 'still', 'another', 'follow', 'young', 'end', 'change', 'seem', 'thing', 'head', 'three', 
 'went', 'began', 'since', 'it', 'very', 'did', 'early', 'might', 'your', 'land', 'into', 'girl', 'stop', 'answer', 'different', 'look', 'he', 'has', 'order', 'do', 'more', 'carry', 'govern', 'world', 'left', 'stand', 'so', 'what', 
 'sentence', 'these', 'state', 'fact', 'food', 'be', 'against', 'think', 'add', 'see', 'some', 'set', 'by', 'make', 'us', 'list', 'they', 'have', 'made', 'being', 'through', 'once', 'hold', 'find', 'read', 
 'life', 'turn', 'were', 'miss', 'at', 'country', 'last', "don't", 'give', 'right', 'been', 'hear', 'even', 'increase', 'way', 'sound', 'important', 'play', 'man', 'its', 'an', 'came', 'interest', 'thought', 
@@ -85,7 +87,17 @@ CORR_ELEM.innerHTML = 'correct chars: 00';
 INCORR_ELEM.innerHTML = 'incorrect chars: 00';
 LIVE_WPM_ELEM.innerHTML = '--';
 
+/*function getWords() {
+  fetch('https://raw.githubusercontent.com/bzap/wpm.dog/master/resources/quotes.json?token=ACBFDORA3UCYB7L7FVJ44NS7CTUTO')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json['words']);
+      words = json['words'];
 
+    })
+  }
+getWords();
+console.log(words); */
 function timeChange(){
   reset();
 }
@@ -301,6 +313,7 @@ var secondCounter;
           // to fix counter if over a minute long session
           liveWpm = (((goodLive + correctWhiteSpace) / 5) / (c / 60));
           LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
+          WPM_NUM_ELEM.innerHTML = liveWpm.toFixed(0);
          }
      }
    }
@@ -502,6 +515,7 @@ function reset(){
   correctChar = 0;
   incorrectChar = 0;
   totalChar = 0;
+  correctWhiteSpace = 0;
   goodWords = [];
   badWords = [];
   INP_ELEM.disabled = false;
