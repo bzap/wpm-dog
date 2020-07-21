@@ -270,7 +270,7 @@ function renderResults() {
     wpm = (((good + correctWhiteSpace) / 5) / (elapsed / 60));
     gwpm = ((good + bad + correctWhiteSpace) / 5 / (elapsed / 60));
   }
-  acc = (good / (good + bad)) * 100;
+  acc = ((good + correctWhiteSpace) / (good + bad + correctWhiteSpace)) * 100;
   WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
   GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
   ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
