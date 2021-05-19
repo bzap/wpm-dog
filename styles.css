@@ -196,7 +196,6 @@
   .clock {
     display: block;
     padding: 5px;
-    font-size: 2rem;
     color: white;
     font-size: 25px;
     animation: fadeIn 1s;
@@ -418,37 +417,28 @@
   position: relative;
   display: inline-block;
   width: 150px;
+  border-radius: 0.5rem;
   margin-left: 10px;
   margin-right: 10px;
-  text-align: center
+  text-align: center;
+  transition: all .5s ease-in-out;
+  background-color: trans
 }
 
 .switch input {
   display:relative;}
 
-.slider {
-  font-size: 14px;
-  width: 150px;
-  border-radius: 0.5rem;
-  position: absolute;
-  cursor: pointer;
-  padding: 10px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #3b4252;
-  transition: all .5s ease;
+.switch:hover {
   
+  
+  box-shadow: 0 0 12px #3b4252
+   
 }
 
 input:checked + .slider:hover {
   box-shadow: 0 0 12px #3b4252
 }
 
-input:not(:checked) + .slider:hover {
-  box-shadow: 0 0 12px #3b4252
-}
 
 .slider:before {
   content:'case-scramble';
@@ -460,67 +450,54 @@ input:checked + .slider {
   background-color: #4f596f;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #4f596f;
-}
+
 
 .dropdown {
-  
   margin-left: 10px;
   margin-right: 10px;
   width: 150px;
   display: inline-block;
+  text-align: center;
   background-color: #3b4252;
   border-radius: 0.5rem;
   transition: all .5s ease-in-out;
   position: relative;
   font-size: 14px;
   color: white;
-  height: 100%;
-  text-align: center
+
+}
+
+.slider {
+
+  font-size: 14px;
+  width: 150px;
+  border-radius: 0.5rem;
+  position: absolute;
+  cursor: pointer;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3b4252;
+  transition: all .5s ease-in-out;
+  
 }
 
 .dropdown .select {
     cursor: pointer;
-    display: block;
     padding: 10px
 }
-.dropdown .select > i {
-    font-size: 13px;
-    color: #888;
-    cursor: pointer;
-    transition: all .5s ease-in-out;
-    float: right;
-    line-height: 20px
+
+.dropdown.active .select { 
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all .5s ease-in-out;
+  background-color: #4f596f
 }
 
-.dropdown .select2 {
-  cursor: pointer;
-  display: block;
-  padding: 10px
-}
-.dropdown .select2 > i {
-  font-size: 13px;
-  color: #888;
-  cursor: pointer;
-  transition: all .5s ease-in-out;
-  float: right;
-  line-height: 20px
-}
 
-.dropdown .select3 {
-  cursor: pointer;
-  display: block;
-  padding: 10px
-}
-.dropdown .select3 > i {
-  font-size: 13px;
-  color: #888;
-  cursor: pointer;
-  transition: all .5s ease-in-out;
-  float: right;
-  line-height: 20px
-}
+
 
 .dropdown:hover {
     box-shadow: 0 0 12px #3b4252
@@ -549,6 +526,7 @@ input:focus + .slider {
     display: none;
     max-height: 150px;
     overflow-y: hidden;
+    font-style: italic;
     z-index: 9
 }
 .dropdown .dropdown-menu li {

@@ -66,7 +66,7 @@ var whitespaceCount = 0;
 var correctWhiteSpace = 0;
 var correctChar = 0;
 var incorrectChar = 0;
-var timeLimit = 10;
+var timeLimit = 60;
 var lengthLimit = 350;
 
 var input;
@@ -78,7 +78,7 @@ var flag;
 // maybe add an array eventually that allows for more data of incorrect words and analyzing their meaning 
 
 
-TIME_ELEM.innerHTML = 10 + 's';
+TIME_ELEM.innerHTML = 60 + 's';
 WPM_ELEM.innerHTML = 'WPM  ';
 
 WPM_NUM_ELEM.innerHTML = '--';
@@ -496,7 +496,6 @@ $('.dropdown-menu li').click(function () {
   }
   else if (mode == 'infinite'){
     lengthLimit = 100;
-    TIME_ELEM.innerHTML = '///';
     DISP_ELEM.classList.remove('display-short');
     document.getElementById('timeDropdown').classList.add('mask');
     document.getElementById('wordDropdown').classList.add('mask');
@@ -509,8 +508,15 @@ $('.dropdown-menu li').click(function () {
 
 function reset(){
   stopClock();
-  if (mode == 'burst' || mode == 'quote' || mode == 'infinite'){
+  if (mode == 'burst' || mode == 'quote'){
     TIME_ELEM.innerHTML = '///';
+  }
+  else if (mode == 'infinite'){ 
+   // TIME_ELEM.innerHTML = '&infin;';
+    //TIME_ELEM.style.fontSize = '50px';
+    //TIME_ELEM.innerHTML = '&infin;';
+    TIME_ELEM.innerHTML = '///';
+    //TIME_ELEM.innerHTML.fontSize = '25px';
   }
   else{
     TIME_ELEM.innerHTML = timeLimit + 's'
