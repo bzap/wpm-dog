@@ -82,11 +82,11 @@ TIME_ELEM.innerHTML = 60 + 's';
 WPM_ELEM.innerHTML = 'WPM  ';
 
 WPM_NUM_ELEM.innerHTML = '--';
-GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
-ACC_ELEM.innerHTML = '00.0% ' + 'acc';
+GWPM_ELEM.innerHTML = '-- ' + 'gWPM';
+ACC_ELEM.innerHTML = '-- % ' + 'acc';
 
-CORR_ELEM.innerHTML = 'correct chars: 00';
-INCORR_ELEM.innerHTML = 'incorrect chars: 00';
+CORR_ELEM.innerHTML = 'correct chars: --';
+INCORR_ELEM.innerHTML = 'incorrect chars: --';
 LIVE_WPM_ELEM.innerHTML = '--';
 
 /*function getWords() {
@@ -273,11 +273,19 @@ function renderResults() {
     gwpm = ((good + bad + correctWhiteSpace) / 5 / (elapsed / 60));
   }
   acc = ((good + correctWhiteSpace) / (good + bad + correctWhiteSpace)) * 100;
-  WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
-  GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
-  ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
-  CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
-  INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
+ 
+
+  $(".stats").fadeOut(200,function(){
+    WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
+    GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
+    ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
+    CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
+    INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
+    $(".stats").fadeIn(200);
+    $(".stats").fadeOut(200);
+    $(".stats").fadeIn(200);
+  });  
+
 }
 
 var counter;
@@ -314,8 +322,17 @@ var secondCounter;
           }
           // to fix counter if over a minute long session
           liveWpm = (((goodLive + correctWhiteSpace) / 5) / (c / 60));
-          LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
-          WPM_NUM_ELEM.innerHTML = liveWpm.toFixed(0);
+
+          $(".live-container").fadeOut(200,function(){
+            LIVE_WPM_ELEM.innerHTML = liveWpm.toFixed(0) + " WPM";
+            $(".live-container").fadeIn(200);
+          });
+
+          $(".wpm-stats").fadeOut(200,function(){
+            WPM_NUM_ELEM.innerHTML = liveWpm.toFixed(0);
+            $(".wpm-stats").fadeIn(200);
+          });          
+          
          }
      }
    }
@@ -531,16 +548,34 @@ function reset(){
   correctWhiteSpace = 0;
   goodWords = [];
   badWords = [];
+
+
+
+
   INP_ELEM.disabled = false;
   INP_ELEM.value = '';
   DISP_ELEM.innerHTML = '';
-  WPM_NUM_ELEM.innerHTML = '--';
-  WPM_ELEM.innerHTML = 'WPM  ';
-  GWPM_ELEM.innerHTML = '00 ' + 'gWPM';
-  ACC_ELEM.innerHTML = '00.0% acc';
-  CORR_ELEM.innerHTML = 'correct chars: 00';
-  INCORR_ELEM.innerHTML = 'incorrect chars: 00';
-  LIVE_WPM_ELEM.innerHTML = '--';
+
+
+  $(".wpm-stats").fadeOut(200,function(){
+    WPM_NUM_ELEM.innerHTML = '--';
+    WPM_ELEM.innerHTML = 'WPM  ';
+    $(".wpm-stats").fadeIn(200);  });
+
+  $(".gwpm-stats").fadeOut(200,function(){
+      GWPM_ELEM.innerHTML = '-- ' + 'gWPM';
+      ACC_ELEM.innerHTML = '-- % acc';
+    $(".gwpm-stats").fadeIn(200);  });
+
+
+
+
+    $(".other-stats").fadeOut(200,function(){
+      CORR_ELEM.innerHTML = 'correct chars: --';
+      INCORR_ELEM.innerHTML = 'incorrect chars: --';
+      LIVE_WPM_ELEM.innerHTML = '--';
+    $(".other-stats").fadeIn(200);  });
+
  //add fade animation to replace text instead of this or figure out to make it scroll up 
   DISP_ELEM.scrollTo({
     top: 0,
@@ -566,7 +601,7 @@ function reset(){
     renderText();
     $(".display").slideDown(210);
   });
-
+  focusOnMe();
   
 }
 
