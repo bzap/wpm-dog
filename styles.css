@@ -194,6 +194,7 @@
   }
 
   .clock {
+    user-select: none;
     display: block;
     padding: 5px;
     color: white;
@@ -224,8 +225,11 @@
 
   .icon {
       position: relative;
+      -webkit-user-drag: none;
   }
   .reset-button {
+    
+    user-select: none;
       background: transparent;
 
   }
@@ -249,6 +253,7 @@
   }
 
   .live-wpm{
+    user-select: none;
     margin-bottom: 10px;
     font-size: 15px;
     color: #59637b;
@@ -257,6 +262,7 @@
   }
 
   .stats {
+    user-select: none;
     background-color: #2e3440;
     padding: 1rem;
     width: 45rem;
@@ -453,6 +459,7 @@ input:checked + .slider {
 
 
 .dropdown {
+  user-select: none;
   margin-left: 10px;
   margin-right: 10px;
   width: 150px;
