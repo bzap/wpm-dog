@@ -439,7 +439,7 @@ function menuControl(){
     // need to add a check here to that it focuses on thsi specifically 
     $(this).attr('tabindex', 1).focus();
     $(this).toggleClass('active');
-    $(this).find('.dropdown-menu').slideDown(250);
+    $(this).find('.dropdown-menu').slideToggle(250);
   });
   $('.dropdown').focusout(function () {
     $(this).removeClass('active');
@@ -611,7 +611,7 @@ function reset(){
     renderText();
     $(".display").slideToggle(210);
   });
-  focusOnMe();
+  //focusOnMe();
   
 }
 

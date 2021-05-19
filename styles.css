@@ -498,7 +498,7 @@ input:checked + .slider {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   transition: all .5s ease-in-out;
-  background-color: #4f596f
+  background-color: #464e61
 }
 
 
@@ -506,6 +506,7 @@ input:checked + .slider {
 
 .dropdown:hover {
     box-shadow: 0 0 12px #3b4252
+    
 }
 .dropdown:active {
     background-color: #4f596f
