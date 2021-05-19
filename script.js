@@ -508,6 +508,8 @@ $('.dropdown-menu li').click(function () {
 
 function reset(){
   stopClock();
+
+
   if (mode == 'burst' || mode == 'quote'){
     TIME_ELEM.innerHTML = '///';
   }
@@ -559,7 +561,13 @@ function reset(){
       makeSentence();
     }
   }
-  renderText();
+
+  $(".display").slideUp(210,function(){
+    renderText();
+    $(".display").slideDown(210);
+  });
+
+  
 }
 
 renderText();

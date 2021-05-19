@@ -126,6 +126,7 @@
   }
 
   .title {  
+    user-select: none;
     color: white;
     font-style: italic;
     font-weight: bold;
@@ -155,7 +156,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;  
-    max-width: 50rem;   
+    width: 50rem;   
     margin: auto;  
     border-radius: 1em;  
     animation: fadeIn 1s;
