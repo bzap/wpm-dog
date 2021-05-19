@@ -156,6 +156,7 @@
 
   .text-container {
     background-color: #2e3440;
+    user-select: none;
     display: flex;
     position: fixed;
     top: 18em;
@@ -460,6 +461,7 @@ input:checked + .slider {
   user-select: none;
   margin-left: 10px;
   margin-right: 10px;
+  margin: 0 auto;
   width: 150px;
   display: inline-block;
   text-align: center;
