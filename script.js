@@ -1,3 +1,5 @@
+// Linas Aleknevicius 
+
 const DISP_ELEM = document.getElementById('display')
 const INP_ELEM = document.getElementById('input')
 const TIME_ELEM = document.getElementById('clock')
@@ -349,6 +351,9 @@ INP_ELEM.addEventListener('keydown', e => {
   }
   else { 
     DISP_ELEM.childNodes[whitespaceCount].classList.remove('highlight-red');
+  }
+  if (e.keyCode == 13){ 
+    event.preventDefault();
   }
   if (e.key == ' ') {
     event.preventDefault();
