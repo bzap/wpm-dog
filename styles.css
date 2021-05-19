@@ -126,14 +126,17 @@
   }
 
   .title {  
+    position: relative;
+    display: flex;
+    top: -3em;
     user-select: none;
     color: white;
     font-style: italic;
     font-weight: bold;
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
+
+    text-align: center;
     font-size: 3.5em;
+    z-index: 9999;
   }
 
   .faderOut{
@@ -154,6 +157,8 @@
   .text-container {
     background-color: #2e3440;
     display: flex;
+    position: fixed;
+    top: 18em;
     align-items: center;
     flex-direction: column;  
     width: 50rem;   
@@ -263,6 +268,8 @@
   }
 
   .stats {
+    position: fixed;
+    top: 37em;
     user-select: none;
     background-color: #2e3440;
     padding: 1rem;
@@ -408,17 +415,7 @@
   outline: 0;
 }
 
-.option-container {
-  background-color: #2e3440;
-  padding: 1rem;
-  border-radius: 1rem;
-  margin: 30px auto 0;
-  width: 45rem;
-  text-align: center;
-  display: flex;
-  animation: fadeIn 1s;
 
-}
 
 .switch {
   position: relative;
@@ -534,8 +531,9 @@ input:checked + .slider {
     display: none;
     max-height: 150px;
     overflow-y: hidden;
-    font-style: italic;
+    font-size: 12px;
     z-index: 9
+    
 }
 .dropdown .dropdown-menu li {
     padding: 10px;
@@ -579,3 +577,17 @@ input:checked + .slider {
 }
 
 
+.option-container {
+  background-color: #2e3440;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 30px auto 0;
+  width: 45rem;
+  text-align: center;
+  display: flex;
+  position: absolute;
+  top: 31em;
+
+  animation: fadeIn 1s;
+
+}

@@ -282,8 +282,7 @@ function renderResults() {
     CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
     INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
     $(".stats").fadeIn(200);
-    $(".stats").fadeOut(200);
-    $(".stats").fadeIn(200);
+
   });  
 
 }
@@ -431,97 +430,108 @@ INP_ELEM.addEventListener('keydown', e => {
 })
 
 
-var lengthSelection;
-document.getElementById('wordDropdown').classList.add('mask');
-$('.dropdown').click(function () {
-  // need to add a check here to that it focuses on thsi specifically 
-  $(this).attr('tabindex', 1).focus();
-  $(this).toggleClass('active');
-  $(this).find('.dropdown-menu').slideToggle(250);
-});
-$('.dropdown').focusout(function () {
-  $(this).removeClass('active');
-  $(this).find('.dropdown-menu').slideUp(250);
-});
-$('.dropdown .dropdown-menu li').click(function () {
-  $(this).parents('.dropdown').find('span').text($(this).text());
-  $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-});
-$('.dropdown-menu li').click(function () {
-  input = $(this).parents('.dropdown').find('input').val();
-  if (input == 'burst' || input == 'timed' || input == 'quote' || input == 'infinite' ){
-    mode = input; 
-  }
-  else if (input == '10' || input == '30' || input == '60'){
-    time = input;
-  }
-  else if (input == '10 words' || input == '50 words' || input == '200 words'){
-    lengthSelection = input;
-  }
-  stopClock();
-  if (mode == 'burst' ){
-    DISP_ELEM.classList.add('display-short');
-    lengthLimit = 10;
-    reset();
-    TIME_ELEM.innerHTML = '///';
-    document.getElementById('wordDropdown').classList.remove('mask');
-    document.getElementById('switch').classList.remove('mask-button');
-    document.getElementById('slider').classList.remove('mask-slider');
-    document.getElementById('slider').classList.remove('mask-before');
-    document.getElementById('timeDropdown').classList.add('mask');
-    if (lengthSelection == '10 words'){
+menuControl()
+
+function menuControl(){ 
+  var lengthSelection;
+  document.getElementById('wordDropdown').classList.add('mask');
+  $('.dropdown').click(function () {
+    // need to add a check here to that it focuses on thsi specifically 
+    $(this).attr('tabindex', 1).focus();
+    $(this).toggleClass('active');
+    $(this).find('.dropdown-menu').slideDown(250);
+  });
+  $('.dropdown').focusout(function () {
+    $(this).removeClass('active');
+    $(this).find('.dropdown-menu').slideUp(250);
+  });
+  $('.dropdown .dropdown-menu li').click(function () {
+    $(this).parents('.dropdown').find('span').text($(this).text());
+    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    
+  });
+  $('.dropdown-menu li').click(function () {
+    input = $(this).parents('.dropdown').find('input').val();
+    if (input == 'burst' || input == 'timed' || input == 'quote' || input == 'infinite' ){
+      mode = input; 
+    }
+    else if (input == '10' || input == '30' || input == '60'){
+      time = input;
+    }
+    else if (input == '10 words' || input == '50 words' || input == '200 words'){
+      lengthSelection = input;
+    }
+    stopClock();
+    if (mode == 'burst' ){
+      DISP_ELEM.classList.add('display-short');
       lengthLimit = 10;
       reset();
+      TIME_ELEM.innerHTML = '///';
+      document.getElementById('wordDropdown').classList.remove('mask');
+      document.getElementById('switch').classList.remove('mask-button');
+      document.getElementById('slider').classList.remove('mask-slider');
+      document.getElementById('slider').classList.remove('mask-before');
+      document.getElementById('timeDropdown').classList.add('mask');
+      if (lengthSelection == '10 words'){
+        lengthLimit = 10;
+        reset();
+      }
+      else if (lengthSelection == '50 words'){
+        DISP_ELEM.classList.remove('display-short');
+        lengthLimit = 50;
+        reset();
+      }
+      else if (lengthSelection == '200 words'){
+        DISP_ELEM.classList.remove('display-short');
+        lengthLimit = 200;
+        reset();
+      }
     }
-    else if (lengthSelection == '50 words'){
+    else if (mode == 'timed') {
       DISP_ELEM.classList.remove('display-short');
-      lengthLimit = 50;
+      document.getElementById('switch').classList.remove('mask-button');
+      document.getElementById('slider').classList.remove('mask-slider');
+      document.getElementById('slider').classList.remove('mask-before');
+      document.getElementById('timeDropdown').classList.remove('mask');
+      document.getElementById('wordDropdown').classList.add('mask');
+      if (typeof time == 'undefined'){
+        timeLimit = 10;
+      }
+      else{
+        timeLimit = parseInt(time);
+      }
+      lengthLimit = 350;
+      reset();
+      TIME_ELEM.innerHTML = timeLimit + 's'
+    }
+    else if (mode == 'quote'){
+      TIME_ELEM.innerHTML = '///';
+      DISP_ELEM.classList.remove('display-short');
+      document.getElementById('timeDropdown').classList.add('mask');
+      document.getElementById('wordDropdown').classList.add('mask');
+      document.getElementById('switch').classList.add('mask-button');
+      document.getElementById('slider').classList.add('mask-slider');
+      document.getElementById('slider').classList.add('mask-before');
       reset();
     }
-    else if (lengthSelection == '200 words'){
+    else if (mode == 'infinite'){
+      lengthLimit = 100;
       DISP_ELEM.classList.remove('display-short');
-      lengthLimit = 200;
+      document.getElementById('timeDropdown').classList.add('mask');
+      document.getElementById('wordDropdown').classList.add('mask');
+      document.getElementById('switch').classList.remove('mask-button');
+      document.getElementById('slider').classList.remove('mask-slider');
+      document.getElementById('slider').classList.remove('mask-before');
       reset();
     }
-  }
-  else if (mode == 'timed') {
-    DISP_ELEM.classList.remove('display-short');
-    document.getElementById('switch').classList.remove('mask-button');
-    document.getElementById('slider').classList.remove('mask-slider');
-    document.getElementById('slider').classList.remove('mask-before');
-    document.getElementById('timeDropdown').classList.remove('mask');
-    document.getElementById('wordDropdown').classList.add('mask');
-    if (typeof time == 'undefined'){
-      timeLimit = 10;
-    }
-    else{
-      timeLimit = parseInt(time);
-    }
-    lengthLimit = 350;
-    reset();
-    TIME_ELEM.innerHTML = timeLimit + 's'
-  }
-  else if (mode == 'quote'){
-    TIME_ELEM.innerHTML = '///';
-    DISP_ELEM.classList.remove('display-short');
-    document.getElementById('timeDropdown').classList.add('mask');
-    document.getElementById('wordDropdown').classList.add('mask');
-    document.getElementById('switch').classList.add('mask-button');
-    document.getElementById('slider').classList.add('mask-slider');
-    document.getElementById('slider').classList.add('mask-before');
-    reset();
-  }
-  else if (mode == 'infinite'){
-    lengthLimit = 100;
-    DISP_ELEM.classList.remove('display-short');
-    document.getElementById('timeDropdown').classList.add('mask');
-    document.getElementById('wordDropdown').classList.add('mask');
-    document.getElementById('switch').classList.remove('mask-button');
-    document.getElementById('slider').classList.remove('mask-slider');
-    document.getElementById('slider').classList.remove('mask-before');
-    reset();
-  }
-}); 
+    
+  }); 
+
+
+}
+
+
+
 
 function reset(){
   stopClock();
@@ -597,9 +607,9 @@ function reset(){
     }
   }
 
-  $(".display").slideUp(210,function(){
+  $(".display").slideToggle(210,function(){
     renderText();
-    $(".display").slideDown(210);
+    $(".display").slideToggle(210);
   });
   focusOnMe();
   
