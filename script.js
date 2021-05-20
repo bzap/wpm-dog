@@ -495,7 +495,7 @@ function menuControl(){
       document.getElementById('timeDropdown').classList.remove('mask');
       document.getElementById('wordDropdown').classList.add('mask');
       if (typeof time == 'undefined'){
-        timeLimit = 10;
+        timeLimit = 60;
       }
       else{
         timeLimit = parseInt(time);
@@ -609,7 +609,7 @@ function reset(){
 
   $(".display").slideToggle(210,function(){
     renderText();
-    $(".display").slideDown(210);
+    $(".display").slideDown (210);
   });
   //focusOnMe();
   
