@@ -32,13 +32,6 @@
     margin: 1.2rem 0 0 0;
   }
 
-  span {
-    display: inline-block;
-    margin-right: 13px;
-    
-    
-  }
-
   button {
     display: block;
     position: relative;
@@ -457,22 +450,7 @@ input:checked + .slider {
 
 
 
-.dropdown {
-  user-select: none;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin: 0 auto;
-  width: 150px;
-  display: inline-block;
-  text-align: center;
-  background-color: #3b4252;
-  border-radius: 0.5rem;
-  transition: all .5s ease-in-out;
-  position: relative;
-  font-size: 14px;
-  color: white;
 
-}
 
 .slider {
 
@@ -491,9 +469,31 @@ input:checked + .slider {
   
 }
 
+.dropdown {
+  user-select: none;
+
+  margin: 0 auto;
+  width: 150px;
+  
+  background-color: #3b4252;
+  border-radius: 0.5rem;
+  transition: all .5s ease-in-out;
+  position: relative;
+  color: white;
+}
+
+
 .dropdown .select {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     cursor: pointer;
-    padding: 10px
+    padding: 10px;
+    font-size: 14px;
+
+    
 }
 
 .dropdown.active .select { 
@@ -511,13 +511,13 @@ input:checked + .slider {
     
 }
 .dropdown:active {
-    background-color: #4f596f
+    background-color: #464e61
 }
 .dropdown.active:hover,
 .dropdown.active {
     box-shadow: 0 0 4px #3b4252;
     border-radius: 2px 2px 0 0;
-    background-color: #3b4252
+    background-color: #464e61
 }
 .dropdown.active .select > i {
     transform: rotate(-90deg)
