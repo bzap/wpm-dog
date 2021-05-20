@@ -125,7 +125,7 @@
   }
 
   .title {  
-    position: relative;
+   
     display: flex;
     top: -3em;
     user-select: none;
@@ -154,12 +154,9 @@
   }
 
   .text-container {
-    position: absolute;
-
     background-color: #2e3440;
     user-select: none;
     display: flex;
-    bottom: 30em;
     align-items: center;
     flex-direction: column;  
     width: 50rem;   
@@ -270,8 +267,8 @@
   }
 
   .stats {
-    position: absolute;
-    bottom: 16em;
+
+    margin: 0 auto;
     user-select: none;
     background-color: #2e3440;
     padding: 1rem;
@@ -590,8 +587,7 @@ input:checked + .slider {
 
 
 .option-container {
-  position: absolute;
-  bottom: 24.5em;
+
   background-color: #2e3440;
   padding: 1rem;
   border-radius: 1rem;
