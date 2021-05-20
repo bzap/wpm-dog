@@ -9,5 +9,6 @@ To do:
 - additional settings 
 - shortcuts (F5 refresh) 
 - analytical tracking
+- fix burst stat animations 
 - code cleanup 
 
