@@ -43,6 +43,12 @@
     transition: transform 0.5s ease-in-out;
   }
 
+  span {
+    display: inline-block;
+    margin-right: 13px;
+  }
+
+
   button:active {
     top: 1px;
     box-shadow: none;
