@@ -152,17 +152,18 @@
     user-select: none;
     display: flex;
     position: fixed;
-    top: 18em;
+    bottom: 30em;
     align-items: center;
     flex-direction: column;  
     width: 50rem;   
-    margin: auto;  
+ 
     border-radius: 1em;  
     animation: fadeIn 1s;
     -webkit-animation: fadeIn 1s;
   }
 
   .display {
+    
     color: white;
     margin-top: 2rem; 
     margin-right: 3rem;
