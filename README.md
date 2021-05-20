@@ -10,5 +10,7 @@ To do:
 - shortcuts (F5 refresh) 
 - analytical tracking
 - fix burst stat animations 
+- live stats in infinite mode 
+- import custom words / fonts 
 - code cleanup 
 
