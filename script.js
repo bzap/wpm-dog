@@ -609,7 +609,7 @@ function reset(){
 
   $(".display").slideToggle(210,function(){
     renderText();
-    $(".display").slideToggle(210);
+    $(".display").slideDown(210);
   });
   //focusOnMe();
   
