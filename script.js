@@ -275,15 +275,17 @@ function renderResults() {
   acc = ((good + correctWhiteSpace) / (good + bad + correctWhiteSpace)) * 100;
  
 
-  $(".stats").fadeOut(200,function(){
-    WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
-    GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
-    ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
-    CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
-    INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
-    $(".stats").fadeIn(200);
+  document.getElementById('stats').classList.add('mask-stats');
+  WPM_NUM_ELEM.innerHTML = wpm.toFixed(0);
+  GWPM_ELEM.innerHTML = gwpm.toFixed(0) + ' gWPM';
+  ACC_ELEM.innerHTML = acc.toFixed(1) + '% acc';
+  CORR_ELEM.innerHTML = 'correct chars: ' + (good + correctWhiteSpace);
+  INCORR_ELEM.innerHTML = 'incorrect chars: ' + bad;
 
-  });  
+    
+
+
+
 
 }
 
@@ -566,7 +568,7 @@ function reset(){
   INP_ELEM.value = '';
   DISP_ELEM.innerHTML = '';
 
-
+  document.getElementById('stats').classList.remove('mask-stats');
   $(".wpm-stats").fadeOut(200,function(){
     WPM_NUM_ELEM.innerHTML = '--';
     WPM_ELEM.innerHTML = 'WPM  ';

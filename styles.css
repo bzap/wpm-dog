@@ -585,6 +585,12 @@ input:checked + .slider {
   color: #656779;
 }
 
+.mask-stats{
+  transition: all .5s ease-in-out;
+  border: 2px solid #4f596f;
+  border-radius: 1rem;
+}
+
 
 .option-container {
 
