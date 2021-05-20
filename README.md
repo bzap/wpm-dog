@@ -12,5 +12,6 @@ To do:
 - fix burst stat animations 
 - live stats in infinite mode 
 - import custom words / fonts 
+- change /// to infinity symbol 
 - code cleanup 
 
