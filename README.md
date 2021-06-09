@@ -1,8 +1,8 @@
 ﻿# WPM.DOG
 
-A wip minimal typing test website
+wip typing test website
 
-To do: 
+to do: 
 
 - json import 
 - themes via a popup at the bottom 
