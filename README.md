@@ -1,17 +1,22 @@
-﻿# WPM.DOG
+# WPMDOG
 
-wip typing test website
+![alt text](https://raw.githubusercontent.com/bzap/wpm.dog/master/resources/demo1.png)
+![alt text](https://raw.githubusercontent.com/bzap/wpm.dog/master/resources/demo2.png)
 
-to do: 
+WPMDOG is a simple typing test website.
 
-- json import 
+
+
+
+
+Possible to do in the future: 
 - themes via a popup at the bottom 
-- additional settings 
 - shortcuts (F5 refresh) 
-- analytical tracking
-- fix burst stat animations 
+- graphs 
 - live stats in infinite mode 
 - import custom words / fonts 
-- change /// to infinity symbol 
-- code cleanup 
+
+
+
+
 
